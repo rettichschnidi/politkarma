@@ -5,7 +5,7 @@
     <updated>2014-05-27T15:55:20Z</updated>
     <code>5001</code>
     <from>2015-11-30T00:00:00Z</from>
-    <name>Session d'hiver 2015</name>
+    <name>Wintersession 2015</name>
     <to>2015-12-18T00:00:00Z</to>
   </session>
   <session>
@@ -13,7 +13,7 @@
     <updated>2014-03-05T11:05:15Z</updated>
     <code>4920</code>
     <from>2015-09-07T00:00:00Z</from>
-    <name>Session d'automne 2015</name>
+    <name>Herbstsession 2015</name>
     <to>2015-09-25T00:00:00Z</to>
   </session>
   <session>
@@ -21,7 +21,7 @@
     <updated>2014-03-05T11:00:47Z</updated>
     <code>4919</code>
     <from>2015-06-01T00:00:00Z</from>
-    <name>Session d'été 2015</name>
+    <name>Sommersession 2015</name>
     <to>2015-06-19T00:00:00Z</to>
   </session>
   <session>
@@ -29,7 +29,7 @@
     <updated>2015-06-25T11:22:38Z</updated>
     <code>4918</code>
     <from>2015-05-04T00:00:00Z</from>
-    <name>Session spéciale mai 2015</name>
+    <name>Sondersession Mai 2015</name>
     <to>2015-05-08T00:00:00Z</to>
   </session>
   <session>
@@ -37,7 +37,7 @@
     <updated>2015-03-20T09:50:17Z</updated>
     <code>4917</code>
     <from>2015-03-02T00:00:00Z</from>
-    <name>Session de printemps 2015</name>
+    <name>Frühjahrssession 2015</name>
     <to>2015-03-20T00:00:00Z</to>
   </session>
   <session>
@@ -45,7 +45,7 @@
     <updated>2013-05-24T14:12:04Z</updated>
     <code>4916</code>
     <from>2014-11-24T00:00:00Z</from>
-    <name>Session d'hiver 2014</name>
+    <name>Wintersession 2014</name>
     <to>2014-12-12T00:00:00Z</to>
   </session>
   <session>
@@ -53,7 +53,7 @@
     <updated>2013-05-24T14:11:08Z</updated>
     <code>4915</code>
     <from>2014-09-08T00:00:00Z</from>
-    <name>Session d'automne 2014</name>
+    <name>Herbstsession 2014</name>
     <to>2014-09-26T00:00:00Z</to>
   </session>
   <session>
@@ -61,7 +61,7 @@
     <updated>2013-05-24T14:10:08Z</updated>
     <code>4914</code>
     <from>2014-06-02T00:00:00Z</from>
-    <name>Session d'été 2014</name>
+    <name>Sommersession 2014</name>
     <to>2014-06-20T00:00:00Z</to>
   </session>
   <session>
@@ -69,7 +69,7 @@
     <updated>2014-02-14T18:35:20Z</updated>
     <code>4913</code>
     <from>2014-05-05T00:00:00Z</from>
-    <name>Session spéciale mai 2014</name>
+    <name>Sondersession Mai 2014</name>
     <to>2014-05-08T00:00:00Z</to>
   </session>
   <session>
@@ -77,7 +77,7 @@
     <updated>2013-05-24T14:07:51Z</updated>
     <code>4912</code>
     <from>2014-03-03T00:00:00Z</from>
-    <name>Session de printemps 2014</name>
+    <name>Frühjahrssession 2014</name>
     <to>2014-03-21T00:00:00Z</to>
   </session>
   <session>
@@ -85,7 +85,7 @@
     <updated>2013-01-17T09:25:27Z</updated>
     <code>4911</code>
     <from>2013-11-25T00:00:00Z</from>
-    <name>Session d'hiver 2013</name>
+    <name>Wintersession 2013</name>
     <to>2013-12-13T00:00:00Z</to>
   </session>
   <session>
@@ -93,7 +93,7 @@
     <updated>2013-01-17T09:25:36Z</updated>
     <code>4910</code>
     <from>2013-09-09T00:00:00Z</from>
-    <name>Session d'automne 2013</name>
+    <name>Herbstsession 2013</name>
     <to>2013-09-27T00:00:00Z</to>
   </session>
   <session>
@@ -101,7 +101,7 @@
     <updated>2013-01-17T09:25:44Z</updated>
     <code>4909</code>
     <from>2013-06-03T00:00:00Z</from>
-    <name>Session d'été 2013</name>
+    <name>Sommersession 2013</name>
     <to>2013-06-21T00:00:00Z</to>
   </session>
   <session>
@@ -109,7 +109,7 @@
     <updated>2013-01-17T09:25:52Z</updated>
     <code>4908</code>
     <from>2013-04-15T00:00:00Z</from>
-    <name>Session spéciale avril 2013</name>
+    <name>Sondersession April 2013</name>
     <to>2013-04-17T00:00:00Z</to>
   </session>
   <session>
@@ -117,7 +117,7 @@
     <updated>2012-08-27T15:39:11Z</updated>
     <code>4907</code>
     <from>2013-03-04T00:00:00Z</from>
-    <name>Session de printemps 2013</name>
+    <name>Frühjahrssession 2013</name>
     <to>2013-03-22T00:00:00Z</to>
   </session>
   <session>
@@ -125,7 +125,7 @@
     <updated>2012-08-27T15:37:32Z</updated>
     <code>4906</code>
     <from>2012-11-26T00:00:00Z</from>
-    <name>Session d'hiver 2012</name>
+    <name>Wintersession 2012</name>
     <to>2012-12-14T00:00:00Z</to>
   </session>
   <session>
@@ -133,7 +133,7 @@
     <updated>2012-06-08T09:02:18Z</updated>
     <code>4905</code>
     <from>2012-09-10T00:00:00Z</from>
-    <name>Session d'automne 2012</name>
+    <name>Herbstsession 2012</name>
     <to>2012-09-28T00:00:00Z</to>
   </session>
   <session>
@@ -141,7 +141,7 @@
     <updated>2012-06-19T07:59:21Z</updated>
     <code>4904</code>
     <from>2012-05-29T00:00:00Z</from>
-    <name>Session d'été 2012</name>
+    <name>Sommersession 2012</name>
     <to>2012-06-15T00:00:00Z</to>
   </session>
   <session>
@@ -149,7 +149,7 @@
     <updated>2012-02-21T11:02:37Z</updated>
     <code>4903</code>
     <from>2012-05-02T00:00:00Z</from>
-    <name>Session spéciale mai 2012</name>
+    <name>Sondersession Mai 2012</name>
     <to>2012-05-03T00:00:00Z</to>
   </session>
   <session>
@@ -157,7 +157,7 @@
     <updated>2012-02-21T10:40:41Z</updated>
     <code>4902</code>
     <from>2012-02-27T00:00:00Z</from>
-    <name>Session de printemps 2012</name>
+    <name>Frühjahrssession 2012</name>
     <to>2012-03-16T00:00:00Z</to>
   </session>
   <session>
@@ -165,7 +165,7 @@
     <updated>2011-09-26T14:45:49Z</updated>
     <code>4901</code>
     <from>2011-12-05T00:00:00Z</from>
-    <name>Session d'hiver 2011</name>
+    <name>Wintersession 2011</name>
     <to>2011-12-23T00:00:00Z</to>
   </session>
   <session>
@@ -173,7 +173,7 @@
     <updated>2011-07-07T08:38:01Z</updated>
     <code>4820</code>
     <from>2011-09-12T00:00:00Z</from>
-    <name>Session d'automne 2011</name>
+    <name>Herbstsession 2011</name>
     <to>2011-09-30T00:00:00Z</to>
   </session>
   <session>
@@ -181,7 +181,7 @@
     <updated>2011-06-28T14:09:01Z</updated>
     <code>4819</code>
     <from>2011-05-30T00:00:00Z</from>
-    <name>Session d'été 2011</name>
+    <name>Sommersession 2011</name>
     <to>2011-06-17T00:00:00Z</to>
   </session>
   <session>
@@ -189,7 +189,7 @@
     <updated>2011-06-28T14:08:08Z</updated>
     <code>4818</code>
     <from>2011-04-11T00:00:00Z</from>
-    <name>Session spéciale avril 2011</name>
+    <name>Sondersession April 2011</name>
     <to>2011-04-14T00:00:00Z</to>
   </session>
   <session>
@@ -197,7 +197,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4817</code>
     <from>2011-02-28T00:00:00Z</from>
-    <name>Session de printemps 2011</name>
+    <name>Frühjahrssession 2011</name>
     <to>2011-03-18T00:00:00Z</to>
   </session>
   <session>
@@ -205,7 +205,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4816</code>
     <from>2010-11-29T00:00:00Z</from>
-    <name>Session d'hiver 2010</name>
+    <name>Wintersession 2010</name>
     <to>2010-12-17T00:00:00Z</to>
   </session>
   <session>
@@ -213,7 +213,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4815</code>
     <from>2010-09-13T00:00:00Z</from>
-    <name>Session d'automne 2010</name>
+    <name>Herbstsession 2010</name>
     <to>2010-10-01T00:00:00Z</to>
   </session>
   <session>
@@ -221,7 +221,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4814</code>
     <from>2010-05-31T00:00:00Z</from>
-    <name>Session d'été 2010</name>
+    <name>Sommersession 2010</name>
     <to>2010-06-18T00:00:00Z</to>
   </session>
   <session>
@@ -229,7 +229,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4813</code>
     <from>2010-03-01T00:00:00Z</from>
-    <name>Session de printemps 2010</name>
+    <name>Frühjahrssession 2010</name>
     <to>2010-03-19T00:00:00Z</to>
   </session>
   <session>
@@ -237,7 +237,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4812</code>
     <from>2009-11-23T00:00:00Z</from>
-    <name>Session d'hiver 2009</name>
+    <name>Wintersession 2009</name>
     <to>2009-12-11T00:00:00Z</to>
   </session>
   <session>
@@ -245,7 +245,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4811</code>
     <from>2009-09-07T00:00:00Z</from>
-    <name>Session d'automne 2009</name>
+    <name>Herbstsession 2009</name>
     <to>2009-09-25T00:00:00Z</to>
   </session>
   <session>
@@ -253,7 +253,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4810</code>
     <from>2009-08-10T00:00:00Z</from>
-    <name>Session spéciale août 2009</name>
+    <name>Sondersession August 2009</name>
     <to>2009-08-11T00:00:00Z</to>
   </session>
   <session>
@@ -261,7 +261,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4809</code>
     <from>2009-05-25T00:00:00Z</from>
-    <name>Session d'été 2009</name>
+    <name>Sommersession 2009</name>
     <to>2009-06-12T00:00:00Z</to>
   </session>
   <session>
@@ -269,7 +269,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4808</code>
     <from>2009-04-27T00:00:00Z</from>
-    <name>Session spéciale avril 2009</name>
+    <name>Sondersession April 2009</name>
     <to>2009-04-30T00:00:00Z</to>
   </session>
   <session>
@@ -277,7 +277,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4807</code>
     <from>2009-03-02T00:00:00Z</from>
-    <name>Session de printemps 2009</name>
+    <name>Frühjahrssession 2009</name>
     <to>2009-03-20T00:00:00Z</to>
   </session>
   <session>
@@ -285,7 +285,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4806</code>
     <from>2008-12-01T00:00:00Z</from>
-    <name>Session d'hiver 2008</name>
+    <name>Wintersession 2008</name>
     <to>2008-12-19T00:00:00Z</to>
   </session>
   <session>
@@ -293,7 +293,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4805</code>
     <from>2008-09-15T00:00:00Z</from>
-    <name>Session d'automne 2008</name>
+    <name>Herbstsession 2008</name>
     <to>2008-10-03T00:00:00Z</to>
   </session>
   <session>
@@ -301,7 +301,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4804</code>
     <from>2008-05-26T00:00:00Z</from>
-    <name>Session d'été 2008</name>
+    <name>Sommersession 2008</name>
     <to>2008-06-13T00:00:00Z</to>
   </session>
   <session>
@@ -309,7 +309,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4803</code>
     <from>2008-04-28T00:00:00Z</from>
-    <name>Session spéciale avril 2008</name>
+    <name>Sondersession April 2008</name>
     <to>2008-04-28T00:00:00Z</to>
   </session>
   <session>
@@ -317,7 +317,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4802</code>
     <from>2008-03-03T00:00:00Z</from>
-    <name>Session de printemps 2008</name>
+    <name>Frühjahrssession 2008</name>
     <to>2008-03-20T00:00:00Z</to>
   </session>
   <session>
@@ -325,7 +325,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4801</code>
     <from>2007-12-03T00:00:00Z</from>
-    <name>Session d'hiver 2007</name>
+    <name>Wintersession 2007</name>
     <to>2007-12-21T00:00:00Z</to>
   </session>
   <session>
@@ -333,7 +333,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4718</code>
     <from>2007-09-17T00:00:00Z</from>
-    <name>Session d'automne 2007</name>
+    <name>Herbstsession 2007</name>
     <to>2007-10-05T00:00:00Z</to>
   </session>
   <session>
@@ -341,7 +341,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4717</code>
     <from>2007-06-04T00:00:00Z</from>
-    <name>Session d'été 2007</name>
+    <name>Sommersession 2007</name>
     <to>2007-06-22T00:00:00Z</to>
   </session>
   <session>
@@ -349,7 +349,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4716</code>
     <from>2007-03-05T00:00:00Z</from>
-    <name>Session de printemps 2007</name>
+    <name>Frühjahrssession 2007</name>
     <to>2007-03-23T00:00:00Z</to>
   </session>
   <session>
@@ -357,7 +357,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4715</code>
     <from>2006-12-04T00:00:00Z</from>
-    <name>Session d'hiver 2006</name>
+    <name>Wintersession 2006</name>
     <to>2006-12-20T00:00:00Z</to>
   </session>
   <session>
@@ -365,7 +365,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4714</code>
     <from>2006-09-18T00:00:00Z</from>
-    <name>Session d'automne 2006</name>
+    <name>Herbstsession 2006</name>
     <to>2006-10-06T00:00:00Z</to>
   </session>
   <session>
@@ -373,7 +373,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4713</code>
     <from>2006-06-06T00:00:00Z</from>
-    <name>Session d'été 2006</name>
+    <name>Sommersession 2006</name>
     <to>2006-06-23T00:00:00Z</to>
   </session>
   <session>
@@ -381,7 +381,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4712</code>
     <from>2006-05-08T00:00:00Z</from>
-    <name>Session spéciale mai 2006</name>
+    <name>Sondersession Mai 2006</name>
     <to>2006-05-11T00:00:00Z</to>
   </session>
   <session>
@@ -389,7 +389,7 @@
     <updated>2011-03-18T17:02:07Z</updated>
     <code>4711</code>
     <from>2006-03-06T00:00:00Z</from>
-    <name>Session de printemps 2006</name>
+    <name>Frühjahrssession 2006</name>
     <to>2006-03-24T00:00:00Z</to>
   </session>
   <session>
@@ -398,7 +398,7 @@
     <hasMorePages>true</hasMorePages>
     <code>4710</code>
     <from>2005-11-28T00:00:00Z</from>
-    <name>Session d'hiver 2005</name>
+    <name>Wintersession 2005</name>
     <to>2005-12-16T00:00:00Z</to>
   </session>
 </sessions>

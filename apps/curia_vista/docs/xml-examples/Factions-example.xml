@@ -1,108 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <factions xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
   <faction>
-    <id>5</id>
-    <updated>2010-12-26T13:07:50Z</updated>
-    <abbreviation>U</abbreviation>
-    <code>FRA_5_</code>
-    <name>Groupe AdI/PEP</name>
-    <shortName>Groupe U</shortName>
-  </faction>
-  <faction>
-    <id>136</id>
-    <updated>2010-12-26T13:07:50Z</updated>
-    <abbreviation>BD</abbreviation>
-    <code>FRA_136_</code>
-    <name>Groupe BD</name>
-    <shortName>Groupe BD</shortName>
-  </faction>
-  <faction>
-    <id>11</id>
-    <updated>2010-12-26T13:07:50Z</updated>
-    <abbreviation>N</abbreviation>
-    <code>FRA_11_</code>
-    <name>Groupe de l'Action nationale/vigilants</name>
-    <shortName>Groupe N</shortName>
-  </faction>
-  <faction>
-    <id>4</id>
-    <updated>2015-08-31T09:11:02Z</updated>
-    <abbreviation>V</abbreviation>
-    <code>FRA_4_</code>
-    <name>Groupe de l'Union démocratique du Centre</name>
-    <shortName>Groupe V</shortName>
-  </faction>
-  <faction>
-    <id>6</id>
-    <updated>2010-12-26T13:07:50Z</updated>
-    <abbreviation>G</abbreviation>
-    <code>FRA_6_</code>
-    <name>Groupe des Verts</name>
-    <shortName>Groupe G</shortName>
-  </faction>
-  <faction>
-    <id>8</id>
-    <updated>2010-12-26T13:07:50Z</updated>
-    <abbreviation>F</abbreviation>
-    <code>FRA_8_</code>
-    <name>Groupe du Parti suisse de la liberté</name>
-    <shortName>Groupe F</shortName>
-  </faction>
-  <faction>
-    <id>7</id>
-    <updated>2015-08-31T08:53:40Z</updated>
-    <abbreviation>L</abbreviation>
-    <code>FRA_7_</code>
-    <name>Groupe libéral</name>
-    <shortName>Groupe L</shortName>
-  </faction>
-  <faction>
-    <id>1</id>
-    <updated>2015-08-24T15:18:40Z</updated>
-    <abbreviation>RL</abbreviation>
-    <code>FRA_1_</code>
-    <name>Groupe libéral-radical</name>
-    <shortName>Groupe RL</shortName>
-  </faction>
-  <faction>
     <id>3</id>
     <updated>2015-08-31T09:08:53Z</updated>
     <abbreviation>C</abbreviation>
     <code>FRA_3_</code>
-    <name>Groupe PDC</name>
-    <shortName>Groupe C</shortName>
+    <name>CVP-Fraktion</name>
+    <shortName>Fraktion C</shortName>
   </faction>
   <faction>
     <id>102</id>
     <updated>2010-12-26T13:07:50Z</updated>
     <abbreviation>E</abbreviation>
     <code>FRA_102_</code>
-    <name>Groupe PEV/UDF</name>
-    <shortName>Groupe E</shortName>
+    <name>EVP/EDU Fraktion</name>
+    <shortName>Fraktion E</shortName>
   </faction>
   <faction>
-    <id>2</id>
-    <updated>2015-08-24T15:28:11Z</updated>
-    <abbreviation>S</abbreviation>
-    <code>FRA_2_</code>
-    <name>Groupe socialiste</name>
-    <shortName>Groupe S</shortName>
+    <id>1</id>
+    <updated>2015-08-24T15:18:40Z</updated>
+    <abbreviation>RL</abbreviation>
+    <code>FRA_1_</code>
+    <name>FDP-Liberale Fraktion</name>
+    <shortName>Fraktion RL</shortName>
+  </faction>
+  <faction>
+    <id>136</id>
+    <updated>2010-12-26T13:07:50Z</updated>
+    <abbreviation>BD</abbreviation>
+    <code>FRA_136_</code>
+    <name>Fraktion BD</name>
+    <shortName>Fraktion BD</shortName>
+  </faction>
+  <faction>
+    <id>8</id>
+    <updated>2010-12-26T13:07:50Z</updated>
+    <abbreviation>F</abbreviation>
+    <code>FRA_8_</code>
+    <name>Fraktion der Freiheits-Partei der Schweiz</name>
+    <shortName>Fraktion F</shortName>
+  </faction>
+  <faction>
+    <id>11</id>
+    <updated>2010-12-26T13:07:50Z</updated>
+    <abbreviation>N</abbreviation>
+    <code>FRA_11_</code>
+    <name>Fraktion der Nationalen Aktion/Vigilants</name>
+    <shortName>Fraktion N</shortName>
+  </faction>
+  <faction>
+    <id>4</id>
+    <updated>2015-08-31T09:11:02Z</updated>
+    <abbreviation>V</abbreviation>
+    <code>FRA_4_</code>
+    <name>Fraktion der Schweizerischen Volkspartei</name>
+    <shortName>Fraktion V</shortName>
+  </faction>
+  <faction>
+    <id>99</id>
+    <updated>2010-12-26T13:07:50Z</updated>
+    <abbreviation>-</abbreviation>
+    <code>FRA_99_</code>
+    <name>Fraktionslos</name>
+    <shortName>Fraktionslos</shortName>
+  </faction>
+  <faction>
+    <id>6</id>
+    <updated>2010-12-26T13:07:50Z</updated>
+    <abbreviation>G</abbreviation>
+    <code>FRA_6_</code>
+    <name>Grüne Fraktion</name>
+    <shortName>Fraktion G</shortName>
   </faction>
   <faction>
     <id>137</id>
     <updated>2012-01-26T12:24:42Z</updated>
     <abbreviation>GL</abbreviation>
     <code>FRA_137_</code>
-    <name>Groupe vert'libéral</name>
-    <shortName>Groupe GL</shortName>
+    <name>Grünliberale Fraktion</name>
+    <shortName>Fraktion GL</shortName>
   </faction>
   <faction>
-    <id>99</id>
+    <id>5</id>
     <updated>2010-12-26T13:07:50Z</updated>
+    <abbreviation>U</abbreviation>
+    <code>FRA_5_</code>
+    <name>LdU/EVP-Fraktion</name>
+    <shortName>Fraktion U</shortName>
+  </faction>
+  <faction>
+    <id>7</id>
+    <updated>2015-08-31T08:53:40Z</updated>
+    <abbreviation>L</abbreviation>
+    <code>FRA_7_</code>
+    <name>Liberale Fraktion</name>
+    <shortName>Fraktion L</shortName>
+  </faction>
+  <faction>
+    <id>2</id>
+    <updated>2015-08-24T15:28:11Z</updated>
     <hasMorePages>false</hasMorePages>
-    <abbreviation>-</abbreviation>
-    <code>FRA_99_</code>
-    <name>Non inscrit</name>
-    <shortName>Non inscrit</shortName>
+    <abbreviation>S</abbreviation>
+    <code>FRA_2_</code>
+    <name>Sozialdemokratische Fraktion</name>
+    <shortName>Fraktion S</shortName>
   </faction>
 </factions>

@@ -20,7 +20,7 @@ fetchXml()
 #Fetch XML and XSD documents
 for n in Councils Councillors Schedules Affairs AffairSummaries Committees LegislativePeriods Departments Cantons Factions Sessions Parties Votes; do
   fetchXml "http://ws.parlament.ch/$n?format=xsd" > xsd-schemas/$n.xsd
-  fetchXml "http://ws.parlament.ch/$n?format=xml&lang=en" > xml-examples/$n-example.xml
+  fetchXml "http://ws.parlament.ch/$n?format=xml&lang=de" > xml-examples/$n-example.xml
 done
 
 #Fetch XML and XSD files from special URL

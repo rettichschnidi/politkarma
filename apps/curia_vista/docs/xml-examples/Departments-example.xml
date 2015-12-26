@@ -5,84 +5,84 @@
     <updated>2010-12-26T13:05:26Z</updated>
     <abbreviation>Parl</abbreviation>
     <code>DEP_1_</code>
-    <name>Parlement</name>
+    <name>Parlament</name>
   </department>
   <department>
     <id>3</id>
     <updated>2010-12-26T13:05:26Z</updated>
-    <abbreviation>DFAE</abbreviation>
+    <abbreviation>EDA</abbreviation>
     <code>DEP_3_</code>
-    <name>Département des affaires étrangères</name>
+    <name>Departement für auswärtige Angelegenheiten</name>
   </department>
   <department>
     <id>4</id>
     <updated>2010-12-26T13:05:26Z</updated>
-    <abbreviation>DFI</abbreviation>
+    <abbreviation>EDI</abbreviation>
     <code>DEP_4_</code>
-    <name>Département de l'intérieur</name>
+    <name>Departement des Innern</name>
   </department>
   <department>
     <id>5</id>
     <updated>2010-12-26T13:05:26Z</updated>
-    <abbreviation>DFJP</abbreviation>
+    <abbreviation>EJPD</abbreviation>
     <code>DEP_5_</code>
-    <name>Département de justice et police</name>
+    <name>Justiz- und Polizeidepartement</name>
   </department>
   <department>
     <id>6</id>
     <updated>2010-12-26T13:05:26Z</updated>
-    <abbreviation>DDPS</abbreviation>
+    <abbreviation>VBS</abbreviation>
     <code>DEP_6_</code>
-    <name>Département de la défense, de la protection de la population et des sports</name>
+    <name>Departement für Verteidigung, Bevölkerungsschutz und Sport</name>
   </department>
   <department>
     <id>7</id>
     <updated>2010-12-26T13:05:26Z</updated>
-    <abbreviation>DFF</abbreviation>
+    <abbreviation>EFD</abbreviation>
     <code>DEP_7_</code>
-    <name>Département des finances</name>
+    <name>Finanzdepartement</name>
   </department>
   <department>
     <id>8</id>
     <updated>2010-12-26T13:05:26Z</updated>
-    <abbreviation>DEFR</abbreviation>
+    <abbreviation>WBF</abbreviation>
     <code>DEP_8_</code>
-    <name>Département de l'économie, de la formation et de la recherche</name>
+    <name>Departement für Wirtschaft, Bildung und Forschung</name>
   </department>
   <department>
     <id>9</id>
     <updated>2010-12-26T13:05:26Z</updated>
-    <abbreviation>DETEC</abbreviation>
+    <abbreviation>UVEK</abbreviation>
     <code>DEP_9_</code>
-    <name>Département  de l'environnement, des transports, de l'énergie et de la communication</name>
+    <name>Departement für Umwelt, Verkehr, Energie und Kommunikation</name>
   </department>
   <department>
     <id>10</id>
     <updated>2010-12-26T13:05:26Z</updated>
-    <abbreviation>ChF</abbreviation>
+    <abbreviation>BK</abbreviation>
     <code>DEP_10_</code>
-    <name>Chancellerie fédérale</name>
+    <name>Bundeskanzlei</name>
   </department>
   <department>
     <id>11</id>
     <updated>2010-12-26T13:05:26Z</updated>
-    <abbreviation>CR</abbreviation>
+    <abbreviation>VBV</abbreviation>
     <code>DEP_11_</code>
-    <name>Assemblée fédérale (Chambres réunies)</name>
+    <name>Vereinigte Bundesversammlung</name>
   </department>
   <department>
     <id>12</id>
     <updated>2012-07-16T10:21:41Z</updated>
-    <abbreviation>AS-MPC</abbreviation>
+    <abbreviation>AB-BA</abbreviation>
     <code>DEP_12_</code>
-    <name>Autorité de surveillance du Ministère public de la Confédération</name>
+    <name>Aufsichtsbehörde über die Bundesanwaltschaft</name>
   </department>
   <department>
     <id>1482</id>
     <updated>2010-12-26T13:05:26Z</updated>
     <hasMorePages>false</hasMorePages>
-    <abbreviation>Trféd</abbreviation>
+    <abbreviation>BGer</abbreviation>
     <code>DEP_1482_</code>
-    <name>Tribunal fédéral</name>
+    <name>Bundesgericht</name>
   </department>
 </departments>

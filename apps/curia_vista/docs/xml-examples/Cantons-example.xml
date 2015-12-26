@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cantons xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
   <canton>
+    <id>19</id>
+    <updated>2010-12-26T13:04:12Z</updated>
+    <abbreviation>AG</abbreviation>
+    <code>KAN_19_</code>
+    <name>Aargau</name>
+  </canton>
+  <canton>
     <id>15</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>AR</abbreviation>
     <code>KAN_15_</code>
-    <name>Appenzell Rh.-Ext.</name>
+    <name>Appenzell A.-Rh.</name>
   </canton>
   <canton>
     <id>16</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>AI</abbreviation>
     <code>KAN_16_</code>
-    <name>Appenzell Rh.-Int.</name>
-  </canton>
-  <canton>
-    <id>19</id>
-    <updated>2010-12-26T13:04:12Z</updated>
-    <abbreviation>AG</abbreviation>
-    <code>KAN_19_</code>
-    <name>Argovie</name>
+    <name>Appenzell I.-Rh.</name>
   </canton>
   <canton>
     <id>13</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>BL</abbreviation>
     <code>KAN_13_</code>
-    <name>Bâle-Campagne</name>
+    <name>Basel-Landschaft</name>
   </canton>
   <canton>
     <id>12</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>BS</abbreviation>
     <code>KAN_12_</code>
-    <name>Bâle-Ville</name>
+    <name>Basel-Stadt</name>
   </canton>
   <canton>
     <id>2</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>BE</abbreviation>
     <code>KAN_2_</code>
-    <name>Berne</name>
+    <name>Bern</name>
   </canton>
   <canton>
     <id>10</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>FR</abbreviation>
     <code>KAN_10_</code>
-    <name>Fribourg</name>
+    <name>Freiburg</name>
   </canton>
   <canton>
     <id>25</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>GE</abbreviation>
     <code>KAN_25_</code>
-    <name>Genève</name>
+    <name>Genf</name>
   </canton>
   <canton>
     <id>8</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>GL</abbreviation>
     <code>KAN_8_</code>
-    <name>Glaris</name>
+    <name>Glarus</name>
   </canton>
   <canton>
     <id>18</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>GR</abbreviation>
     <code>KAN_18_</code>
-    <name>Grisons</name>
+    <name>Graubünden</name>
   </canton>
   <canton>
     <id>26</id>
@@ -82,35 +82,35 @@
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>LU</abbreviation>
     <code>KAN_3_</code>
-    <name>Lucerne</name>
+    <name>Luzern</name>
   </canton>
   <canton>
     <id>24</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>NE</abbreviation>
     <code>KAN_24_</code>
-    <name>Neuchâtel</name>
+    <name>Neuenburg</name>
   </canton>
   <canton>
     <id>7</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>NW</abbreviation>
     <code>KAN_7_</code>
-    <name>Nidwald</name>
+    <name>Nidwalden</name>
   </canton>
   <canton>
     <id>6</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>OW</abbreviation>
     <code>KAN_6_</code>
-    <name>Obwald</name>
+    <name>Obwalden</name>
   </canton>
   <canton>
     <id>14</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>SH</abbreviation>
     <code>KAN_14_</code>
-    <name>Schaffhouse</name>
+    <name>Schaffhausen</name>
   </canton>
   <canton>
     <id>5</id>
@@ -124,14 +124,14 @@
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>SO</abbreviation>
     <code>KAN_11_</code>
-    <name>Soleure</name>
+    <name>Solothurn</name>
   </canton>
   <canton>
     <id>17</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>SG</abbreviation>
     <code>KAN_17_</code>
-    <name>St-Gall</name>
+    <name>St. Gallen</name>
   </canton>
   <canton>
     <id>27</id>
@@ -145,7 +145,7 @@
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>TG</abbreviation>
     <code>KAN_20_</code>
-    <name>Thurgovie</name>
+    <name>Thurgau</name>
   </canton>
   <canton>
     <id>4</id>
@@ -155,25 +155,25 @@
     <name>Uri</name>
   </canton>
   <canton>
-    <id>23</id>
-    <updated>2010-12-26T13:04:12Z</updated>
-    <abbreviation>VS</abbreviation>
-    <code>KAN_23_</code>
-    <name>Valais</name>
-  </canton>
-  <canton>
     <id>22</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>VD</abbreviation>
     <code>KAN_22_</code>
-    <name>Vaud</name>
+    <name>Waadt</name>
+  </canton>
+  <canton>
+    <id>23</id>
+    <updated>2010-12-26T13:04:12Z</updated>
+    <abbreviation>VS</abbreviation>
+    <code>KAN_23_</code>
+    <name>Wallis</name>
   </canton>
   <canton>
     <id>9</id>
     <updated>2010-12-26T13:04:12Z</updated>
     <abbreviation>ZG</abbreviation>
     <code>KAN_9_</code>
-    <name>Zoug</name>
+    <name>Zug</name>
   </canton>
   <canton>
     <id>1</id>
@@ -181,6 +181,6 @@
     <hasMorePages>false</hasMorePages>
     <abbreviation>ZH</abbreviation>
     <code>KAN_1_</code>
-    <name>Zurich</name>
+    <name>Zürich</name>
   </canton>
 </cantons>

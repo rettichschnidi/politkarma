@@ -3,17 +3,17 @@
   <council>
     <id>1</id>
     <updated>2010-12-26T13:07:49Z</updated>
-    <abbreviation>CN</abbreviation>
+    <abbreviation>NR</abbreviation>
     <code>RAT_1_</code>
-    <name>Conseil national</name>
+    <name>Nationalrat</name>
     <type>N</type>
   </council>
   <council>
     <id>2</id>
     <updated>2010-12-26T13:07:49Z</updated>
-    <abbreviation>CE</abbreviation>
+    <abbreviation>SR</abbreviation>
     <code>RAT_2_</code>
-    <name>Conseil des Etats</name>
+    <name>Ständerat</name>
     <type>S</type>
   </council>
   <council>
@@ -22,7 +22,7 @@
     <hasMorePages>false</hasMorePages>
     <abbreviation>V</abbreviation>
     <code>RAT_3_</code>
-    <name>Assemblée fédérale (Chambres réunies)</name>
+    <name>Vereinigte Bundesversammlung</name>
     <type>B</type>
   </council>
 </councils>
