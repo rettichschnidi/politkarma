@@ -31,10 +31,8 @@ class Command(BaseCommand):
             council_updated = council.find('updated').text
             council_abbreviation = council.find('abbreviation').text
             council_code = council.find('code').text
-            council_name = council.find('name').text
             council_type = council.find('type').text
             council_model = Council(id=council_id, updated=council_updated, abbreviation=council_abbreviation,
-                                    code=council_code, name=council_name,
-                                    type=council_type)
+                                    code=council_code, type=council_type)
             council_model.save()
             print(council_model)

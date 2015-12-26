@@ -13,8 +13,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         source_base = 'http://ws.parlament.ch/councillors?format=xml&lang=de&pagenumber='
         headers = {'User-Agent': 'Mozilla'}
-
         cur_page = 1
+
         while True:
             source = source_base + str(cur_page)
             cur_page += 1

@@ -8,11 +8,22 @@ class Council(models.Model):
     updated = models.DateTimeField()
     abbreviation = models.CharField(max_length=2)
     code = models.CharField(max_length=6)
-    name = models.CharField(max_length=255)
+    # We do not want any language-specific data in the model
+    # name = models.CharField(max_length=255)
     type = models.CharField(max_length=1, unique=True)
 
+    @property
+    def name(self):
+        if self.type == 'N':
+            return _('National Council')
+        if self.type == 'S':
+            return _('Council of States')
+        if self.type == 'B':
+            return _('Federal Assembly')
+        raise Exception('Unknown council type \'{}\''.format(self.type))
+
     def __str__(self):
-        return _(self.name)
+        return self.name
 
 
 # 4.2 Council members
@@ -28,8 +39,12 @@ class Councillor(models.Model):
     salutation_letter = models.CharField(null=True, max_length=255)
     salutation_title = models.CharField(null=True, max_length=255)
 
+    @property
+    def full_name(self):
+        return "{} {}".format(self.last_name, self.first_name)
+
     def __str__(self):
-        return _("{} {}".format(self.last_name, self.first_name))
+        return self.full_name
 
 
 # 4.3 Schedules
