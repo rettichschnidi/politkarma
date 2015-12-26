@@ -91,7 +91,7 @@ def validate_department_code(value):
 class Department(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
-    code = models.CharField(max_length=10, validators=[validate_department_code])
+    code = models.CharField(unique=True, max_length=10, validators=[validate_department_code])
 
     texts = {
         'DEP_1_': (_('Parl'), _('Parlament')),
@@ -121,8 +121,56 @@ class Department(models.Model):
 
 
 # 4.9 Cantons
+def validate_canton_code(value):
+    if value not in Canton.texts:
+        from django.core.exceptions import ValidationError
+        raise ValidationError('\'{}\' is not a valid canton code'.format(value))
+
+
 class Canton(models.Model):
-    pass
+    id = models.IntegerField(primary_key=True)
+    updated = models.DateTimeField()
+    code = models.CharField(unique=True, max_length=7, validators=[validate_canton_code])
+
+    texts = {
+        'KAN_19_': (_('AG'), _('Aargau')),
+        'KAN_15_': (_('AR'), _('Appenzell A.-Rh.')),
+        'KAN_16_': (_('AI'), _('Appenzell I.-Rh.')),
+        'KAN_13_': (_('BL'), _('Basel-Landschaft')),
+        'KAN_12_': (_('BS'), _('Basel-Stadt')),
+        'KAN_2_': (_('BE'), _('Bern')),
+        'KAN_10_': (_('FR'), _('Freiburg')),
+        'KAN_25_': (_('GE'), _('Genf')),
+        'KAN_8_': (_('GL'), _('Glarus')),
+        'KAN_18_': (_('GR'), _('Graubünden')),
+        'KAN_26_': (_('Ju'), _('Jura')),
+        'KAN_3_': (_('LU'), _('Luzern')),
+        'KAN_24_': (_('NE'), _('Neuenburg')),
+        'KAN_7_': (_('NW'), _('Nidwalden')),
+        'KAN_6_': (_('OW'), _('Obwalden')),
+        'KAN_14_': (_('SH'), _('Schaffhausen')),
+        'KAN_5_': (_('SZ'), _('Schwyz')),
+        'KAN_11_': (_('SO'), _('Solothurn')),
+        'KAN_17_': (_('SG'), _('St. Gallen')),
+        'KAN_27_': (_('TI'), _('Tessin')),
+        'KAN_20_': (_('TG'), _('Thurgau')),
+        'KAN_4_': (_('UR'), _('Uri')),
+        'KAN_22_': (_('VD'), _('Waadt')),
+        'KAN_23_': (_('VS'), _('Wallis')),
+        'KAN_9_': (_('ZG'), _('Zug')),
+        'KAN_1_': (_('ZH'), _('Zürich')),
+    }
+
+    @property
+    def name(self):
+        return Canton.texts[self.code][1]
+
+    @property
+    def abbreviation(self):
+        return Canton.texts[self.code][0]
+
+    def __str__(self):
+        return self.name
 
 
 # 4.10 Parliamentary groups
