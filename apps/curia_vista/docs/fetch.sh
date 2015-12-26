@@ -23,6 +23,10 @@ for n in Councils Councillors Schedules Affairs AffairSummaries Committees Legis
   fetchXml "http://ws.parlament.ch/$n?format=xml&lang=en" > xml-examples/$n-example.xml
 done
 
+#Fetch XML and XSD files from special URL
+fetchXml "http://ws.parlament.ch/Schedules/2015/ALL?format=xsd" > xsd-schemas/Schedules-2015-ALL.xsd
+fetchXml "http://ws.parlament.ch/Schedules/2015/ALLn?format=xml&lang=de" > xml-examples/Schedules-2015-ALL.xml
+
 #Fetch PDFs
 fetch 'http://www.parlament.ch/d/dokumentation/webservices-opendata/Documents/webservices-info-dritte-d.pdf' > 'webservices-info-dritte-d.pdf'
 fetch 'http://www.parlament.ch/e/dokumentation/webservices-opendata/Documents/webservices-info-dritte-e.pdf' > 'webservices-info-dritte-e.pdf'
