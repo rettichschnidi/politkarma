@@ -3,24 +3,36 @@ from django.utils.translation import ugettext as _
 
 
 # 4.1 Councils
+def validate_council_type(value):
+    if value not in ('N', 'S', 'B'):
+        from django.core.exceptions import ValidationError
+        raise ValidationError('\'{}\' is not a valid council type'.format(value))
+
 class Council(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
-    abbreviation = models.CharField(max_length=2)
     code = models.CharField(max_length=6)
     # We do not want any language-specific data in the model
     # name = models.CharField(max_length=255)
-    type = models.CharField(max_length=1, unique=True)
+    type = models.CharField(max_length=1, unique=True, validators=[validate_council_type])
+
+    @property
+    def abbreviation(self):
+        if self.type == 'N':
+            return _('NR')
+        if self.type == 'S':
+            return _('SR')
+        if self.type == 'B':
+            return _('V')
 
     @property
     def name(self):
         if self.type == 'N':
-            return _('National Council')
+            return _('Nationalrat')
         if self.type == 'S':
-            return _('Council of States')
+            return _('Ständerat')
         if self.type == 'B':
-            return _('Federal Assembly')
-        raise Exception('Unknown council type \'{}\''.format(self.type))
+            return _('Vereinigte Bundesversammlung')
 
     def __str__(self):
         return self.name
