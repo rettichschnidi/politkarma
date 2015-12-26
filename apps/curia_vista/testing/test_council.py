@@ -13,3 +13,12 @@ class TestCouncil(TestCase):
     def test_abbreviation(self):
         self.assertEqual('NR', self.T.abbreviation)
 
+    def test_validate(self):
+        self.T.full_clean()
+
+    def test_invalid_code(self):
+        self.T.code = 'RAT_666_'
+        from django.core.exceptions import ValidationError
+        with self.assertRaises(ValidationError):
+            if self.T.full_clean():
+                self.fail('Invalid code may not be validated')

@@ -3,36 +3,33 @@ from django.utils.translation import ugettext as _
 
 
 # 4.1 Councils
-def validate_council_type(value):
-    if value not in ('N', 'S', 'B'):
+def validate_council_code(value):
+    if value not in Council.texts:
         from django.core.exceptions import ValidationError
         raise ValidationError('\'{}\' is not a valid council type'.format(value))
+
 
 class Council(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
-    code = models.CharField(max_length=6)
+    code = models.CharField(max_length=6, validators=[validate_council_code])
     # We do not want any language-specific data in the model
     # name = models.CharField(max_length=255)
-    type = models.CharField(max_length=1, unique=True, validators=[validate_council_type])
+    type = models.CharField(max_length=1, unique=True)
 
-    @property
-    def abbreviation(self):
-        if self.type == 'N':
-            return _('NR')
-        if self.type == 'S':
-            return _('SR')
-        if self.type == 'B':
-            return _('V')
+    texts = {
+        'RAT_1_': ('N', _('NR'), _('Nationalrat')),
+        'RAT_2_': ('S', _('SR'), _('Ständerat')),
+        'RAT_3_': ('B', _('V'), _('Vereinigte Bundesversammlung')),
+    }
 
     @property
     def name(self):
-        if self.type == 'N':
-            return _('Nationalrat')
-        if self.type == 'S':
-            return _('Ständerat')
-        if self.type == 'B':
-            return _('Vereinigte Bundesversammlung')
+        return Council.texts[self.code][2]
+
+    @property
+    def abbreviation(self):
+        return Council.texts[self.code][1]
 
     def __str__(self):
         return self.name
