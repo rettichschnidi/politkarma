@@ -11,7 +11,7 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def handle(self, *args, **options):
-        source = 'http://ws.parlament.ch/councils?format=xml&lang=en'
+        source = 'http://ws.parlament.ch/councils?format=xml&lang=de'
         headers = {'User-Agent': 'Mozilla'}
 
         self.stdout.write("Importing: {}".format(source))

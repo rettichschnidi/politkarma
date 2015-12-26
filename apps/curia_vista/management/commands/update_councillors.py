@@ -11,7 +11,7 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def handle(self, *args, **options):
-        source_base = 'http://ws.parlament.ch/councillors?format=xml&lang=en&pagenumber='
+        source_base = 'http://ws.parlament.ch/councillors?format=xml&lang=de&pagenumber='
         headers = {'User-Agent': 'Mozilla'}
 
         cur_page = 1
