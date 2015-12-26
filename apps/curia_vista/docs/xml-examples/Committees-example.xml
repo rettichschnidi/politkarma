@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="utf-8"?>
+<committees xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <committee>
+    <id>1</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>Bu-CN</abbreviation>
+    <code>KOM_1_</code>
+    <committeeNumber>1</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1848-11-07T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Bureau CN</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>2</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CdF-CN</abbreviation>
+    <code>KOM_2_</code>
+    <committeeNumber>2</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission des finances CN</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>3</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CdG-CN</abbreviation>
+    <code>KOM_3_</code>
+    <committeeNumber>3</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission de gestion CN</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>4</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CPE-CN</abbreviation>
+    <code>KOM_4_</code>
+    <committeeNumber>4</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission de politique extérieure CN</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>5</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CSEC-CN</abbreviation>
+    <code>KOM_5_</code>
+    <committeeNumber>5</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission de la science, de l'éducation et de la culture CN</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>6</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CSSS-CN</abbreviation>
+    <code>KOM_6_</code>
+    <committeeNumber>6</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission de la sécurité sociale et de la santé publique CN</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>7</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CEATE-CN</abbreviation>
+    <code>KOM_7_</code>
+    <committeeNumber>7</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission de l'environnement, de l'aménagement du territoire et de l'énergie CN</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>8</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CPS-CN</abbreviation>
+    <code>KOM_8_</code>
+    <committeeNumber>8</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission de la politique de sécurité CN</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>9</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CTT-CN</abbreviation>
+    <code>KOM_9_</code>
+    <committeeNumber>9</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission des transports et des télécommunications CN</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>10</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CER-CN</abbreviation>
+    <code>KOM_10_</code>
+    <committeeNumber>10</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission de l'économie et des redevances CN</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>11</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CIP-CN</abbreviation>
+    <code>KOM_11_</code>
+    <committeeNumber>11</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission des institutions politiques CN</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>12</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CAJ-CN</abbreviation>
+    <code>KOM_12_</code>
+    <committeeNumber>12</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission des affaires juridiques CN</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>13</id>
+    <updated>2012-03-26T08:58:31Z</updated>
+    <abbreviation>CCP-CN</abbreviation>
+    <code>KOM_13_</code>
+    <committeeNumber>13</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <name>Commission des constructions publiques CN</name>
+    <to>2011-12-05T00:00:00Z</to>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>14</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>Bu-CE</abbreviation>
+    <code>KOM_14_</code>
+    <committeeNumber>14</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1848-11-06T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Bureau CE</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>15</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CdF-CE</abbreviation>
+    <code>KOM_15_</code>
+    <committeeNumber>15</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission des finances CE</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>16</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CdG-CE</abbreviation>
+    <code>KOM_16_</code>
+    <committeeNumber>16</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission de gestion CE</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>17</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CPE-CE</abbreviation>
+    <code>KOM_17_</code>
+    <committeeNumber>17</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission de politique extérieure CE</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>18</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CSEC-CE</abbreviation>
+    <code>KOM_18_</code>
+    <committeeNumber>18</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission de la science, de l'éducation et de la culture CE</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>19</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CSSS-CE</abbreviation>
+    <code>KOM_19_</code>
+    <committeeNumber>19</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission de la sécurité sociale et de la santé publique CE</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>20</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CEATE-CE</abbreviation>
+    <code>KOM_20_</code>
+    <committeeNumber>20</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission de l'environnement, de l'aménagement du territoire et de l'énergie CE</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>21</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CPS-CE</abbreviation>
+    <code>KOM_21_</code>
+    <committeeNumber>21</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission de la politique de sécurité CE</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>22</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CTT-CE</abbreviation>
+    <code>KOM_22_</code>
+    <committeeNumber>22</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission des transports et des télécommunications CE</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>23</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CER-CE</abbreviation>
+    <code>KOM_23_</code>
+    <committeeNumber>23</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission de l'économie et des redevances CE</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>24</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CIP-CE</abbreviation>
+    <code>KOM_24_</code>
+    <committeeNumber>24</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission des institutions politiques CE</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>25</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CAJ-CE</abbreviation>
+    <code>KOM_25_</code>
+    <committeeNumber>25</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission des affaires juridiques CE</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>26</id>
+    <updated>2012-03-26T08:58:56Z</updated>
+    <abbreviation>CCP-CE</abbreviation>
+    <code>KOM_26_</code>
+    <committeeNumber>26</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <name>Commission des constructions publiques CE</name>
+    <to>2008-04-01T00:00:00Z</to>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>27</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>DA</abbreviation>
+    <code>KOM_27_</code>
+    <committeeNumber>27</committeeNumber>
+    <council>
+      <id>3</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>V</abbreviation>
+      <code>RAT_3_</code>
+      <name>Assemblée fédérale (Chambres réunies)</name>
+      <type>B</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Délégation administrative</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>28</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>DélFin-V</abbreviation>
+    <code>KOM_28_</code>
+    <committeeNumber>28</committeeNumber>
+    <council>
+      <id>3</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>V</abbreviation>
+      <code>RAT_3_</code>
+      <name>Assemblée fédérale (Chambres réunies)</name>
+      <type>B</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Délégation des finances</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>29</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CGra-V</abbreviation>
+    <code>KOM_29_</code>
+    <committeeNumber>29</committeeNumber>
+    <council>
+      <id>3</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>V</abbreviation>
+      <code>RAT_3_</code>
+      <name>Assemblée fédérale (Chambres réunies)</name>
+      <type>B</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission des grâces</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>30</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>CdR-V</abbreviation>
+    <code>KOM_30_</code>
+    <committeeNumber>30</committeeNumber>
+    <council>
+      <id>3</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>V</abbreviation>
+      <code>RAT_3_</code>
+      <name>Assemblée fédérale (Chambres réunies)</name>
+      <type>B</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Commission de rédaction</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>31</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>DCE-V</abbreviation>
+    <code>KOM_31_</code>
+    <committeeNumber>31</committeeNumber>
+    <council>
+      <id>3</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>V</abbreviation>
+      <code>RAT_3_</code>
+      <name>Assemblée fédérale (Chambres réunies)</name>
+      <type>B</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Délégation auprès du Conseil de l'Europe</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>32</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>AELE/UE</abbreviation>
+    <code>KOM_32_</code>
+    <committeeNumber>32</committeeNumber>
+    <council>
+      <id>3</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>V</abbreviation>
+      <code>RAT_3_</code>
+      <name>Assemblée fédérale (Chambres réunies)</name>
+      <type>B</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Délégation AELE / Parlement européen-V</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>33</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>UIP</abbreviation>
+    <code>KOM_33_</code>
+    <committeeNumber>33</committeeNumber>
+    <council>
+      <id>3</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>V</abbreviation>
+      <code>RAT_3_</code>
+      <name>Assemblée fédérale (Chambres réunies)</name>
+      <type>B</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Délégation auprès de l'Union interparlementaire</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>34</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>APF-V</abbreviation>
+    <code>KOM_34_</code>
+    <committeeNumber>34</committeeNumber>
+    <council>
+      <id>3</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>V</abbreviation>
+      <code>RAT_3_</code>
+      <name>Assemblée fédérale (Chambres réunies)</name>
+      <type>B</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Délégation auprès de l'Assemblée parlementaire de la Francophonie</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>35</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>OSCE</abbreviation>
+    <code>KOM_35_</code>
+    <committeeNumber>35</committeeNumber>
+    <council>
+      <id>3</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>V</abbreviation>
+      <code>RAT_3_</code>
+      <name>Assemblée fédérale (Chambres réunies)</name>
+      <type>B</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <isActive>true</isActive>
+    <name>Délégation auprès de l'Assemblée parlementaire de l'OSCE</name>
+    <typeCode>1</typeCode>
+  </committee>
+  <committee>
+    <id>36</id>
+    <updated>2012-03-30T15:56:23Z</updated>
+    <abbreviation>GTEJ</abbreviation>
+    <code>KOM_36_</code>
+    <committeeNumber>36</committeeNumber>
+    <council>
+      <id>3</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>V</abbreviation>
+      <code>RAT_3_</code>
+      <name>Assemblée fédérale (Chambres réunies)</name>
+      <type>B</type>
+    </council>
+    <from>1900-01-01T00:00:00Z</from>
+    <name>Groupe de travail interpartis pour la préparation de l'élection des juges</name>
+    <to>2003-02-14T00:00:00Z</to>
+    <typeCode>6</typeCode>
+  </committee>
+  <committee>
+    <id>39</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>92.083-CN</abbreviation>
+    <code>KOM_39_</code>
+    <committeeNumber>39</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1992-12-17T00:00:00Z</from>
+    <name>Commission 92.083-CN</name>
+    <to>1994-03-16T00:00:00Z</to>
+    <typeCode>3</typeCode>
+  </committee>
+  <committee>
+    <id>40</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>92.083-CE</abbreviation>
+    <code>KOM_40_</code>
+    <committeeNumber>40</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1990-01-01T00:00:00Z</from>
+    <name>Commission 92.083-CE</name>
+    <to>1993-12-14T00:00:00Z</to>
+    <typeCode>3</typeCode>
+  </committee>
+  <committee>
+    <id>41</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>91.312-CE</abbreviation>
+    <code>KOM_41_</code>
+    <committeeNumber>41</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1990-01-01T00:00:00Z</from>
+    <name>Commission 91.312-CE</name>
+    <to>1994-06-15T00:00:00Z</to>
+    <typeCode>3</typeCode>
+  </committee>
+  <committee>
+    <id>42</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>92.305-CE</abbreviation>
+    <code>KOM_42_</code>
+    <committeeNumber>42</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1990-01-01T00:00:00Z</from>
+    <name>Commission 92.305-CE</name>
+    <to>1994-06-15T00:00:00Z</to>
+    <typeCode>3</typeCode>
+  </committee>
+  <committee>
+    <id>43</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>92.306-CE</abbreviation>
+    <code>KOM_43_</code>
+    <committeeNumber>43</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1990-01-01T00:00:00Z</from>
+    <name>Commission 92.306-CE</name>
+    <to>1994-06-15T00:00:00Z</to>
+    <typeCode>3</typeCode>
+  </committee>
+  <committee>
+    <id>44</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>90.266-CN</abbreviation>
+    <code>KOM_44_</code>
+    <committeeNumber>44</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1990-11-17T00:00:00Z</from>
+    <name>Commission 90.266-CN</name>
+    <to>1994-10-07T00:00:00Z</to>
+    <typeCode>3</typeCode>
+  </committee>
+  <committee>
+    <id>45</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>91.425-CN</abbreviation>
+    <code>KOM_45_</code>
+    <committeeNumber>45</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1991-08-28T00:00:00Z</from>
+    <name>Commission 91.425-CN</name>
+    <to>1994-10-07T00:00:00Z</to>
+    <typeCode>3</typeCode>
+  </committee>
+  <committee>
+    <id>46</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>92.442-CN</abbreviation>
+    <code>KOM_46_</code>
+    <committeeNumber>46</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1992-11-30T00:00:00Z</from>
+    <name>Commission 92.442-CN</name>
+    <to>1994-09-21T00:00:00Z</to>
+    <typeCode>3</typeCode>
+  </committee>
+  <committee>
+    <id>47</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>92.451-CN</abbreviation>
+    <code>KOM_47_</code>
+    <committeeNumber>47</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1992-12-17T00:00:00Z</from>
+    <name>Commission 92.451-CN</name>
+    <to>1994-03-16T00:00:00Z</to>
+    <typeCode>3</typeCode>
+  </committee>
+  <committee>
+    <id>48</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>92.451-CE</abbreviation>
+    <code>KOM_48_</code>
+    <committeeNumber>48</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1992-12-17T00:00:00Z</from>
+    <name>Commission 92.451-CE</name>
+    <to>1994-03-16T00:00:00Z</to>
+    <typeCode>3</typeCode>
+  </committee>
+  <committee>
+    <id>51</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>85.227-CE</abbreviation>
+    <code>KOM_51_</code>
+    <committeeNumber>51</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1985-02-07T00:00:00Z</from>
+    <name>Commission 85.227-CE</name>
+    <to>2000-10-06T00:00:00Z</to>
+    <typeCode>3</typeCode>
+  </committee>
+  <committee>
+    <id>52</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>90.231-CE</abbreviation>
+    <code>KOM_52_</code>
+    <committeeNumber>52</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1990-01-01T00:00:00Z</from>
+    <name>Commission 90.231-CE</name>
+    <to>1995-09-21T00:00:00Z</to>
+    <typeCode>3</typeCode>
+  </committee>
+  <committee>
+    <id>53</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <abbreviation>90.265-CE</abbreviation>
+    <code>KOM_53_</code>
+    <committeeNumber>53</committeeNumber>
+    <council>
+      <id>2</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CE</abbreviation>
+      <code>RAT_2_</code>
+      <name>Conseil des Etats</name>
+      <type>S</type>
+    </council>
+    <from>1990-01-01T00:00:00Z</from>
+    <name>Commission 90.265-CE</name>
+    <to>1995-09-21T00:00:00Z</to>
+    <typeCode>3</typeCode>
+  </committee>
+  <committee>
+    <id>54</id>
+    <updated>2010-12-26T13:06:13Z</updated>
+    <hasMorePages>true</hasMorePages>
+    <abbreviation>90.021-CN</abbreviation>
+    <code>KOM_54_</code>
+    <committeeNumber>54</committeeNumber>
+    <council>
+      <id>1</id>
+      <updated>2010-12-26T13:07:49Z</updated>
+      <abbreviation>CN</abbreviation>
+      <code>RAT_1_</code>
+      <name>Conseil national</name>
+      <type>N</type>
+    </council>
+    <from>1990-03-05T00:00:00Z</from>
+    <name>Commission 90.021-CN</name>
+    <to>1994-10-07T00:00:00Z</to>
+    <typeCode>3</typeCode>
+  </committee>
+</committees>

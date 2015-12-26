@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<departments xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <department>
+    <id>1</id>
+    <updated>2010-12-26T13:05:26Z</updated>
+    <abbreviation>Parl</abbreviation>
+    <code>DEP_1_</code>
+    <name>Parlement</name>
+  </department>
+  <department>
+    <id>3</id>
+    <updated>2010-12-26T13:05:26Z</updated>
+    <abbreviation>DFAE</abbreviation>
+    <code>DEP_3_</code>
+    <name>Département des affaires étrangères</name>
+  </department>
+  <department>
+    <id>4</id>
+    <updated>2010-12-26T13:05:26Z</updated>
+    <abbreviation>DFI</abbreviation>
+    <code>DEP_4_</code>
+    <name>Département de l'intérieur</name>
+  </department>
+  <department>
+    <id>5</id>
+    <updated>2010-12-26T13:05:26Z</updated>
+    <abbreviation>DFJP</abbreviation>
+    <code>DEP_5_</code>
+    <name>Département de justice et police</name>
+  </department>
+  <department>
+    <id>6</id>
+    <updated>2010-12-26T13:05:26Z</updated>
+    <abbreviation>DDPS</abbreviation>
+    <code>DEP_6_</code>
+    <name>Département de la défense, de la protection de la population et des sports</name>
+  </department>
+  <department>
+    <id>7</id>
+    <updated>2010-12-26T13:05:26Z</updated>
+    <abbreviation>DFF</abbreviation>
+    <code>DEP_7_</code>
+    <name>Département des finances</name>
+  </department>
+  <department>
+    <id>8</id>
+    <updated>2010-12-26T13:05:26Z</updated>
+    <abbreviation>DEFR</abbreviation>
+    <code>DEP_8_</code>
+    <name>Département de l'économie, de la formation et de la recherche</name>
+  </department>
+  <department>
+    <id>9</id>
+    <updated>2010-12-26T13:05:26Z</updated>
+    <abbreviation>DETEC</abbreviation>
+    <code>DEP_9_</code>
+    <name>Département  de l'environnement, des transports, de l'énergie et de la communication</name>
+  </department>
+  <department>
+    <id>10</id>
+    <updated>2010-12-26T13:05:26Z</updated>
+    <abbreviation>ChF</abbreviation>
+    <code>DEP_10_</code>
+    <name>Chancellerie fédérale</name>
+  </department>
+  <department>
+    <id>11</id>
+    <updated>2010-12-26T13:05:26Z</updated>
+    <abbreviation>CR</abbreviation>
+    <code>DEP_11_</code>
+    <name>Assemblée fédérale (Chambres réunies)</name>
+  </department>
+  <department>
+    <id>12</id>
+    <updated>2012-07-16T10:21:41Z</updated>
+    <abbreviation>AS-MPC</abbreviation>
+    <code>DEP_12_</code>
+    <name>Autorité de surveillance du Ministère public de la Confédération</name>
+  </department>
+  <department>
+    <id>1482</id>
+    <updated>2010-12-26T13:05:26Z</updated>
+    <hasMorePages>false</hasMorePages>
+    <abbreviation>Trféd</abbreviation>
+    <code>DEP_1482_</code>
+    <name>Tribunal fédéral</name>
+  </department>
+</departments>

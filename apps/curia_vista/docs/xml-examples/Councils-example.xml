@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<councils xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <council>
+    <id>1</id>
+    <updated>2010-12-26T13:07:49Z</updated>
+    <abbreviation>CN</abbreviation>
+    <code>RAT_1_</code>
+    <name>Conseil national</name>
+    <type>N</type>
+  </council>
+  <council>
+    <id>2</id>
+    <updated>2010-12-26T13:07:49Z</updated>
+    <abbreviation>CE</abbreviation>
+    <code>RAT_2_</code>
+    <name>Conseil des Etats</name>
+    <type>S</type>
+  </council>
+  <council>
+    <id>3</id>
+    <updated>2010-12-26T13:07:49Z</updated>
+    <hasMorePages>false</hasMorePages>
+    <abbreviation>V</abbreviation>
+    <code>RAT_3_</code>
+    <name>Assemblée fédérale (Chambres réunies)</name>
+    <type>B</type>
+  </council>
+</councils>
