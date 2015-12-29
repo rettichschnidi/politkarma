@@ -70,7 +70,7 @@ class Affair(models.Model):
 
 # 4.5 Summaries
 class AffairSummary(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
     formattedId= models.DecimalField(decimal_places=10, max_digits=10)
     title = models.CharField(max_length=255)
