@@ -30,6 +30,8 @@ class Command(BaseCommand):
             canton_id = canton.find('id').text
             canton_updated = canton.find('updated').text
             canton_code = canton.find('code').text
+            if canton.find('hasMorePages') is not None:
+                assert 'false' == canton.find('hasMorePages').text
             canton_model, created = Canton.objects.update_or_create(id=canton_id, defaults={'updated': canton_updated,
                                                                                             'code': canton_code})
             canton_model.full_clean()

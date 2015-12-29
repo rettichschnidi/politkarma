@@ -30,6 +30,8 @@ class Command(BaseCommand):
             department_id = department.find('id').text
             department_updated = department.find('updated').text
             department_code = department.find('code').text
+            if department.find('hasMorePages') is not None:
+                assert 'false' == department.find('hasMorePages').text
             department_model, created = Department.objects.update_or_create(id=department_id,
                                                                             defaults={'updated': department_updated,
                                                                                       'code': department_code})
