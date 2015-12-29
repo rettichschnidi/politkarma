@@ -84,11 +84,21 @@ class Committee(models.Model):
     code = models.CharField(max_length=255)
     committeeNumber = models.IntegerField()
     council = models.ForeignKey(to=Council)
+    fromDate = models.DateTimeField()
+    isActive = models.BooleanField()
+    name = models.CharField(max_length=255)
+    toDate = models.DateTimeField()
+    typeCode = models.IntegerField()
 
 
 # 4.7 Legislative periods
 class LegislativePeriod(models.Model):
-    pass
+    id = models.IntegerField(primary_key=True)
+    updated = models.DateTimeField()
+    code = models.IntegerField()
+    fromDate = models.DateTimeField()
+    toDate = models.DateTimeField()
+    name = models.CharField(max_length=255)
 
 
 # 4.8 Departments
@@ -185,19 +195,38 @@ class Canton(models.Model):
 
 # 4.10 Parliamentary groups
 class Faction(models.Model):
-    pass
+    id = models.IntegerField(primary_key=True)
+    updated = models.DateTimeField()
+    abbreviation = models.CharField(max_length=255)
+    code = models.CharField(max_length=255)
+    fromDate = models.DateTimeField()
+    toDate = models.DateTimeField()
+    name = models.CharField(max_length=255)
+    shortName = models.CharField(max_length=255)
 
 
 # 4.11 Sessions
 class Session(models.Model):
-    pass
+    id = models.IntegerField(primary_key=True)
+    updated = models.DateTimeField()
+    code = models.CharField(max_length=255)
+    fromDate = models.DateTimeField()
+    toDate = models.DateTimeField()
+    name = models.CharField(max_length=255)
 
 
 # 4.12 Parties
 class Party(models.Model):
-    pass
+    id = models.IntegerField(primary_key=True)
+    updated = models.DateTimeField()
+    abbreviation = models.CharField(max_length=255)
+    code = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
 
 
 # 4.13 Votes
 class Vote(models.Model):
-    pass
+    id = models.IntegerField(primary_key=True)
+    updated = models.DateTimeField()
+    title = models.CharField(max_length=255)
+    affairVotes = models.IntegerField()
