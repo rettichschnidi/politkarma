@@ -65,14 +65,14 @@ class Schedule(models.Model):
 class Affair(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
-    shortId = models.DecimalField(decimal_places=10, max_digits=10)
+    short_id = models.DecimalField(decimal_places=10, max_digits=10)
 
 
 # 4.5 Summaries
 class AffairSummary(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
-    formattedId = models.DecimalField(decimal_places=10, max_digits=10)
+    formatted_id = models.DecimalField(decimal_places=10, max_digits=10)
     title = models.CharField(max_length=255)
 
 
@@ -82,13 +82,13 @@ class Committee(models.Model):
     updated = models.DateTimeField()
     abbreviation = models.CharField(max_length=255)
     code = models.CharField(max_length=255)
-    committeeNumber = models.IntegerField()
+    committee_number = models.IntegerField()
     council = models.ForeignKey(to=Council)
-    fromDate = models.DateTimeField()
-    isActive = models.BooleanField()
+    from_date = models.DateTimeField()
+    is_active = models.BooleanField()
     name = models.CharField(max_length=255)
-    toDate = models.DateTimeField()
-    typeCode = models.IntegerField()
+    to_date = models.DateTimeField()
+    type_code = models.IntegerField()
 
 
 # 4.7 Legislative periods
@@ -96,8 +96,8 @@ class LegislativePeriod(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
     code = models.IntegerField()
-    fromDate = models.DateTimeField()
-    toDate = models.DateTimeField()
+    from_date = models.DateTimeField()
+    to_date = models.DateTimeField()
     name = models.CharField(max_length=255)
 
 
@@ -199,10 +199,10 @@ class Faction(models.Model):
     updated = models.DateTimeField()
     abbreviation = models.CharField(max_length=255)
     code = models.CharField(max_length=255)
-    fromDate = models.DateTimeField()
-    toDate = models.DateTimeField()
+    from_date = models.DateTimeField()
+    to_date = models.DateTimeField()
     name = models.CharField(max_length=255)
-    shortName = models.CharField(max_length=255)
+    short_name = models.CharField(max_length=255)
 
 
 # 4.11 Sessions
@@ -210,8 +210,8 @@ class Session(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
     code = models.CharField(max_length=255)
-    fromDate = models.DateTimeField()
-    toDate = models.DateTimeField()
+    from_date = models.DateTimeField()
+    to_date = models.DateTimeField()
     name = models.CharField(max_length=255)
 
 
@@ -229,4 +229,4 @@ class Vote(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
     title = models.CharField(max_length=255)
-    affairVotes = models.IntegerField()
+    affair_votes = models.IntegerField()
