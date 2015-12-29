@@ -58,12 +58,14 @@ class Councillor(models.Model):
 
 # 4.3 Schedules
 class Schedule(models.Model):
-    pass
+    int = models.IntegerField()
 
 
 # 4.4 Items of business
 class Affair(models.Model):
-    pass
+    id = models.IntegerField(primary_key=True)
+    updated = models.DateTimeField()
+    shortId = models.DecimalField(decimal_places=10, max_digits=10)
 
 
 # 4.5 Summaries
@@ -76,7 +78,12 @@ class AffairSummary(models.Model):
 
 # 4.6 Committees
 class Committee(models.Model):
-    pass
+    id = models.IntegerField(primary_key=True)
+    updated = models.DateTimeField()
+    abbreviation = models.CharField(max_length=255)
+    code = models.CharField(max_length=255)
+    committeeNumber = models.IntegerField()
+    council = models.ForeignKey(to=Council)
 
 
 # 4.7 Legislative periods
