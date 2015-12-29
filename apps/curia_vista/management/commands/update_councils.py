@@ -32,7 +32,11 @@ class Command(BaseCommand):
             council_abbreviation = council.find('abbreviation').text
             council_code = council.find('code').text
             council_type = council.find('type').text
-            council_model = Council(id=council_id, updated=council_updated, abbreviation=council_abbreviation,
-                                    code=council_code, type=council_type)
+            council_model, created = Council.objects.update_or_create(id=council_id,
+                                                                      defaults={'updated': council_updated,
+                                                                                'abbreviation': council_abbreviation,
+                                                                                'code': council_code,
+                                                                                'type': council_type})
+            council_model.full_clean()
             council_model.save()
             print(council_model)
