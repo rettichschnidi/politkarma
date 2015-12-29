@@ -100,6 +100,9 @@ class LegislativePeriod(models.Model):
     to_date = models.DateTimeField()
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return _('{}. Legislatur'.format(self.code))
+
 
 # 4.8 Departments
 def validate_department_code(value):
