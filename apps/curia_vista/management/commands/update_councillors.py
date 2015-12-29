@@ -34,7 +34,7 @@ class Command(BaseCommand):
             for councillor in councillors:
                 councillor_id = councillor.find('id').text
                 councillor_updated = councillor.find('updated').text
-                councillor_active = councillor.find('active').text
+                councillor_active = councillor.find('active').text == 'true'
                 councillor_code = councillor.find('code').text
                 councillor_first_name = councillor.find('firstName').text
                 councillor_last_name = councillor.find('lastName').text
@@ -44,13 +44,18 @@ class Command(BaseCommand):
                 councillor_salutation_title = councillor.find('salutationTitle').text
                 if councillor.find('hasMorePages') is not None:
                     more_pages = 'true' == councillor.find('hasMorePages').text
-                councillor_model = Councillor(id=councillor_id, updated=councillor_updated,
-                                              active=councillor_active,
-                                              code=councillor_code, first_name=councillor_first_name,
-                                              last_name=councillor_last_name, number=councillor_number,
-                                              official_denomination=councillor_official_denomination,
-                                              salutation_letter=councillor_salutation_letter,
-                                              salutation_title=councillor_salutation_title)
+                councillor_model, created = Councillor.objects.update_or_create(id=councillor_id,
+                                                                                defaults={
+                                                                                    'updated': councillor_updated,
+                                                                                    'active': councillor_active,
+                                                                                    'code': councillor_code,
+                                                                                    'first_name': councillor_first_name,
+                                                                                    'last_name': councillor_last_name,
+                                                                                    'number': councillor_number,
+                                                                                    'official_denomination': councillor_official_denomination,
+                                                                                    'salutation_letter': councillor_salutation_letter,
+                                                                                    'salutation_title': councillor_salutation_title})
+                councillor_model.full_clean()
                 councillor_model.save()
                 print(councillor_model)
             self.stdout.write("Finished importing from {}".format(source))

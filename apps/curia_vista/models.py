@@ -40,13 +40,13 @@ class Councillor(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
     active = models.BooleanField()
-    code = models.CharField(null=True, max_length=255)
+    code = models.CharField(null=True, blank=True, max_length=255)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
-    number = models.IntegerField(null=True)
-    official_denomination = models.CharField(null=True, max_length=255)
-    salutation_letter = models.CharField(null=True, max_length=255)
-    salutation_title = models.CharField(null=True, max_length=255)
+    number = models.IntegerField(null=True, blank=True)
+    official_denomination = models.CharField(null=True, blank=True, max_length=255)
+    salutation_letter = models.CharField(null=True, blank=True, max_length=255)
+    salutation_title = models.CharField(null=True, blank=True, max_length=255)
 
     @property
     def full_name(self):
@@ -72,7 +72,7 @@ class Affair(models.Model):
 class AffairSummary(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
-    formattedId= models.DecimalField(decimal_places=10, max_digits=10)
+    formattedId = models.DecimalField(decimal_places=10, max_digits=10)
     title = models.CharField(max_length=255)
 
 
