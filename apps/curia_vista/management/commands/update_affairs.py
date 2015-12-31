@@ -8,7 +8,7 @@ from apps.curia_vista.models import *
 
 
 class Command(BaseCommand):
-    help = 'Import cantons from parlament.ch'
+    help = 'Import affairs from parlament.ch'
 
     @transaction.atomic
     def handle(self, *args, **options):
@@ -35,11 +35,11 @@ class Command(BaseCommand):
             for affair in affairs:
                 affair_id = affair.find('id').text
                 affair_updated = affair.find('updated').text
-                canton_short_id = affair.find('shortId').text
+                affair_short_id = affair.find('shortId').text
                 if affair.find('hasMorePages') is not None:
                     more_pages = 'true' == affair.find('hasMorePages').text
                 affair_model, created = Affair.objects.update_or_create(id=affair_id,
-                                                                        defaults={'short_id': canton_short_id,
+                                                                        defaults={'short_id': affair_short_id,
                                                                                   'updated': affair_updated})
                 affair_model.full_clean()
                 affair_model.save()

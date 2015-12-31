@@ -76,7 +76,10 @@ class AffairSummary(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
     formatted_id = models.CharField(max_length=255)
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=1024)
+
+    def __str__(self):
+        return self.title
 
 
 # 4.6 Committees
