@@ -65,14 +65,17 @@ class Schedule(models.Model):
 class Affair(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
-    short_id = models.DecimalField(decimal_places=10, max_digits=10)
+    short_id = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.short_id
 
 
 # 4.5 Summaries
 class AffairSummary(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
-    formatted_id = models.DecimalField(decimal_places=10, max_digits=10)
+    formatted_id = models.CharField(max_length=255)
     title = models.CharField(max_length=255)
 
 
