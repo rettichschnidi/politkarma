@@ -212,9 +212,12 @@ class Faction(models.Model):
     abbreviation = models.CharField(max_length=255)
     code = models.CharField(max_length=255)
     from_date = models.DateTimeField()
-    to_date = models.DateTimeField()
+    to_date = models.DateTimeField(null=True, blank=True)
     name = models.CharField(max_length=255)
     short_name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
 
 
 # 4.11 Sessions
@@ -223,7 +226,7 @@ class Session(models.Model):
     updated = models.DateTimeField()
     code = models.CharField(max_length=255)
     from_date = models.DateTimeField()
-    to_date = models.DateTimeField()
+    to_date = models.DateTimeField(null=True, blank=True)
     name = models.CharField(max_length=255)
 
 
