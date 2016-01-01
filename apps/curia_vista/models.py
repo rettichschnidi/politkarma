@@ -151,6 +151,9 @@ class Party(models.Model):
     code = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
 
 # 4.13 Votes
 class Vote(models.Model):
