@@ -9,6 +9,7 @@ from apps.curia_vista.management.commands.update_factions import Command as Impo
 from apps.curia_vista.management.commands.update_legislativePeriods import Command as ImportCommandLegislativePeriods
 from apps.curia_vista.management.commands.update_parties import Command as ImportCommandParties
 from apps.curia_vista.management.commands.update_sessions import Command as ImportCommandSessions
+from apps.curia_vista.management.commands.update_committee import Command as ImportCommandCommittee
 
 
 class Command(BaseCommand):
@@ -18,6 +19,7 @@ class Command(BaseCommand):
         ImportCommandAffairSummaries,
         ImportCommandCanton,
         ImportCommandCouncils,
+        ImportCommandCommittee,
         ImportCommandCouncillors,
         ImportCommandDepartments,
         ImportCommandFactions,

@@ -13,6 +13,11 @@ class AffairSummaryTranslationOptions(TranslationOptions):
     fields = ('title',)
 
 
+@register(Committee)
+class CommitteeTranslationOptions(TranslationOptions):
+    fields = ('name', 'abbreviation')
+
+
 @register(LegislativePeriod)
 class LegislativePeriodTranslationOptions(TranslationOptions):
     fields = ('name',)

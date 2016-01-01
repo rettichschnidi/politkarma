@@ -67,13 +67,17 @@ class Committee(models.Model):
     updated = models.DateTimeField()
     abbreviation = models.CharField(max_length=255)
     code = models.CharField(max_length=255)
-    committee_number = models.IntegerField()
+    number = models.IntegerField()
+    sub_number = models.IntegerField(null=True)
     council = models.ForeignKey(to=Council)
     from_date = models.DateTimeField()
     is_active = models.BooleanField()
     name = models.CharField(max_length=255)
-    to_date = models.DateTimeField()
+    to_date = models.DateTimeField(null=True)
     type_code = models.IntegerField()
+
+    def __str__(self):
+        return self.name
 
 
 # 4.7 Legislative periods
