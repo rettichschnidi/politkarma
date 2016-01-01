@@ -1,0 +1,9 @@
+language: python
+python:
+  - "3.4"
+install:
+  - pip install -r requirements-test.txt
+  - python manage.py makemigrations --noinput
+  - python manage.py migrate --noinput
+script:
+- python manage.py test
