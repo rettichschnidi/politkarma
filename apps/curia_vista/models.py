@@ -161,3 +161,6 @@ class Vote(models.Model):
     updated = models.DateTimeField()
     title = models.CharField(max_length=255)
     affair_votes = models.IntegerField()
+
+    def __str__(self):
+        return self.title
