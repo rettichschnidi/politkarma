@@ -164,3 +164,28 @@ class Vote(models.Model):
 
     def __str__(self):
         return self.title
+
+
+#
+class AffairVote(models.Model):
+    id = models.IntegerField(primary_key=True)
+    date = models.DateTimeField()
+    division_text = models.CharField(max_length=1024)
+    meaning_no = models.CharField(max_length=1024)
+    meaning_yes = models.CharField(max_length=1024)
+    registration_number = models.IntegerField()
+    submission_text = models.CharField(max_length=1024)
+
+    def __str__(self):
+        return self.division_text
+
+
+#
+class CouncillorVote(models.Model):
+    id = models.IntegerField(primary_key=True)
+    decision = models.BooleanField()
+    councillor = models.ForeignKey(Councillor)
+    affair_vote = models.ForeignKey(AffairVote)
+
+    def __str__(self):
+        return self.decision
