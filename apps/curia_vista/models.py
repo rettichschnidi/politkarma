@@ -133,12 +133,14 @@ class Faction(models.Model):
 
 # 4.11 Sessions
 class Session(models.Model):
-    id = models.IntegerField(primary_key=True)
+    code = models.CharField(max_length=255, primary_key=True)
     updated = models.DateTimeField()
-    code = models.CharField(max_length=255)
     from_date = models.DateTimeField()
     to_date = models.DateTimeField(null=True, blank=True)
     name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
 
 
 # 4.12 Parties

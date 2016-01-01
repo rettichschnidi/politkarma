@@ -31,3 +31,8 @@ class AffairSummaryTranslationOptions(TranslationOptions):
 @register(Faction)
 class FactionTranslationOptions(TranslationOptions):
     fields = ('name', 'short_name')
+
+
+@register(Session)
+class SessionTranslationOptions(TranslationOptions):
+    fields = ('name',)
