@@ -10,7 +10,7 @@ class TestCouncil(TestCase):
         self.T.save()
 
     def test___str__(self):
-        self.assertEqual('Nationalrat', self.T.name)
+        self.assertEqual('Nationalrat', str(self.T))
 
     def test_name_translation(self):
         from django.utils import translation
