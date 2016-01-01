@@ -38,7 +38,7 @@ class Command(BaseCommand):
                 councillor_code = councillor.find('code').text
                 councillor_first_name = councillor.find('firstName').text
                 councillor_last_name = councillor.find('lastName').text
-                councillor_number = councillor.find('number').text if 'number' in councillor else None
+                councillor_number = councillor.find('number').text if councillor.find('number') is not None else None
                 councillor_official_denomination = councillor.find('officialDenomination').text
                 councillor_salutation_letter = councillor.find('salutationLetter').text
                 councillor_salutation_title = councillor.find('salutationTitle').text
