@@ -2,16 +2,16 @@ from xml.etree import ElementTree
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 import requests
-from django.utils import translation
 
 from apps.curia_vista.models import *
 from politkarma import settings
 
 
 class Command(BaseCommand):
-    help = 'Import counils from parlament.ch'
+    help = 'Import councils from parlament.ch'
 
     def update(self, resource_url, lang, is_main):
+        from django.utils import translation
         assert lang in [x[0] for x in settings.LANGUAGES]
         translation.activate(lang)
         url = resource_url + '?format=xml&lang=' + lang
