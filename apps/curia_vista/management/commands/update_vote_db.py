@@ -100,8 +100,7 @@ class Command(BaseCommand):
                 result.group(3) + '-' +
                 result.group(5) + '.zip')
 
-    @staticmethod
-    def download_file(work_dir, file, language_code):
+    def download_file(self, work_dir, file, language_code):
         """
         downloads a file to the work dir
         :param work_dir: working directory
@@ -113,23 +112,22 @@ class Command(BaseCommand):
         file_name = os.path.join(work_dir.name, Command.build_file_name(language_code, file))
 
         try:
-            print('downloading ' + url + ', saving result in ' + file_name)
+            self.stdout.write('downloading ' + url + ', saving result in ' + file_name)
             urllib.request.urlretrieve(url, file_name)
             return file_name
         except HTTPError as e:
             # note: order of parts in file names is not always the same in different language
             # e.g. 4808-2009-april-sondersession-d.zip in french is 4808-2009-sondersession-april-f.zip
             # => change order of session name parts and try again
-            print("download for{0} failed: {1}, going to try again with modified name...".format(url, e))
+            self.stdout.write("download for{0} failed: {1}, going to try again with modified name...".format(url, e))
             modified_name = Command.rotate_file_name(file)
             url = Command.build_url(language_code, modified_name)
             file_name = os.path.join(work_dir.name, Command.build_file_name(language_code, modified_name))
-            print('downloading ' + url + ', saving result in ' + file_name)
+            self.stdout.write('downloading ' + url + ', saving result in ' + file_name)
             urllib.request.urlretrieve(url, file_name)
             return file_name
 
-    @staticmethod
-    def extract_xml(file, work_dir):
+    def extract_xml(self, file, work_dir):
         """
         :param file: path to zip file
         :param work_dir working directory
@@ -141,15 +139,15 @@ class Command(BaseCommand):
             raise ValueError(
                     'zip file must contain a single file. file {0} contains {1}'.format(file, name_list.__len__()))
         zip_file_name = name_list[0]
-        print('extracting file {0} form zip file {1}...'.format(zip_file_name, file))
+        self.stdout.write('extracting file {0} form zip file {1}...'.format(zip_file_name, file))
         zip_file.extract(zip_file_name, work_dir.name)
 
         fq_extracted_file = os.path.join(work_dir.name, zip_file_name)
-        print('file extracted. size: {0}'.format(os.path.getsize(fq_extracted_file)))
+        self.stdout.write('file extracted. size: {0}'.format(os.path.getsize(fq_extracted_file)))
         return fq_extracted_file
 
-    @staticmethod
-    def import_xml(file, councillor_index, affair_index, registered_cv_ids):
+    @transaction.atomic
+    def import_xml(self, file, councillor_index, affair_index, registered_cv_ids):
         """
         :param file: xml file to be imported
         :param councillor_index
@@ -199,7 +197,7 @@ class Command(BaseCommand):
                                                                        councillor_index, registered_cv_ids)
                         total_records_loaded += records_loaded
                         end = timer()
-                        print('affair vote {0}: {1} records loaded in {2}s'.format(av_id, records_loaded, end - start))
+                        self.stdout.write('affair vote {0}: {1} records loaded in {2}s'.format(av_id, records_loaded, end - start))
 
         return total_records_loaded
 
@@ -254,25 +252,25 @@ class Command(BaseCommand):
             registered_cv_ids = set({x.id for x in CouncillorVote.objects.all()})
 
             for language_code in Command.language_codes:
-                print('downloads for language {0}'.format(language_code))
+                self.stdout.write('downloads for language {0}'.format(language_code))
                 for file in Command.files:
                     # download and extract
-                    zip_file_name = Command.download_file(work_dir, file, language_code)
-                    unzipped_xml = Command.extract_xml(zip_file_name, work_dir)
+                    zip_file_name = self.download_file(work_dir, file, language_code)
+                    unzipped_xml = self.extract_xml(zip_file_name, work_dir)
                     os.remove(zip_file_name)
 
                     # import data
-                    num_records = Command.import_xml(unzipped_xml, councillor_index, affair_index, registered_cv_ids)
-                    print('xml file {0} imported, {1} records generated'.format(unzipped_xml, num_records))
+                    num_records = self.import_xml(unzipped_xml, councillor_index, affair_index, registered_cv_ids)
+                    self.stdout.write('xml file {0} imported, {1} records generated'.format(unzipped_xml, num_records))
                     """"
                     with open("/tmp/foo.json", "w") as text_file:
                         text_file.write(str(connection.queries))
                     break
                     """""
                     os.remove(unzipped_xml)
-                print('data for language {0} loaded'.format(language_code))
+                self.stdout.write('data for language {0} loaded'.format(language_code))
             end = timer()
-            print('data imported, operation took {0}s'.format(end - start))
+            self.stdout.write('data imported, operation took {0}s'.format(end - start))
         finally:
             if work_dir is not None:
                 work_dir.cleanup()
