@@ -36,24 +36,24 @@ class Command(BaseCommand):
 
             more_pages = False
             for affair_summary in affair_summaries:
-                affair_summery_id = affair_summary.find('id').text
-                affair_summery_updated = affair_summary.find('updated').text
-                affair_summery_formatted_id = affair_summary.find('formattedId').text
-                affair_summery_title = affair_summary.find('title').text
+                affair_summary_id = affair_summary.find('id').text
+                affair_summary_updated = affair_summary.find('updated').text
+                affair_summary_formatted_id = affair_summary.find('formattedId').text
+                affair_summary_title = affair_summary.find('title').text
                 if affair_summary.find('hasMorePages') is not None:
                     more_pages = 'true' == affair_summary.find('hasMorePages').text
                 if is_main:
-                    affair_summary_model, created = AffairSummary.objects.update_or_create(id=affair_summery_id,
+                    affair_summary_model, created = AffairSummary.objects.update_or_create(id=affair_summary_id,
                                                                                            defaults={
-                                                                                               'updated': affair_summery_updated,
-                                                                                               'formatted_id': affair_summery_formatted_id,
-                                                                                               'title': affair_summery_title})
+                                                                                               'updated': affair_summary_updated,
+                                                                                               'formatted_id': affair_summary_formatted_id,
+                                                                                               'title': affair_summary_title})
                 else:
-                    affair_summary_model, created = AffairSummary.objects.update_or_create(id=affair_summery_id,
-                                                                                           updated=affair_summery_updated,
-                                                                                           formatted_id=affair_summery_formatted_id,
+                    affair_summary_model, created = AffairSummary.objects.update_or_create(id=affair_summary_id,
+                                                                                           updated=affair_summary_updated,
+                                                                                           formatted_id=affair_summary_formatted_id,
                                                                                            defaults={
-                                                                                               'title': affair_summery_title
+                                                                                               'title': affair_summary_title
                                                                                            })
                     assert not created
 
