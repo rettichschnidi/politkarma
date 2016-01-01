@@ -3,3 +3,7 @@ About [![Build Status](https://travis-ci.org/rettichschnidi/politkarma.svg?branc
 
 Politkarma tracks and ranks the voting "performance" of politicians in the Swiss
 parliament.
+
+Contact                                                                   
+=======
+ * IRC: #politkarma on irc.freenode.net
