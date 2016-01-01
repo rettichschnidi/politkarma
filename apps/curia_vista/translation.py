@@ -8,6 +8,16 @@ class CouncilTranslationOptions(TranslationOptions):
     fields = ('name', 'abbreviation')
 
 
+@register(AffairSummary)
+class AffairSummaryTranslationOptions(TranslationOptions):
+    fields = ('title',)
+
+
+@register(LegislativePeriod)
+class LegislativePeriodTranslationOptions(TranslationOptions):
+    fields = ('name',)
+
+
 @register(Department)
 class DepartmentTranslationOptions(TranslationOptions):
     fields = ('name', 'abbreviation')
@@ -16,16 +26,6 @@ class DepartmentTranslationOptions(TranslationOptions):
 @register(Canton)
 class CantonTranslationOptions(TranslationOptions):
     fields = ('name',)
-
-
-@register(LegislativePeriod)
-class LegislativePeriodTranslationOptions(TranslationOptions):
-    fields = ('name',)
-
-
-@register(AffairSummary)
-class AffairSummaryTranslationOptions(TranslationOptions):
-    fields = ('title',)
 
 
 @register(Faction)
