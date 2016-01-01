@@ -1,0 +1,31 @@
+{% load i18n %}
+
+{% block content %}
+    <h1>{% trans 'Departemente' %}</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>
+                {% trans 'Name' %}
+            </th>
+            <th>
+                {% trans 'Kürzel' %}
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for department in departments %}
+            <tr>
+                <td>
+                    {{ department.name }}
+                </td>
+                <td>
+                    {{ department.abbreviation }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
