@@ -4,7 +4,7 @@ from django.db import transaction
 from politkarma import settings
 import requests
 
-from apps.curia_vista.models import *
+from apps.curia_vista.models import LegislativePeriod
 
 
 class Command(BaseCommand):

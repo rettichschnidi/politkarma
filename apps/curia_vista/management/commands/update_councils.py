@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 import requests
 
-from apps.curia_vista.models import *
+from apps.curia_vista.models import Council
 from politkarma import settings
 
 
