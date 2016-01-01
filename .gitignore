@@ -5,3 +5,4 @@ db.sqlite3
 */migrations/0*
 **/migrations/0*
 static/uploads
+db.sqlite3-journal
