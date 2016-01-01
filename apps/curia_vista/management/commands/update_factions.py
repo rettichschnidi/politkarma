@@ -67,7 +67,7 @@ class Command(BaseCommand):
                                                                                   'name': faction_name,
                                                                                   'short_name': faction_short_name
                                                                               })
-                    # assert not created
+                    assert not created
 
                 faction_model.save()
                 print(faction_model)
