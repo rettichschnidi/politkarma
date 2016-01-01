@@ -4,15 +4,19 @@ import tempfile
 import urllib.request
 from timeit import default_timer as timer
 from urllib.error import HTTPError
+from xml.etree import ElementTree
 from zipfile import ZipFile
 
 from django.core.management.base import BaseCommand
+from django.db import transaction
+
+from apps.curia_vista.models import *
 
 
 class Command(BaseCommand):
     help = 'updating vote db using xml files from parlament.ch'
     base_url = 'http://www.parlament.ch/d/wahlen-abstimmungen/abstimmungen-im-parlament/Documents/xml/'
-    language_codes = ['d', 'f', 'i']
+    language_codes = ['d']  # , 'f', 'i']
     default_language_code = 'd'
     files = ['4801-2007-wintersession-d.zip',
              '4802-2008-fruehjahrssession-d.zip',
@@ -145,18 +149,110 @@ class Command(BaseCommand):
         return fq_extracted_file
 
     @staticmethod
-    def import_xml(file):
+    def import_xml(file, councillor_index, affair_index, registered_cv_ids):
         """
         :param file: xml file to be imported
+        :param councillor_index
+        :param affair_index
+        :param registered_cv_ids
         :return: number of records loaded
         """
-        # TODO: write import logic
-        return 123
+        total_records_loaded = 0
+
+        with open(file) as fh:
+            model = ElementTree.fromstring(fh.read())
+            if not model:
+                raise ValueError("Not a valid XML file: {}".format(file))
+
+            with transaction.atomic():
+                # model contains affairs
+                for affair in model:
+                    # load affair from db
+                    affair_id = affair.find('id').text
+                    affair_model = affair_index[int(affair_id)]
+                    if affair_model is None:
+                        raise ValueError('unknown affair (id={0})'.format(affair_id))
+
+                    for affair_vote in affair.find('affairVotes'):
+                        start = timer()
+                        av_id = affair_vote.find('id').text
+                        av_date = affair_vote.find('date').text
+                        av_division_text = affair_vote.find('divisionText').text
+                        av_registration_number = affair_vote.find('registrationNumber').text
+                        av_meaning_no = affair_vote.find('meaningNo').text
+                        av_meaning_yes = affair_vote.find('meaningYes').text
+                        av_submission_text = affair_vote.find('submissionText').text
+
+                        av_model, created = AffairVote.objects.update_or_create(id=av_id,
+                                                                                defaults={'date': av_date,
+                                                                                          'division_text': av_division_text,
+                                                                                          'registration_number': av_registration_number,
+                                                                                          'meaning_no': av_meaning_no,
+                                                                                          'meaning_yes': av_meaning_yes,
+                                                                                          'submission_text': av_submission_text,
+                                                                                          'affair': affair_model})
+                        total_records_loaded += 1
+                        av_model.full_clean()
+                        av_model.save()
+
+                        records_loaded = Command.load_councillor_votes(affair_vote.find('councillorVotes'), av_model,
+                                                                       councillor_index, registered_cv_ids)
+                        total_records_loaded += records_loaded
+                        end = timer()
+                        print('affair vote {0}: {1} records loaded in {2}s'.format(av_id, records_loaded, end - start))
+
+        return total_records_loaded
+
+    @staticmethod
+    def load_councillor_votes(councillor_votes, affair_vote, councillor_index, registered_cv_ids):
+        """
+        :param councillor_votes: votes to be processed
+        :param affair_vote: current affair vote object
+        :param councillor_index: councillor index (map with id as key and councillor as value)
+        :return: number of records loaded
+        """
+
+        cv_objects = CouncillorVote.objects
+        records_loaded = 0
+        for councillor_vote in councillor_votes:
+            records_loaded += 1
+            cv_id = councillor_vote.find('id').text
+            cv_decision = 'Yes' == councillor_vote.find('decision').text
+            cv_number = councillor_vote.find('number').text
+
+            # load councillor from db
+            councillor = councillor_index[int(cv_number)]
+            if councillor is None:
+                raise ValueError('unknown councillor (id={0})'.format(cv_number))
+            if int(cv_id) in registered_cv_ids:
+                cv = cv_objects.get(id=cv_id)
+                cv.decision = cv_decision
+                cv.councillor = councillor
+                cv.affair_vote = affair_vote
+                cv.save()
+            else:
+                cv = cv_objects.create(id=cv_id, decision=cv_decision, councillor=councillor, affair_vote=affair_vote)
+                cv.save()
+                registered_cv_ids.add(int(cv_id))
+                """"
+                cv_model, cv_created = cv_objects.update_or_create(id=cv_id,
+                                                               defaults={
+                                                                   'decision': cv_decision,
+                                                                   'councillor': councillor,
+                                                                   'affair_vote': affair_vote})
+                cv_model.full_clean()
+                cv_model.save()
+                """
+        return records_loaded
 
     def handle(self, *args, **options):
         try:
             start = timer()
             work_dir = tempfile.TemporaryDirectory(prefix='curia_vista_vote_db_import')
+            councillor_index = {x.id: x for x in Councillor.objects.all()}
+            affair_index = {x.id: x for x in Affair.objects.all()}
+            registered_cv_ids = set({x.id for x in CouncillorVote.objects.all()})
+
             for language_code in Command.language_codes:
                 print('downloads for language {0}'.format(language_code))
                 for file in Command.files:
@@ -166,8 +262,13 @@ class Command(BaseCommand):
                     os.remove(zip_file_name)
 
                     # import data
-                    num_records = Command.import_xml(unzipped_xml)
+                    num_records = Command.import_xml(unzipped_xml, councillor_index, affair_index, registered_cv_ids)
                     print('xml file {0} imported, {1} records generated'.format(unzipped_xml, num_records))
+                    """"
+                    with open("/tmp/foo.json", "w") as text_file:
+                        text_file.write(str(connection.queries))
+                    break
+                    """""
                     os.remove(unzipped_xml)
                 print('data for language {0} loaded'.format(language_code))
             end = timer()

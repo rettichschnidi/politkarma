@@ -170,11 +170,12 @@ class Vote(models.Model):
 class AffairVote(models.Model):
     id = models.IntegerField(primary_key=True)
     date = models.DateTimeField()
-    division_text = models.CharField(max_length=1024)
-    meaning_no = models.CharField(max_length=1024)
-    meaning_yes = models.CharField(max_length=1024)
+    division_text = models.CharField(max_length=1024, null=True, blank=True)
+    meaning_no = models.CharField(max_length=1024, null=True, blank=True)
+    meaning_yes = models.CharField(max_length=1024, null=True, blank=True)
     registration_number = models.IntegerField()
-    submission_text = models.CharField(max_length=1024)
+    submission_text = models.CharField(max_length=1024, null=True, blank=True)
+    affair = models.ForeignKey(Affair)
 
     def __str__(self):
         return self.division_text
