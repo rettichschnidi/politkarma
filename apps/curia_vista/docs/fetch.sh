@@ -25,7 +25,7 @@ done
 
 #Fetch XML and XSD files from special URL
 fetchXml "http://ws.parlament.ch/Schedules/2015/ALL?format=xsd" > xsd-schemas/Schedules-2015-ALL.xsd
-fetchXml "http://ws.parlament.ch/Schedules/2015/ALLn?format=xml&lang=de" > xml-examples/Schedules-2015-ALL.xml
+fetchXml "http://ws.parlament.ch/Schedules/2015/ALL?format=xml&lang=de" > xml-examples/Schedules-2015-ALL.xml
 
 #Fetch PDFs
 fetch 'http://www.parlament.ch/d/dokumentation/webservices-opendata/Documents/webservices-info-dritte-d.pdf' > 'webservices-info-dritte-d.pdf'

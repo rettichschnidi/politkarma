@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schedules xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <schedule>
+    <id>930</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>Bü</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Walter</d3p1:string>
+      <d3p1:string>Maire Jacques-André</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-11-30T00:00:00Z</date>
+    <dateTitle>Montag, 30. November, 14.30 – 19.00 Uhr</dateTitle>
+    <department>Parl</department>
+    <number>15.067</number>
+    <session>IV</session>
+    <title>Nationalrat. Konstituierung und Vereidigung </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>931</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission/>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-11-30T00:00:00Z</date>
+    <dateTitle>Montag, 30. November, 14.30 – 19.00 Uhr</dateTitle>
+    <department>Parl</department>
+    <number>15.213</number>
+    <session>IV</session>
+    <title>Nationalrat. Wahl des Präsidiums (Präsidentin, 1. Vizepräsident, 2. Vizepräsident/In)</title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>932</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission/>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-11-30T00:00:00Z</date>
+    <dateTitle>Montag, 30. November, 14.30 – 19.00 Uhr</dateTitle>
+    <department>Parl</department>
+    <number>15.213</number>
+    <session>IV</session>
+    <title>Nationalrat. Wahlen der Stimmenzählenden und Ersatzstimmenzählenden </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>933</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>RK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Leutenegger Oberholzer</d3p1:string>
+      <d3p1:string>Barazzone</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-11-30T00:00:00Z</date>
+    <dateTitle>Montag, 30. November, 14.30 – 19.00 Uhr</dateTitle>
+    <department>EDA</department>
+    <number>14.039</number>
+    <session>IV</session>
+    <title>Sperrung und Rückerstattung unrechtmässig erworbener Vermögenswerte ausländischer politisch exponierter Personen. Bundesgesetz </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>934</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>FK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Carobbio Guscetti</d3p1:string>
+      <d3p1:string>Grin</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-11-30T00:00:00Z</date>
+    <dateTitle>Montag, 30. November, 14.30 – 19.00 Uhr</dateTitle>
+    <department>EDA</department>
+    <number>15.036</number>
+    <session>IV</session>
+    <title>FIPOI. Finanzhilfen zum Wiederaufbau des FISCR in Genf </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>935</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>UREK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Schilliger</d3p1:string>
+      <d3p1:string>Buttet</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-01T00:00:00Z</date>
+    <dateTitle>Dienstag, 1. Dezember, 08.00 - 13.00 Uhr</dateTitle>
+    <department>UVEK</department>
+    <number>14.019</number>
+    <session>IV</session>
+    <title>Für eine nachhaltige und ressourceneffiziente Wirtschaft (Grüne Wirtschaft). Volksinitiative und indirekter Gegenvorschlag </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>936</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>APK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-01T00:00:00Z</date>
+    <dateTitle>Dienstag, 1. Dezember, 08.00 - 13.00 Uhr</dateTitle>
+    <department>UVEK</department>
+    <number>15.3798</number>
+    <session>IV</session>
+    <title>Po. APK-NR. Internationale Klimafinanzierung </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>937</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>RK </commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-01T00:00:00Z</date>
+    <dateTitle>Dienstag, 1. Dezember, 08.00 - 13.00 Uhr</dateTitle>
+    <department>UVEK</department>
+    <number>13.3023</number>
+    <session>IV</session>
+    <title>Mo. Nationalrat (Regazzi). Totalrevision des Bundesgesetzes über die Enteignung </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>938</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>RK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-01T00:00:00Z</date>
+    <dateTitle>Dienstag, 1. Dezember, 08.00 - 13.00 Uhr</dateTitle>
+    <department>UVEK</department>
+    <number>13.3196</number>
+    <session>IV</session>
+    <title>Mo. Nationalrat (Ritter). Totalrevision des Bundesgesetzes über die Enteignung. Marktkonforme Entschädigung der Enteigneten </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>939</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>SiK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Hurter Thomas</d3p1:string>
+      <d3p1:string>Romano</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-02T00:00:00Z</date>
+    <dateTitle>Mittwoch, 2. Dezember, 08.00 – 11.45 Uhr; Nachmittags: Präsidentenfeiern</dateTitle>
+    <department>VBS</department>
+    <number>14.069</number>
+    <session>IV</session>
+    <title>Weiterentwicklung der Armee. Änderung der Rechtsgrundlagen </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>940</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>FK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Gmür</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-03T00:00:00Z</date>
+    <dateTitle>Donnerstag, 3. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EFD</department>
+    <number>15.041</number>
+    <session>IV</session>
+    <title>Voranschlag 2016 </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>941</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>FK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Feller</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-03T00:00:00Z</date>
+    <dateTitle>Donnerstag, 3. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EFD</department>
+    <number>15.042</number>
+    <session>IV</session>
+    <title>Voranschlag 2015. Nachtrag II </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>942</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>FK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Gmür</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-07T00:00:00Z</date>
+    <dateTitle>Montag, 7. Dezember, 14.30 – 21.45 Uhr</dateTitle>
+    <department>EFD</department>
+    <number>15.041</number>
+    <session>IV</session>
+    <title>Voranschlag 2016 </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>943</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>FK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Feller</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-07T00:00:00Z</date>
+    <dateTitle>Montag, 7. Dezember, 14.30 – 21.45 Uhr</dateTitle>
+    <department>EFD</department>
+    <number>15.042</number>
+    <session>IV</session>
+    <title>Voranschlag 2015. Nachtrag II </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>944</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>WAK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-07T00:00:00Z</date>
+    <dateTitle>Montag, 7. Dezember, 14.30 – 21.45 Uhr</dateTitle>
+    <department>EFD</department>
+    <number>13.479</number>
+    <session>IV</session>
+    <title>Pa.Iv. Gasche. Klarstellung der langjährigen Praxis beim Meldeverfahren bei der Verrechnungssteuer </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>945</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>WAK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Leutenegger Oberholzer</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-07T00:00:00Z</date>
+    <dateTitle>Montag, 7. Dezember, 14.30 – 21.45 Uhr</dateTitle>
+    <department>EFD</department>
+    <number>15.047</number>
+    <session>IV</session>
+    <title>Amtshilfe in Steuersachen. Übereinkommen des Europarates und der OECD. Genehmigung </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>946</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>WAK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-07T00:00:00Z</date>
+    <dateTitle>Montag, 7. Dezember, 14.30 – 21.45 Uhr</dateTitle>
+    <department>EFD</department>
+    <number>15.046</number>
+    <session>IV</session>
+    <title>Internationaler automatischer Informationsaustausch im Steuerbereich. Bundesgesetz </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>947</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>WAK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Ritter</d3p1:string>
+      <d3p1:string>Marra</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-07T00:00:00Z</date>
+    <dateTitle>Montag, 7. Dezember, 14.30 – 21.45 Uhr</dateTitle>
+    <department>EFD</department>
+    <number>15.056</number>
+    <session>IV</session>
+    <title>Doppelbesteuerung. Abkommen mit Italien </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>948</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>WAK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-07T00:00:00Z</date>
+    <dateTitle>Montag, 7. Dezember, 14.30 – 21.45 Uhr</dateTitle>
+    <department>EFD</department>
+    <number>15.3220</number>
+    <session>IV</session>
+    <title>Mo. Ständerat (Abate). Beteiligungskapital für Genossenschaftsbanken </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>949</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>FK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Wermuth</d3p1:string>
+      <d3p1:string>Gschwind</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-07T00:00:00Z</date>
+    <dateTitle>Montag, 7. Dezember, 14.30 – 21.45 Uhr</dateTitle>
+    <department>EFD</department>
+    <number>15.3494</number>
+    <session>IV</session>
+    <title>Mo. Ständerat (FK-SR). Bestand des Bundespersonals auf dem Stand von 2015 einfrieren </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>950</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>FK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Gysi</d3p1:string>
+      <d3p1:string>Feller</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-07T00:00:00Z</date>
+    <dateTitle>Montag, 7. Dezember, 14.30 – 21.45 Uhr</dateTitle>
+    <department>EFD</department>
+    <number>15.3828</number>
+    <session>IV</session>
+    <title>Mo. FK-NR. Unterstellung der Suva unter die Finanzaufsicht der Eidgenössischen Finanzkontrolle (EFK) </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>951</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>Bü</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-08T00:00:00Z</date>
+    <dateTitle>Dienstag, 8. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>Parl</department>
+    <number>15.217</number>
+    <session>IV</session>
+    <title>Vereidigungen </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>952</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>SGK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Humbel</d3p1:string>
+      <d3p1:string>Steiert</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-08T00:00:00Z</date>
+    <dateTitle>Dienstag, 8. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EDI</department>
+    <number>15.020</number>
+    <session>IV</session>
+    <title>KVG. Steuerung des ambulanten Bereichs </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>953</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>SGK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>de Courten</d3p1:string>
+      <d3p1:string>Steiert</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-08T00:00:00Z</date>
+    <dateTitle>Dienstag, 8. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EDI</department>
+    <number>12.080</number>
+    <session>IV</session>
+    <title>Heilmittelgesetz. Änderung </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>954</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>SGK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Carobbio Guscetti</d3p1:string>
+      <d3p1:string>Clottu</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-08T00:00:00Z</date>
+    <dateTitle>Dienstag, 8. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EDI</department>
+    <number>14.074</number>
+    <session>IV</session>
+    <title>Krebsregistrierungsgesetz </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>955</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>SGK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Schmid-Federer</d3p1:string>
+      <d3p1:string>Moret</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-08T00:00:00Z</date>
+    <dateTitle>Dienstag, 8. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EDI</department>
+    <number>13.080</number>
+    <session>IV</session>
+    <title>KVG. Risikoausgleich; Trennung von Grund- und Zusatzversicherung </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>956</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>WAK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Pardini</d3p1:string>
+      <d3p1:string>de Buman</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-08T00:00:00Z</date>
+    <dateTitle>Dienstag, 8. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EDI</department>
+    <number>14.3728</number>
+    <session>IV</session>
+    <title>Mo. Ständerat (Niederberger). Regulierungskosten für die Wirtschaft. Unnötige Administrativarbeiten für die AHV abschaffen </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>957</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission/>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-09T00:00:00Z</date>
+    <dateTitle>Mittwoch, 9. Dezember, 08.00 – open end</dateTitle>
+    <department>VBV</department>
+    <number>15.211</number>
+    <session>IV</session>
+    <title>Bundesrat </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>958</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission/>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-09T00:00:00Z</date>
+    <dateTitle>Mittwoch, 9. Dezember, 08.00 – open end</dateTitle>
+    <department>VBV</department>
+    <number>15.212</number>
+    <session>IV</session>
+    <title>Bundeskanzlerin/Bundeskanzler. Wahl für die neue Amtsperiode </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>959</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission/>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-09T00:00:00Z</date>
+    <dateTitle>Mittwoch, 9. Dezember, 08.00 – open end</dateTitle>
+    <department>VBV</department>
+    <number>15.211</number>
+    <session>IV</session>
+    <title>Wahl des Bundespräsidenten und der Vizepräsidentin des Bundesrates für 2016</title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>960</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>FK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Gmür Alois</d3p1:string>
+      <d3p1:string>Feller</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-10T00:00:00Z</date>
+    <dateTitle>Donnerstag, 10. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EFD</department>
+    <number>15.041</number>
+    <session>IV</session>
+    <title>Voranschlag 2016 </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>961</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission/>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-10T00:00:00Z</date>
+    <dateTitle>Donnerstag, 10. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EJPD</department>
+    <number>15.3842</number>
+    <session>IV</session>
+    <title>Mo. Fraktion V. Systematische Grenzkontrollen sofort einführen </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>962</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission/>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-10T00:00:00Z</date>
+    <dateTitle>Donnerstag, 10. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EJPD</department>
+    <number>15.3141</number>
+    <session>IV</session>
+    <title>Mo. Grunder. Bessere Integration von Asylbewerbern in den Arbeitsmarkt </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>963</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission/>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-10T00:00:00Z</date>
+    <dateTitle>Donnerstag, 10. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EJPD</department>
+    <number>15.3484</number>
+    <session>IV</session>
+    <title>Mo. Fraktion G. Flüchtlingstragödien im Mittelmeer. Rasch und massiv konkret vor Ort helfen und Türen in der Festung Europa schaffen </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>964</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission/>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-10T00:00:00Z</date>
+    <dateTitle>Donnerstag, 10. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EJPD</department>
+    <number>15.3801</number>
+    <session>IV</session>
+    <title>Mo. Fraktion RL. Nur noch vorläufiger Schutz für Asylsuchende aus Eritrea </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>965</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission/>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-10T00:00:00Z</date>
+    <dateTitle>Donnerstag, 10. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EJPD</department>
+    <number>15.3863</number>
+    <session>IV</session>
+    <title>Mo. Fraktion GL. Flüchtlingswelle. Strategie des Bundesrates </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>966</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission/>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-10T00:00:00Z</date>
+    <dateTitle>Donnerstag, 10. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EJPD</department>
+    <number>15.3896</number>
+    <session>IV</session>
+    <title>Po. Fraktion S. Wirtschaftliche Vorteile dank Schengen-Partnerschaft </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>967</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission/>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-10T00:00:00Z</date>
+    <dateTitle>Donnerstag, 10. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EJPD</department>
+    <number>15.3999</number>
+    <session>IV</session>
+    <title>Mo. Fraktion CE. Gesamtheitliche Strategie zu den aktuellen Herausforderungen in der Asylpolitik </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>968</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>RK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-10T00:00:00Z</date>
+    <dateTitle>Donnerstag, 10. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EJPD</department>
+    <number>15.3502</number>
+    <session>IV</session>
+    <title>Po. RK-NR. Recht auf Teilnahme am Beweisverfahren. Überprüfung bei der Anpassung der Strafprozessordnung </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>969</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>RK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Vogler</d3p1:string>
+      <d3p1:string>Ruiz Rebecca</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-10T00:00:00Z</date>
+    <dateTitle>Donnerstag, 10. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EJPD</department>
+    <number>15.3008</number>
+    <session>IV</session>
+    <title>Mo. Ständerat (RK-SR). Artikel 260ter des Strafgesetzbuches. Änderung </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>970</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>RK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Flach</d3p1:string>
+      <d3p1:string>Ruiz Rebecca</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-10T00:00:00Z</date>
+    <dateTitle>Donnerstag, 10. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EJPD</department>
+    <number>15.3501</number>
+    <session>IV</session>
+    <title>Po. RK-NR. Leihmutterschaft. Für eine nationale Sensibilisierungskampagne </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>971</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>RK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Guhl</d3p1:string>
+      <d3p1:string>Ruiz Rebecca</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-14T00:00:00Z</date>
+    <dateTitle>Montag, 14. Dezember, 14.30 – 19.00 Uhr</dateTitle>
+    <department>EDA</department>
+    <number>13.105</number>
+    <session>IV</session>
+    <title>Internationales Übereinkommen zum Schutz aller Personen vor dem Verschwindenlassen. Genehmigung </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>972</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>APK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Büchel Roland</d3p1:string>
+      <d3p1:string>Fiala</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-14T00:00:00Z</date>
+    <dateTitle>Montag, 14. Dezember, 14.30 – 19.00 Uhr</dateTitle>
+    <department>WBF</department>
+    <number>15.059</number>
+    <session>IV</session>
+    <title>Asiatische Infrastruktur-Investitionsbank. Beitritt </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>973</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>WAK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Flückiger Sylvia</d3p1:string>
+      <d3p1:string>de Buman</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-14T00:00:00Z</date>
+    <dateTitle>Montag, 14. Dezember, 14.30 – 19.00 Uhr</dateTitle>
+    <department>WBF</department>
+    <number>15.3210</number>
+    <session>IV</session>
+    <title>Mo. Ständerat (Fournier). Senkung der unnötigen Verwaltungskosten. Sofortige Umsetzung </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>974</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>APK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-14T00:00:00Z</date>
+    <dateTitle>Montag, 14. Dezember, 14.30 – 19.00 Uhr</dateTitle>
+    <department>WBF</department>
+    <number>15.3599</number>
+    <session>IV</session>
+    <title>Mo. Ständerat (Keller-Sutter). Frankenstärke. Umsetzung der Euro-Med-Konvention </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>975</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>RK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-14T00:00:00Z</date>
+    <dateTitle>Montag, 14. Dezember, 14.30 – 19.00 Uhr</dateTitle>
+    <department>EJPD</department>
+    <number>11.011</number>
+    <session>IV</session>
+    <title>Pflichten und Rechte von rechtsberatend oder forensisch tätigen Angestellten. Gleichstellung mit freiberuflichen Anwältinnen und Anwälten. Abschreibung </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>976</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>SPK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <council>N</council>
+    <date>2015-12-14T00:00:00Z</date>
+    <dateTitle>Montag, 14. Dezember, 14.30 – 19.00 Uhr</dateTitle>
+    <department>EJPD</department>
+    <number>10.052</number>
+    <session>IV</session>
+    <title>Asylgesetz. Änderung </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>977</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>RK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Kiener Nellen</d3p1:string>
+      <d3p1:string>Lüscher</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-14T00:00:00Z</date>
+    <dateTitle>Montag, 14. Dezember, 14.30 – 19.00 Uhr</dateTitle>
+    <department>EJPD</department>
+    <number>15.038</number>
+    <session>IV</session>
+    <title>Europäisches Auslieferungsübereinkommen. Genehmigung des dritten und vierten Zusatzprotokolls </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>978</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <commission>FK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Gmür Alois</d3p1:string>
+      <d3p1:string>Feller</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-15T00:00:00Z</date>
+    <dateTitle>Dienstag, 15. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EFD</department>
+    <number>15.041</number>
+    <session>IV</session>
+    <title>Voranschlag 2016 </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+  <schedule>
+    <id>979</id>
+    <updated>2015-12-16T12:14:49Z</updated>
+    <hasMorePages>true</hasMorePages>
+    <commission>SiK</commission>
+    <correspondents xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:string>Müller Walter</d3p1:string>
+      <d3p1:string>Romano</d3p1:string>
+    </correspondents>
+    <council>N</council>
+    <date>2015-12-15T00:00:00Z</date>
+    <dateTitle>Dienstag, 15. Dezember, 08.00 – 13.00 Uhr</dateTitle>
+    <department>EFD</department>
+    <number>15.029</number>
+    <session>IV</session>
+    <title>Zollgesetz. Teilrevision </title>
+    <created>2015-12-16T12:14:49Z</created>
+  </schedule>
+</schedules>
