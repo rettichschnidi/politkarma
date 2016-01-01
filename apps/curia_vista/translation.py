@@ -15,3 +15,8 @@ class DepartmentTranslationOptions(TranslationOptions):
 @register(Canton)
 class CantonTranslationOptions(TranslationOptions):
     fields = ('name',)
+
+
+@register(LegislativePeriod)
+class LegislativePeriodTranslationOptions(TranslationOptions):
+    fields = ('name',)

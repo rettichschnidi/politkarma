@@ -83,11 +83,8 @@ class LegislativePeriod(models.Model):
     updated = models.DateTimeField()
     code = models.IntegerField()
     from_date = models.DateTimeField()
+    name = models.CharField(unique=True, max_length=255)
     to_date = models.DateTimeField()
-
-    @property
-    def name(self):
-        return _('{}. Legislatur'.format(self.code))
 
     def __str__(self):
         return self.name
