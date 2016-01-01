@@ -5,3 +5,8 @@ from apps.curia_vista.models import *
 @register(Council)
 class CouncilTranslationOptions(TranslationOptions):
     fields = ('name', 'abbreviation')
+
+
+@register(Department)
+class DepartmentTranslationOptions(TranslationOptions):
+    fields = ('name', 'abbreviation')
