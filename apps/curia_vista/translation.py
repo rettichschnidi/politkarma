@@ -10,3 +10,8 @@ class CouncilTranslationOptions(TranslationOptions):
 @register(Department)
 class DepartmentTranslationOptions(TranslationOptions):
     fields = ('name', 'abbreviation')
+
+
+@register(Canton)
+class CantonTranslationOptions(TranslationOptions):
+    fields = ('name',)
