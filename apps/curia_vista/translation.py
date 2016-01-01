@@ -36,3 +36,8 @@ class FactionTranslationOptions(TranslationOptions):
 @register(Session)
 class SessionTranslationOptions(TranslationOptions):
     fields = ('name',)
+
+
+@register(Party)
+class PartyTranslationOptions(TranslationOptions):
+    fields = ('name', 'abbreviation')
