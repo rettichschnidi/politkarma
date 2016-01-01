@@ -20,3 +20,8 @@ class CantonTranslationOptions(TranslationOptions):
 @register(LegislativePeriod)
 class LegislativePeriodTranslationOptions(TranslationOptions):
     fields = ('name',)
+
+
+@register(AffairSummary)
+class AffairSummaryTranslationOptions(TranslationOptions):
+    fields = ('title',)
