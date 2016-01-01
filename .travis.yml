@@ -7,3 +7,4 @@ install:
   - python manage.py migrate --noinput
 script:
 - python manage.py test
+- python manage.py update_all
