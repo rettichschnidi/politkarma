@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.translation import ugettext as _
 
 
 # 4.1 Councils
@@ -116,7 +115,7 @@ class Canton(models.Model):
 
 # 4.10 Parliamentary groups
 class Faction(models.Model):
-    id = models.IntegerField(primary_key=True)
+    the_id = models.IntegerField()
     updated = models.DateTimeField()
     abbreviation = models.CharField(max_length=255)
     code = models.CharField(max_length=255)
@@ -124,6 +123,9 @@ class Faction(models.Model):
     to_date = models.DateTimeField(null=True, blank=True)
     name = models.CharField(max_length=255)
     short_name = models.CharField(max_length=255)
+
+    class Meta:
+        unique_together = ('the_id', 'from_date')
 
     def __str__(self):
         return self.name

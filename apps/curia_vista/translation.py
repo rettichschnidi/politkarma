@@ -1,4 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
+
 from apps.curia_vista.models import *
 
 
@@ -25,3 +26,8 @@ class LegislativePeriodTranslationOptions(TranslationOptions):
 @register(AffairSummary)
 class AffairSummaryTranslationOptions(TranslationOptions):
     fields = ('title',)
+
+
+@register(Faction)
+class FactionTranslationOptions(TranslationOptions):
+    fields = ('name', 'short_name')

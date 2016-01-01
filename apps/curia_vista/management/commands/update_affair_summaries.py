@@ -3,9 +3,9 @@ from xml.etree import ElementTree
 import requests
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
-from politkarma import settings
 
 from apps.curia_vista.models import *
+from politkarma import settings
 
 
 class Command(BaseCommand):
@@ -64,7 +64,7 @@ class Command(BaseCommand):
             self.stdout.write("Finished importing from {}".format(cur_url))
             if not more_pages:
                 break
-        self.stdout.write("Done")
+        self.stdout.write('Done language ' + lang)
 
     def handle(self, *args, **options):
         is_main = True
