@@ -218,7 +218,7 @@ class Command(BaseCommand):
             records_loaded += 1
             cv_id = councillor_vote.find('id').text
             cv_decision = 'Yes' == councillor_vote.find('decision').text
-            cv_number = councillor_vote.find('number').text
+            cv_number = councillor_vote.find('bioId').text
 
             # load councillor from db
             councillor = councillor_index[int(cv_number)]
