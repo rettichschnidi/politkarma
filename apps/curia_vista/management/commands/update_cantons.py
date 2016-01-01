@@ -50,6 +50,7 @@ class Command(BaseCommand):
                                                                         defaults={
                                                                             'name': canton_name
                                                                         })
+                assert not created
             canton_model.full_clean()
             canton_model.save()
             print(canton_model)

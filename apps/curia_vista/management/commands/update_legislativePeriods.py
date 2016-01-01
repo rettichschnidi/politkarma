@@ -53,6 +53,7 @@ class Command(BaseCommand):
                                                                                    defaults={
                                                                                        'name': period_name
                                                                                    })
+                assert not created
             period_model.full_clean()
             period_model.save()
             print(period_model)

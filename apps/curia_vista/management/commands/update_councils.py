@@ -51,6 +51,7 @@ class Command(BaseCommand):
                                                                               'name': council_name,
                                                                               'abbreviation': council_abbreviation,
                                                                           })
+                assert not created
             council_model.full_clean()
             council_model.save()
             print(council_model)

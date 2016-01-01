@@ -50,6 +50,7 @@ class Command(BaseCommand):
                                                                                     'name': department_name,
                                                                                     'abbreviation': department_abbreviation,
                                                                                 })
+                assert not created
             department_model.full_clean()
             department_model.save()
             print(department_model)
