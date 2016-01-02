@@ -193,13 +193,46 @@ class Command(BaseCommand):
                         av_model.full_clean()
                         av_model.save()
 
+                        total_records_loaded += Command.load_totals(av_model, affair_vote.find('totalVotes'),
+                                                                    affair_vote.find('filteredTotalVotes'))
+
                         records_loaded = Command.load_councillor_votes(affair_vote.find('councillorVotes'), av_model,
                                                                        councillor_index, registered_cv_ids)
                         total_records_loaded += records_loaded
-                        end = timer()
-                        self.stdout.write('affair vote {0}: {1} records loaded in {2}s'.format(av_id, records_loaded, end - start))
+                        self.stdout.write('affair vote {0}: {1} records loaded in {2}s'.format(av_id, records_loaded,
+                                                                                               timer() - start))
 
         return total_records_loaded
+
+    @staticmethod
+    def load_totals(affair_vote, totals, filtered_totals):
+        """
+        :param affair_vote: affair vote reference
+        :param totals: xml node containing totals
+        :param filtered_totals: xml note containing filtered totals
+        :return: number of records loaded
+        """
+        records_loaded = 0
+        for total in totals:
+            total_type = total.find('type').text
+            total_count = total.find('count').text
+            total_model, created = AffairVoteTotal.objects.update_or_create(type=total_type, affair_vote=affair_vote,
+                                                                            defaults={'count': total_count})
+            total_model.full_clean()
+            total_model.save()
+            records_loaded += 1
+
+        for filtered_total in filtered_totals:
+            filtered_total_type = filtered_total.find('type').text
+            filtered_total_count = filtered_total.find('count').text
+            filtered_total_model, created = FilteredAffairVoteTotal.objects.update_or_create(type=filtered_total_type,
+                                                                                             affair_vote=affair_vote,
+                                                                                             defaults={
+                                                                                                 'count': filtered_total_count})
+            filtered_total_model.full_clean()
+            filtered_total_model.save()
+            records_loaded += 1
+        return records_loaded
 
     @staticmethod
     def load_councillor_votes(councillor_votes, affair_vote, councillor_index, registered_cv_ids):
@@ -209,7 +242,6 @@ class Command(BaseCommand):
         :param councillor_index: councillor index (map with id as key and councillor as value)
         :return: number of records loaded
         """
-
         cv_objects = CouncillorVote.objects
         records_loaded = 0
         for councillor_vote in councillor_votes:
@@ -269,8 +301,7 @@ class Command(BaseCommand):
                     """""
                     os.remove(unzipped_xml)
                 self.stdout.write('data for language {0} loaded'.format(language_code))
-            end = timer()
-            self.stdout.write('data imported, operation took {0}s'.format(end - start))
+            self.stdout.write('data imported, operation took {0}s'.format(timer() - start))
         finally:
             if work_dir is not None:
                 work_dir.cleanup()

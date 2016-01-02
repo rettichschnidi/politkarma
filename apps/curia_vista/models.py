@@ -170,7 +170,7 @@ class Vote(models.Model):
         return self.title
 
 
-#
+# affair vote, represents a single vote one on one affair. An affair can have multiple votes
 class AffairVote(models.Model):
     id = models.IntegerField(primary_key=True)
     date = models.DateTimeField()
@@ -185,7 +185,7 @@ class AffairVote(models.Model):
         return self.division_text
 
 
-#
+# Councillor vote represents the decision of a single councillor in a AffairVote
 class CouncillorVote(models.Model):
     id = models.IntegerField(primary_key=True)
     decision = models.CharField(max_length=255)
@@ -194,3 +194,29 @@ class CouncillorVote(models.Model):
 
     def __str__(self):
         return self.decision
+
+
+#
+class AffairVoteTotal(models.Model):
+    type = models.CharField(max_length=8)
+    count = models.IntegerField()
+    affair_vote = models.ForeignKey(AffairVote)
+
+    class Meta:
+        unique_together = ('type', 'affair_vote')
+
+    def __str__(self):
+        return "{} {}".format(self.type, self.count)
+
+
+#
+class FilteredAffairVoteTotal(models.Model):
+    type = models.CharField(max_length=8)
+    count = models.IntegerField()
+    affair_vote = models.ForeignKey(AffairVote)
+
+    class Meta:
+        unique_together = ('type', 'affair_vote')
+
+    def __str__(self):
+        return "{} {}".format(self.type, self.count)
