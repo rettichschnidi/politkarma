@@ -9,14 +9,15 @@ from zipfile import ZipFile
 
 from django.core.management.base import BaseCommand
 from django.db import transaction
+from django.utils import translation
 
 from apps.curia_vista.models import *
+from politkarma import settings
 
 
 class Command(BaseCommand):
     help = 'updating vote db using xml files from parlament.ch'
     base_url = 'http://www.parlament.ch/d/wahlen-abstimmungen/abstimmungen-im-parlament/Documents/xml/'
-    language_codes = ['d']  # , 'f', 'i']
     default_language_code = 'd'
     files = ['4801-2007-wintersession-d.zip',
              '4802-2008-fruehjahrssession-d.zip',
@@ -105,7 +106,7 @@ class Command(BaseCommand):
         downloads a file to the work dir
         :param work_dir: working directory
         :param file: file to be downloaded
-        :param language_code: language code to be used
+        :param language_code: single character language code to be used
         :return: file name of downloaded file
         """
         url = Command.build_url(language_code, file)
@@ -147,14 +148,16 @@ class Command(BaseCommand):
         return fq_extracted_file
 
     @transaction.atomic
-    def import_xml(self, file, councillor_index, affair_index, registered_cv_ids):
+    def import_xml(self, file, councillor_index, affair_index, registered_cv_ids, language_code):
         """
         :param file: xml file to be imported
-        :param councillor_index
-        :param affair_index
-        :param registered_cv_ids
+        :param councillor_index map containing all councillors, id is key
+        :param affair_index map containing all affairs, id is key
+        :param registered_cv_ids set containing ids of already registered councillor votes
+        :param language_code two character language code
         :return: number of records loaded
         """
+        translation.activate(language_code)
         total_records_loaded = 0
 
         with open(file) as fh:
@@ -162,45 +165,44 @@ class Command(BaseCommand):
             if not model:
                 raise ValueError("Not a valid XML file: {}".format(file))
 
-            with transaction.atomic():
-                # model contains affairs
-                for affair in model:
-                    # load affair from db
-                    affair_id = affair.find('id').text
-                    affair_model = affair_index[int(affair_id)]
-                    if affair_model is None:
-                        raise ValueError('unknown affair (id={0})'.format(affair_id))
+            # model contains affairs
+            for affair in model:
+                # load affair from db
+                affair_id = affair.find('id').text
+                affair_model = affair_index[int(affair_id)]
+                if affair_model is None:
+                    raise ValueError('unknown affair (id={0})'.format(affair_id))
 
-                    for affair_vote in affair.find('affairVotes'):
-                        start = timer()
-                        av_id = affair_vote.find('id').text
-                        av_date = affair_vote.find('date').text
-                        av_division_text = affair_vote.find('divisionText').text
-                        av_registration_number = affair_vote.find('registrationNumber').text
-                        av_meaning_no = affair_vote.find('meaningNo').text
-                        av_meaning_yes = affair_vote.find('meaningYes').text
-                        av_submission_text = affair_vote.find('submissionText').text
+                for affair_vote in affair.find('affairVotes'):
+                    start = timer()
+                    av_id = affair_vote.find('id').text
+                    av_date = affair_vote.find('date').text
+                    av_division_text = affair_vote.find('divisionText').text
+                    av_registration_number = affair_vote.find('registrationNumber').text
+                    av_meaning_no = affair_vote.find('meaningNo').text
+                    av_meaning_yes = affair_vote.find('meaningYes').text
+                    av_submission_text = affair_vote.find('submissionText').text
 
-                        av_model, created = AffairVote.objects.update_or_create(id=av_id,
-                                                                                defaults={'date': av_date,
-                                                                                          'division_text': av_division_text,
-                                                                                          'registration_number': av_registration_number,
-                                                                                          'meaning_no': av_meaning_no,
-                                                                                          'meaning_yes': av_meaning_yes,
-                                                                                          'submission_text': av_submission_text,
-                                                                                          'affair': affair_model})
-                        total_records_loaded += 1
-                        av_model.full_clean()
-                        av_model.save()
+                    av_model, created = AffairVote.objects.update_or_create(id=av_id,
+                                                                            defaults={'date': av_date,
+                                                                                      'division_text': av_division_text,
+                                                                                      'registration_number': av_registration_number,
+                                                                                      'meaning_no': av_meaning_no,
+                                                                                      'meaning_yes': av_meaning_yes,
+                                                                                      'submission_text': av_submission_text,
+                                                                                      'affair': affair_model})
+                    total_records_loaded += 1
+                    av_model.full_clean()
+                    av_model.save()
 
-                        total_records_loaded += Command.load_totals(av_model, affair_vote.find('totalVotes'),
-                                                                    affair_vote.find('filteredTotalVotes'))
+                    total_records_loaded += Command.load_totals(av_model, affair_vote.find('totalVotes'),
+                                                                affair_vote.find('filteredTotalVotes'))
 
-                        records_loaded = Command.load_councillor_votes(affair_vote.find('councillorVotes'), av_model,
-                                                                       councillor_index, registered_cv_ids)
-                        total_records_loaded += records_loaded
-                        self.stdout.write('affair vote {0}: {1} records loaded in {2}s'.format(av_id, records_loaded,
-                                                                                               timer() - start))
+                    records_loaded = Command.load_councillor_votes(affair_vote.find('councillorVotes'), av_model,
+                                                                   councillor_index, registered_cv_ids)
+                    total_records_loaded += records_loaded
+                    self.stdout.write('affair vote {0}: {1} records loaded in {2}s'.format(av_id, records_loaded,
+                                                                                           timer() - start))
 
         return total_records_loaded
 
@@ -275,6 +277,7 @@ class Command(BaseCommand):
                 """
         return records_loaded
 
+    @transaction.atomic
     def handle(self, *args, **options):
         try:
             start = timer()
@@ -283,16 +286,17 @@ class Command(BaseCommand):
             affair_index = {x.id: x for x in Affair.objects.all()}
             registered_cv_ids = set({x.id for x in CouncillorVote.objects.all()})
 
-            for language_code in Command.language_codes:
+            for language_code in [x[0] for x in settings.LANGUAGES]:
                 self.stdout.write('downloads for language {0}'.format(language_code))
                 for file in Command.files:
                     # download and extract
-                    zip_file_name = self.download_file(work_dir, file, language_code)
+                    zip_file_name = self.download_file(work_dir, file, language_code[0])
                     unzipped_xml = self.extract_xml(zip_file_name, work_dir)
                     os.remove(zip_file_name)
 
                     # import data
-                    num_records = self.import_xml(unzipped_xml, councillor_index, affair_index, registered_cv_ids)
+                    num_records = self.import_xml(unzipped_xml, councillor_index, affair_index, registered_cv_ids,
+                                                  language_code)
                     self.stdout.write('xml file {0} imported, {1} records generated'.format(unzipped_xml, num_records))
                     """"
                     with open("/tmp/foo.json", "w") as text_file:
