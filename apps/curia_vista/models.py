@@ -188,7 +188,7 @@ class AffairVote(models.Model):
 #
 class CouncillorVote(models.Model):
     id = models.IntegerField(primary_key=True)
-    decision = models.BooleanField()
+    decision = models.CharField(max_length=255)
     councillor = models.ForeignKey(Councillor)
     affair_vote = models.ForeignKey(AffairVote)
 
