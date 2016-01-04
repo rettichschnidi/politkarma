@@ -1,0 +1,39 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parteien</title>
+</head>
+<body>
+
+{% block content %}
+    <h1>{% trans 'Parteien' %}</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>
+                {% trans 'Parteien' %}
+            </th>
+            <th>
+                {% trans 'Kürzel' %}
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for party in parties %}
+            <tr>
+                <td>
+                    {{ party.name }}
+                </td>
+                <td>
+                    {{ party.abbreviation }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+</body>
+</html>
