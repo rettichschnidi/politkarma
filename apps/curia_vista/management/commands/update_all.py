@@ -2,7 +2,10 @@ from timeit import default_timer as timer
 
 from django.core.management.base import BaseCommand
 
+from apps.curia_vista.management.commands.update_affair_states import Command as ImportCommandAffairStates
 from apps.curia_vista.management.commands.update_affair_summaries import Command as ImportCommandAffairSummaries
+from apps.curia_vista.management.commands.update_affair_topics import Command as ImportCommandAffairTopics
+from apps.curia_vista.management.commands.update_affair_types import Command as ImportCommandAffairTypes
 from apps.curia_vista.management.commands.update_affairs import Command as ImportCommandAffairs
 from apps.curia_vista.management.commands.update_cantons import Command as ImportCommandCanton
 from apps.curia_vista.management.commands.update_committee import Command as ImportCommandCommittee
@@ -18,6 +21,9 @@ from apps.curia_vista.management.commands.update_sessions import Command as Impo
 class Command(BaseCommand):
     help = 'Import/update all data from parlament.ch'
     commands = [
+        ImportCommandAffairStates,
+        ImportCommandAffairTopics,
+        ImportCommandAffairTypes,
         ImportCommandAffairs,
         ImportCommandAffairSummaries,
         ImportCommandCanton,

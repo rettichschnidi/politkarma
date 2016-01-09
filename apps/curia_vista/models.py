@@ -50,6 +50,39 @@ class Affair(models.Model):
         return self.short_id
 
 
+class AffairType(models.Model):
+    id = models.IntegerField(primary_key=True)
+    updated = models.DateTimeField()
+    code = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+
+class AffairTopic(models.Model):
+    id = models.IntegerField(primary_key=True)
+    updated = models.DateTimeField()
+    code = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+
+class AffairState(models.Model):
+    id = models.IntegerField(primary_key=True)
+    updated = models.DateTimeField()
+    code = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    # see http://stackoverflow.com/questions/524714/does-python-have-class-prototypes-or-forward-declarations
+    parent = models.ForeignKey('AffairState', null=True, blank=True)
+    sorting = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+
 # 4.5 Summaries
 class AffairSummary(models.Model):
     id = models.IntegerField(primary_key=True)

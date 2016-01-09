@@ -13,6 +13,21 @@ class AffairSummaryTranslationOptions(TranslationOptions):
     fields = ('title',)
 
 
+@register(AffairTopic)
+class AffairTopicTranslationOptions(TranslationOptions):
+    fields = ('name',)
+
+
+@register(AffairState)
+class AffairStateTranslationOptions(TranslationOptions):
+    fields = ('name',)
+
+
+@register(AffairType)
+class AffairTypeTranslationOptions(TranslationOptions):
+    fields = ('name',)
+
+
 @register(Committee)
 class CommitteeTranslationOptions(TranslationOptions):
     fields = ('name', 'abbreviation')
