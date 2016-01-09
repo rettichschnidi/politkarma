@@ -11,7 +11,6 @@ from politkarma import settings
 class Command(BaseCommand):
     help = 'Import affair states from parlament.ch'
 
-    @transaction.atomic
     def update(self, resource_url, lang, is_main):
         from django.utils import translation
         translation.activate(lang)
@@ -37,9 +36,6 @@ class Command(BaseCommand):
             affair_state_sorting = affair_state.find('sorting').text
             affair_state_parent = None
             if affair_state.find('parent') is not None:
-                # print('--------------------------------------')
-                # print(affair_state.find('parent'))
-                # print(affair_state.find('parent').find('id'))
                 affair_state_parent = AffairState.objects.get(pk=affair_state.find('parent').find('id').text)
                 assert affair_state_parent is not None
 

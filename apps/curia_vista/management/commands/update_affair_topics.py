@@ -11,7 +11,6 @@ from politkarma import settings
 class Command(BaseCommand):
     help = 'Import affair topics from parlament.ch'
 
-    @transaction.atomic
     def update(self, resource_url, lang, is_main):
         from django.utils import translation
         translation.activate(lang)
