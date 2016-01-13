@@ -70,7 +70,7 @@ class Command(BaseCommand):
                     assert not created
 
                 faction_model.save()
-                print(faction_model)
+                self.stdout.write(str(faction_model))
 
             self.stdout.write("Finished importing from {}".format(cur_url))
             if not more_pages:

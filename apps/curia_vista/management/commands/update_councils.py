@@ -54,7 +54,7 @@ class Command(BaseCommand):
                 assert not created
             council_model.full_clean()
             council_model.save()
-            print(council_model)
+            self.stdout.write(str(council_model))
 
     @transaction.atomic
     def handle(self, *args, **options):

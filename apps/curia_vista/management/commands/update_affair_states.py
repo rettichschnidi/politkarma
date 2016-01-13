@@ -62,7 +62,7 @@ class Command(BaseCommand):
                 assert not created
             affair_state_model.full_clean()
             affair_state_model.save()
-            print(affair_state_model)
+            self.stdout.write(str(affair_state_model))
 
     @transaction.atomic
     def handle(self, *args, **options):

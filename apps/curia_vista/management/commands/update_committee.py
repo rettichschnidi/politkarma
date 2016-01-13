@@ -84,7 +84,7 @@ class Command(BaseCommand):
                     assert not created
 
                 committee_model.save()
-                print(committee_model)
+                self.stdout.write(str(committee_model))
 
             self.stdout.write("Finished importing from {}".format(cur_url))
             if not more_pages:

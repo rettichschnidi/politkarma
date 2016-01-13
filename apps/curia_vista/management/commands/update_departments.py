@@ -53,7 +53,7 @@ class Command(BaseCommand):
                 assert not created
             department_model.full_clean()
             department_model.save()
-            print(department_model)
+            self.stdout.write(str(department_model))
 
     def handle(self, *args, **options):
         is_main = True

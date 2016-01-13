@@ -41,5 +41,5 @@ class Command(BaseCommand):
         for cmd_class in Command.commands:
             start = timer()
             cmd_class().handle(args, options)
-            print('command {0} has been executed with arguments {1} and options {2}. operation took {3}s'
-                  .format(cmd_class, args, options, timer() - start))
+            self.stdout.write("Command '{0}' has been executed with arguments '{1}' and options '{2}'. Duration: {3}s"
+                              .format(cmd_class, args, options, timer() - start))

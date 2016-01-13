@@ -59,7 +59,7 @@ class Command(BaseCommand):
 
                 affair_summary_model.full_clean()
                 affair_summary_model.save()
-                print(affair_summary_model)
+                self.stdout.write(str(affair_summary_model))
 
             self.stdout.write("Finished importing from {}".format(cur_url))
             if not more_pages:

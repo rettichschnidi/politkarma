@@ -53,7 +53,7 @@ class Command(BaseCommand):
                 assert not created
             canton_model.full_clean()
             canton_model.save()
-            print(canton_model)
+            self.stdout.write(str(canton_model))
 
     def handle(self, *args, **options):
         is_main = True

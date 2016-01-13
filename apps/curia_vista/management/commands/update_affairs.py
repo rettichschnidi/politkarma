@@ -43,7 +43,7 @@ class Command(BaseCommand):
                                                                                   'updated': affair_updated})
                 affair_model.full_clean()
                 affair_model.save()
-                print(affair_model)
+                self.stdout.write(str(affair_model))
 
             self.stdout.write("Finished importing from {}".format(source))
             if not more_pages:

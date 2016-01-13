@@ -57,7 +57,7 @@ class Command(BaseCommand):
                                                                                     'salutation_title': councillor_salutation_title})
                 councillor_model.full_clean()
                 councillor_model.save()
-                print(councillor_model)
+                self.stdout.write(str(councillor_model))
             self.stdout.write("Finished importing from {}".format(source))
             if not more_pages:
                 break

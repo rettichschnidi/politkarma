@@ -60,7 +60,7 @@ class Command(BaseCommand):
                     assert not created
 
                 party_model.save()
-                print(party_model)
+                self.stdout.write(str(party_model))
 
             self.stdout.write("Finished importing from {}".format(cur_url))
             if not more_pages:

@@ -59,7 +59,7 @@ class Command(BaseCommand):
                                                                               })
                     assert not created
                 session_model.save()
-                print(session_model)
+                self.stdout.write(str(session_model))
 
             self.stdout.write("Finished importing from {}".format(cur_url))
             if not more_pages:

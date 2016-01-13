@@ -56,7 +56,7 @@ class Command(BaseCommand):
                 assert not created
             period_model.full_clean()
             period_model.save()
-            print(period_model)
+            self.stdout.write(str(period_model))
 
     def handle(self, *args, **options):
         is_main = True
