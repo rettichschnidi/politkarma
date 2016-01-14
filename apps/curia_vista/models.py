@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.utils.translation import ugettext_lazy as _
+
 
 # 4.1 Councils
 # HTML: http://ws.parlament.ch/councils
@@ -18,14 +20,12 @@ class Council(models.Model):
 
 
 # 4.2 Council members
+# Overview:
 # HTML: http://ws.parlament.ch/councillors
 # Data: http://ws.parlament.ch/councillors?format=xml
 # XSD: http://ws.parlament.ch/councillors?format=xsd
-#
-# TODO: Extend model and import:
-#  - http://ws.parlament.ch/councillors/basicdetails
-#  - http://ws.parlament.ch/councillors/historic
 class Councillor(models.Model):
+    # Overview data
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
     active = models.BooleanField()
@@ -36,6 +36,29 @@ class Councillor(models.Model):
     official_denomination = models.CharField(null=True, blank=True, max_length=255)
     salutation_letter = models.CharField(null=True, blank=True, max_length=255)
     salutation_title = models.CharField(null=True, blank=True, max_length=255)
+
+    # Basic details
+    # HTML: http://ws.parlament.ch/councillors/basicdetails
+    # Data: http://ws.parlament.ch/councillors/basicdetails?format=xml
+    # XSD: http://ws.parlament.ch/councillors/basicdetails?format=xsd
+    biography_url = models.URLField(blank=True, null=True)
+    picture_url = models.URLField(blank=True, null=True)
+
+    # Detailed data (for councillor with id 801):
+    # HTML: http://ws.parlament.ch/councillors/801
+    # Data: http://ws.parlament.ch/councillors/801?format=xml
+    # XSD: http://ws.parlament.ch/councillors/801?format=xsd
+    # TODO: Import all fields including the complex types!
+    canton = models.ForeignKey('Canton', blank=True, null=True)
+    council = models.ForeignKey('Council', blank=True, null=True)
+    faction = models.ForeignKey('Faction', blank=True, null=True)
+    homepage = models.CharField(max_length=255, blank=True, null=True)
+    party = models.ForeignKey('Party', blank=True, null=True)
+    birth_date = models.DateTimeField(blank=True, null=True)
+    birth_canton = models.ForeignKey('Canton', blank=True, null=True, related_name=_('birth_canton'))
+    birth_city = models.CharField(max_length=255, blank=True, null=True)
+    gender = models.CharField(max_length=1, blank=True, null=True)
+    language = models.CharField(max_length=2, blank=True, null=True)
 
     @property
     def full_name(self):
