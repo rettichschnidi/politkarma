@@ -9,13 +9,11 @@ from apps.curia_vista.management.commands.update_councillors import Command as I
 from apps.curia_vista.management.commands.update_factions import Command as ImportCommandFactions
 from apps.curia_vista.management.commands.update_parties import Command as ImportCommandParties
 from apps.curia_vista.management.commands.update_sessions import Command as ImportCommandSessions
-from apps.curia_vista.management.commands.sync_from_webservice import Command as ImportSyncFromWebservice
 
 
 class Command(BaseCommand):
     help = 'Import/update all data from parlament.ch'
     commands = [
-        ImportSyncFromWebservice,
         ImportCommandAffairs,
         ImportCommandAffairSummaries,
         ImportCommandCommittee,
