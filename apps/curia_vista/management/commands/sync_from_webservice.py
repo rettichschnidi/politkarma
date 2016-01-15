@@ -3,12 +3,13 @@ from django.core.management.base import BaseCommand
 from apps.curia_vista.management.utils import Config, update_from_webservice
 from politkarma import settings
 
-from apps.curia_vista.models import Canton, Department, Council, AffairTopic, AffairType, LegislativePeriod, AffairState
+import apps.curia_vista.models
 
 configurations = {
     'Canton': {
-        'model_class': Canton,
+        'model_class': apps.curia_vista.models.Canton,
         'resource_path': '/cantons',
+        'has_more': False,
         'mapping': {
             'id': Config(primary=True),
             'updated': Config(),
@@ -18,8 +19,9 @@ configurations = {
         }
     },
     'Department': {
-        'model_class': Department,
+        'model_class': apps.curia_vista.models.Department,
         'resource_path': '/departments',
+        'has_more': False,
         'mapping': {
             'id': Config(primary=True),
             'updated': Config(),
@@ -29,8 +31,9 @@ configurations = {
         }
     },
     'Council': {
-        'model_class': Council,
+        'model_class': apps.curia_vista.models.Council,
         'resource_path': '/councils',
+        'has_more': False,
         'mapping': {
             'id': Config(primary=True),
             'updated': Config(),
@@ -41,8 +44,9 @@ configurations = {
         }
     },
     'AffairTopic': {
-        'model_class': AffairTopic,
+        'model_class': apps.curia_vista.models.AffairTopic,
         'resource_path': '/affairs/topics',
+        'has_more': False,
         'mapping': {
             'id': Config(primary=True),
             'updated': Config(),
@@ -51,8 +55,9 @@ configurations = {
         }
     },
     'AffairType': {
-        'model_class': AffairType,
+        'model_class': apps.curia_vista.models.AffairType,
         'resource_path': '/affairs/types',
+        'has_more': False,
         'mapping': {
             'id': Config(primary=True),
             'updated': Config(),
@@ -61,20 +66,22 @@ configurations = {
         }
     },
     'AffairState': {
-        'model_class': AffairState,
+        'model_class': apps.curia_vista.models.AffairState,
         'resource_path': '/affairs/states',
+        'has_more': False,
         'mapping': {
             'id': Config(primary=True),
             'updated': Config(),
             'code': Config(),
             'sorting': Config(),
-            'parent/id': Config(fk_type=AffairState, model_column_name='parent', null=True),
+            'parent/id': Config(fk_type=apps.curia_vista.models.AffairState, model_column_name='parent', null=True),
             'name': Config(translated=True),
         }
     },
     'LegislativePeriod': {
-        'model_class': LegislativePeriod,
+        'model_class': apps.curia_vista.models.LegislativePeriod,
         'resource_path': '/legislativeperiods',
+        'has_more': False,
         'mapping': {
             'id': Config(primary=True),
             'updated': Config(),
@@ -83,20 +90,35 @@ configurations = {
             'name': Config(translated=True),
             'to': Config(model_column_name='to_date'),
         }
+    },
+    'Affair': {
+        'model_class': apps.curia_vista.models.Affair,
+        'resource_path': '/affairs',
+        'has_more': True,
+        'mapping': {
+            'id': Config(primary=True),
+            'updated': Config(),
+            'shortId': Config(model_column_name='short_id'),
+        }
     }
 }
 
 
 class Command(BaseCommand):
-    help = 'Import departments from parlament.ch'
+    help = 'Update local Curia Vista data using ws.parlament.ch'
+    languages = [x[0] for x in settings.LANGUAGES]
 
     def add_arguments(self, parser):
-        parser.add_argument('--models', nargs='+', help="Limit import to this models", type=str)
-        parser.add_argument('--show-models', action='store_true', dest='list', default=False,
-                            help='List available models')
+        parser.add_argument('--models', nargs='+', help="Limit update to specified models", type=str)
+        parser.add_argument('--main-only', dest='main_only', action='store_true',
+                            help="Limit update to the main language ({})".format(Command.languages[0]),
+                            default=False)
+        parser.add_argument('--show-models', action='store_true', dest='show_models', default=False,
+                            help='List available Django models')
 
     def handle(self, *args, **options):
-        if options['list']:
+
+        if options['show_models']:
             jobs = ", ".join(configurations)
             self.stdout.write("Available jobs:")
             for j in configurations:
@@ -108,6 +130,9 @@ class Command(BaseCommand):
             for unwanted_key in unwanted: del configurations[unwanted_key]
 
         for model_name, config in configurations.items():
-            self.stdout.write("Importing '{}' data ".format(model_name))
-            for index, language in enumerate([x[0] for x in settings.LANGUAGES]):
-                update_from_webservice(self, config, language, index == 0)
+            self.stdout.write("Updating data for model '{}'".format(model_name))
+            if options['main_only']:
+                update_from_webservice(self, config, Command.languages[0], True)
+            else:
+                for index, language in enumerate(Command.languages):
+                    update_from_webservice(self, config, language, index == 0)
