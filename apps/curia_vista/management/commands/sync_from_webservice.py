@@ -74,7 +74,7 @@ configurations = {
             'updated': Config(),
             'code': Config(),
             'sorting': Config(),
-            'parent/id': Config(fk_type=apps.curia_vista.models.AffairState, model_column_name='parent', null=True),
+            'parent.id': Config(fk_type=apps.curia_vista.models.AffairState, model_column_name='parent', null=True),
             'name': Config(translated=True),
         }
     },
@@ -117,7 +117,6 @@ class Command(BaseCommand):
                             help='List available Django models')
 
     def handle(self, *args, **options):
-
         if options['show_models']:
             jobs = ", ".join(configurations)
             self.stdout.write("Available jobs:")

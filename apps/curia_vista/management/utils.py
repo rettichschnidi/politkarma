@@ -1,24 +1,23 @@
-from xml.etree import ElementTree
-
 import requests
 from django.core.management import CommandError
 from django.db import transaction
-
+import json
 from politkarma import settings
 
 
-def xml_from_url(command, url, page_num):
+def xml_from_url(command, url):
     command.stdout.write("Processing: " + url)
     try:
         response = requests.get(url, headers={'User-Agent': 'Mozilla'})
     except Exception as e:
         raise CommandError("Could not fetch XML data from '{}'".format(url))
 
-    xml = ElementTree.fromstring(response.content)
-
-    if not xml:
-        raise CommandError("Invalid XML data: {}".format(url))
-    return xml
+    try:
+        text_data = response.content.decode('UTF-8')
+        data_dict = json.loads(text_data)
+        return data_dict
+    except Exception as e:
+        raise CommandError("Invalid JSON data from '{}': {}".format(url, e))
 
 
 class Config:
@@ -39,10 +38,10 @@ def update_from_webservice(command, configuration, language, is_main_language):
     page_number = 1
     has_more = True
     while has_more:
-        url = "{}{}?format=xml&lang={}&pageNumber={}".format(settings.WEBSERVICE_URL, configuration['resource_path'],
-                                                             language, page_number)
-        xml_root = xml_from_url(command, url, page_number)
-        for element in xml_root:
+        url = "{}{}?format=json&lang={}&pageNumber={}".format(settings.WEBSERVICE_URL, configuration['resource_path'],
+                                                              language, page_number)
+        root = xml_from_url(command, url)
+        for element in root:
             defaults = {}
             values = {}
             for tag, mapping in configuration['mapping'].items():
@@ -50,7 +49,7 @@ def update_from_webservice(command, configuration, language, is_main_language):
 
                 # Allow tags to be missing if explicitly specified
                 try:
-                    value = element.find(tag).text
+                    value = element[tag]
                 except AttributeError as e:
                     if not mapping.null:
                         raise CommandError(str(e))
@@ -73,8 +72,7 @@ def update_from_webservice(command, configuration, language, is_main_language):
             model.full_clean()
             model.save()
 
-        has_more_element = xml_root[-1].find('hasMorePages')
-        has_more = False if has_more_element is None else 'true' == has_more_element.text
+        has_more = 'hasMorePages' in root[-1] and root[-1]['hasMorePages']
         if has_more:
-            assert configuration['has_more']
             page_number += 1
+            assert configuration['has_more']
