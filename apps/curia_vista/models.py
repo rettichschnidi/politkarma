@@ -88,9 +88,58 @@ class Affair(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
     short_id = models.CharField(max_length=255)
+    sequential_number = models.IntegerField(null=True, blank=True)
+    affair_type = models.ForeignKey('AffairType', null=True, blank=True)
+    author = models.ForeignKey('AffairAuthor', null=True, blank=True)
+    deposit = models.ForeignKey('AffairDeposit', null=True, blank=True)
+    handling = models.ForeignKey('AffairHandling', null=True, blank=True)
+    # not sure what this means..
+    language = models.CharField(null=True, blank=True, max_length=255)
+    councils_priority = models.ManyToManyField('AffairCouncilPriority')
+    related_affairs = models.ManyToManyField('Affair')
+    roles = models.ManyToManyField('AffairRole')
+    state = models.ForeignKey('AffairState', null=True, blank=True)
+    # from <state>, not part of AffairState
+    done_key = models.IntegerField(null=True, blank=True)
+    # from <state>, not part of AffairState
+    new_key = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.short_id
+
+
+class AffairAuthor(models.Model):
+    id = models.AutoField(primary_key=True)
+    councillor = models.ForeignKey('Councillor', null=True, blank=True)
+    faction = models.ForeignKey('Faction', null=True, blank=True)
+
+
+class AffairDeposit(models.Model):
+    id = models.AutoField(primary_key=True)
+    council = models.ForeignKey('Council', null=True, blank=True)
+    date = models.DateTimeField()
+    legislative_period = models.IntegerField(null=True, blank=True)
+    session = models.IntegerField()
+
+
+class AffairHandling(models.Model):
+    id = models.AutoField(primary_key=True)
+    date = models.DateTimeField()
+    legislative_period = models.IntegerField()
+    session = models.IntegerField()
+
+
+class AffairCouncilPriority(models.Model):
+    id = models.AutoField(primary_key=True)
+    council = models.ForeignKey('Council')
+    priority = models.IntegerField()
+
+
+class AffairRole(models.Model):
+    id = models.AutoField(primary_key=True)
+    council = models.ForeignKey('Council')
+    faction = models.ForeignKey('Faction')
+    type = models.CharField(max_length=255)
 
 
 # HTML: http://ws.parlament.ch/affairs/types
