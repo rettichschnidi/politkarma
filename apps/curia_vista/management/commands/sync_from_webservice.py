@@ -5,8 +5,9 @@ from politkarma import settings
 
 import apps.curia_vista.models
 
-configurations = {
-    'Canton': {
+configurations = [
+    {
+        'name': 'Canton',
         'model_class': apps.curia_vista.models.Canton,
         'resource_path': '/cantons',
         'has_more': False,
@@ -18,7 +19,8 @@ configurations = {
             'name': Config(translated=True)
         }
     },
-    'Department': {
+    {
+        'name': 'Department',
         'model_class': apps.curia_vista.models.Department,
         'resource_path': '/departments',
         'has_more': False,
@@ -30,7 +32,8 @@ configurations = {
             'name': Config(translated=True)
         }
     },
-    'Council': {
+    {
+        'name': 'Council',
         'model_class': apps.curia_vista.models.Council,
         'resource_path': '/councils',
         'has_more': False,
@@ -43,7 +46,8 @@ configurations = {
             'type': Config(),
         }
     },
-    'AffairTopic': {
+    {
+        'name': 'AffairTopic',
         'model_class': apps.curia_vista.models.AffairTopic,
         'resource_path': '/affairs/topics',
         'has_more': False,
@@ -54,7 +58,8 @@ configurations = {
             'name': Config(translated=True),
         }
     },
-    'AffairType': {
+    {
+        'name': 'AffairType',
         'model_class': apps.curia_vista.models.AffairType,
         'resource_path': '/affairs/types',
         'has_more': False,
@@ -65,7 +70,8 @@ configurations = {
             'name': Config(translated=True),
         }
     },
-    'AffairState': {
+    {
+        'name': 'AffairState',
         'model_class': apps.curia_vista.models.AffairState,
         'resource_path': '/affairs/states',
         'has_more': False,
@@ -79,7 +85,8 @@ configurations = {
             'name': Config(translated=True),
         }
     },
-    'LegislativePeriod': {
+    {
+        'name': 'LegislativePeriod',
         'model_class': apps.curia_vista.models.LegislativePeriod,
         'resource_path': '/legislativeperiods',
         'has_more': False,
@@ -92,7 +99,8 @@ configurations = {
             'to': Config(model_column_name='to_date'),
         }
     },
-    'Affair': {
+    {
+        'name': 'Affair',
         'model_class': apps.curia_vista.models.Affair,
         'resource_path': '/affairs',
         'has_more': True,
@@ -102,7 +110,8 @@ configurations = {
             'shortId': Config(model_column_name='short_id'),
         }
     },
-    'Session': {
+    {
+        'name': 'Session',
         'model_class': apps.curia_vista.models.Session,
         'resource_path': '/sessions',
         'has_more': True,
@@ -114,7 +123,8 @@ configurations = {
             'to': Config(model_column_name='to_date'),
         }
     },
-    'Party': {
+    {
+        'name': 'Party',
         'model_class': apps.curia_vista.models.Party,
         'resource_path': '/parties/historic',
         'has_more': True,
@@ -126,7 +136,8 @@ configurations = {
             'name': Config(translated=True),
         }
     },
-    'Faction': {
+    {
+        'name': 'Faction',
         'model_class': apps.curia_vista.models.Faction,
         'resource_path': '/factions/historic',
         'has_more': True,
@@ -141,7 +152,8 @@ configurations = {
             'shortName': Config(model_column_name='short_name', translated=True)
         }
     },
-    'Councillor': {
+    {
+        'name': 'Councillor',
         'model_class': apps.curia_vista.models.Councillor,
         'resource_path': '/councillors',
         'has_more': True,
@@ -158,7 +170,8 @@ configurations = {
             'salutationTitle': Config(model_column_name='salutation_title'),
         }
     },
-    'CouncillorBasicDetails': {
+    {
+        'name': 'CouncillorBasicDetails',
         'model_class': apps.curia_vista.models.Councillor,
         'resource_path': '/councillors/basicdetails',
         'has_more': True,
@@ -169,7 +182,8 @@ configurations = {
             'pictureUrl': Config(model_column_name='picture_url'),
         }
     },
-    'Committee': {
+    {
+        'name': 'Committee',
         'model_class': apps.curia_vista.models.Committee,
         'resource_path': '/committees',
         'has_more': True,
@@ -188,7 +202,8 @@ configurations = {
             'typeCode': Config(model_column_name='type_code'),
         }
     },
-    'AffairSummary': {
+    {
+        'name': 'AffairSummary',
         'model_class': apps.curia_vista.models.AffairSummary,
         'resource_path': '/affairsummaries',
         'has_more': True,
@@ -199,7 +214,7 @@ configurations = {
             'title': Config(translated=True),
         }
     }
-}
+]
 
 
 class Command(BaseCommand):
@@ -216,18 +231,17 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         if options['show_models']:
-            jobs = ", ".join(configurations)
+            jobs = ", ".join([x['name'] for x in configurations])
             self.stdout.write("Available jobs:")
             for j in configurations:
-                self.stdout.write(" - " + j)
+                self.stdout.write(" - " + j['name'])
             return
 
         if options['models']:
-            unwanted = configurations.keys() - set(options['models'])
-            for unwanted_key in unwanted: del configurations[unwanted_key]
+            configurations[:] = [x for x in configurations if x['name'] in options['models']]
 
-        for model_name, config in configurations.items():
-            self.stdout.write("Updating data for model '{}'".format(model_name))
+        for config in configurations:
+            self.stdout.write("Updating data for model '{}'".format(config['name']))
             if options['main_only']:
                 update_from_webservice(self, config, Command.languages[0], False)
             else:

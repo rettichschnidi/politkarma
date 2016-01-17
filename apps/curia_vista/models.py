@@ -213,7 +213,7 @@ class Committee(models.Model):
     code = models.CharField(max_length=255)
     number = models.IntegerField()
     sub_number = models.IntegerField(null=True, blank=True)
-    council = models.ForeignKey(to=Council)
+    council = models.ForeignKey(Council)
     from_date = models.DateTimeField()
     is_active = models.BooleanField()
     name = models.CharField(max_length=255)

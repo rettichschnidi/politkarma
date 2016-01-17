@@ -2,6 +2,8 @@ import requests
 from django.core.management import CommandError
 from django.db import transaction
 import json
+
+from apps.curia_vista import models
 from politkarma import settings
 
 
@@ -73,7 +75,10 @@ def update_from_webservice(command, configuration, language, is_update):
 
                     # Allow simple foreign-key-relation
                 if mapping.fk_type and value:
-                    value = mapping.fk_type.objects.get(id=value)
+                    try:
+                        value = mapping.fk_type.objects.get(id=value)
+                    except mapping.fk_type.DoesNotExist as e:
+                        raise CommandError("'{}' is not a valid id for '{}'".format(value, str(mapping.fk_type)))
 
                 # Decide which dict to put values into
                 if not mapping.primary and (mapping.translated or is_update):
