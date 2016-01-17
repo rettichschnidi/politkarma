@@ -18,6 +18,10 @@ class Command(BaseCommand):
     ws_threads = 24
     task_queue_size = 100
 
+    def add_arguments(self, parser):
+        parser.add_argument('--parallel', choices=range(1, 25), default=12,
+                            help="Maximal number threads/connections", type=int)
+
     def update(self, resource_url, lang, affair_id, is_main):
         foo = 1
 
@@ -149,10 +153,12 @@ class Command(BaseCommand):
         resource_url = 'http://ws.parlament.ch/affairs'
         affair_ids = set({x.id for x in Affair.objects.all()})
 
+        self.stdout.write("Starting {} threads".format(options['parallel']))
+
         is_first_language = True
         for lang in [x[0] for x in settings.LANGUAGES]:
             self.stdout.write('language: {0}'.format(lang))
-            with concurrent.futures.ThreadPoolExecutor(max_workers=Command.ws_threads) as executor:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=options['parallel']) as executor:
                 task_queue = Queue(Command.task_queue_size)
                 db_thread = Thread(target=Command.update_db, args=(self, task_queue, is_first_language))
                 db_thread.start()
