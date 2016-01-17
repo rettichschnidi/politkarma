@@ -120,8 +120,8 @@ class Command(BaseCommand):
 
             if (counter % 1000) == 0:
                 self.stdout.write(
-                    "updates: {0} current queue size: {1}, last batch took {2}s".format(counter, xml_queue.qsize(),
-                                                                                        timer() - start))
+                        "updates: {0} current queue size: {1}, last batch took {2}s".format(counter, xml_queue.qsize(),
+                                                                                            timer() - start))
                 start = timer()
 
             affair_id = xml.find('id').text
@@ -157,8 +157,8 @@ class Command(BaseCommand):
                 db_thread = Thread(target=Command.update_db, args=(self, task_queue, is_first_language))
                 db_thread.start()
                 future_to_xml = {
-                executor.submit(Command.download, resource_url, lang, affair_id, is_main, task_queue): affair_id for
-                affair_id in affair_ids}
+                    executor.submit(Command.download, resource_url, lang, affair_id, is_main, task_queue): affair_id for
+                    affair_id in affair_ids}
 
                 # wait until all downloads finished
                 for future in concurrent.futures.as_completed(future_to_xml):
