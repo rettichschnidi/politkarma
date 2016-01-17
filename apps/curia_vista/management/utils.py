@@ -21,12 +21,26 @@ def xml_from_url(command, url):
 
 
 class Config:
-    def __init__(self, translated=False, model_column_name='', primary=False, fk_type=None, null=False):
+    def __init__(self, translated=False, model_column_name='', primary=False, fk_type=None, null=False, default=None,
+                 sub_keys=[]):
+        """
+            Configuration object to describe the mapping between JSON and Django model.
+            Note to myself: Most likely big-time NIH syndrome here...
+        :param translated: Is this field translated using django-modeltranslation?
+        :param model_column_name: If the JSON name differs from the django column name, specify this it here
+        :param primary: True if this field is part of the table key
+        :param fk_type: If specified, this is the class of the foreign key model. ATM always matched on the id field.
+        :param null: True if the JSON attribute may no exist
+        :param default: Value to feed Django model with if value not specified in JSON
+        :param sub_keys: A list of strings to specify a value nested in the JSON
+        """
         self.translated = translated
         self.model_column_name = model_column_name
         self.primary = primary
         self.fk_type = fk_type
         self.null = null
+        self.sub_keys = sub_keys
+        self.default = default
 
 
 @transaction.atomic
@@ -50,12 +64,14 @@ def update_from_webservice(command, configuration, language, is_main_language):
                 # Allow tags to be missing if explicitly specified
                 try:
                     value = element[tag]
+                    for sub_key in mapping.sub_keys:
+                        value = value[sub_key]
                 except Exception as e:
                     if not mapping.null:
                         raise CommandError(str(e))
-                    value = None
+                    value = mapping.default
 
-                # Allow simple foreign-key-relation
+                    # Allow simple foreign-key-relation
                 if mapping.fk_type and value:
                     value = mapping.fk_type.objects.get(id=value)
 

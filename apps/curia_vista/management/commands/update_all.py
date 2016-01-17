@@ -4,14 +4,11 @@ from django.core.management.base import BaseCommand
 
 from apps.curia_vista.management.commands.update_affair_summaries import Command as ImportCommandAffairSummaries
 
-from apps.curia_vista.management.commands.update_committee import Command as ImportCommandCommittee
-
 
 class Command(BaseCommand):
     help = 'Import/update all data from parlament.ch'
     commands = [
-        ImportCommandAffairSummaries,
-        ImportCommandCommittee,
+        ImportCommandAffairSummaries
     ]
 
     def handle(self, *args, **options):

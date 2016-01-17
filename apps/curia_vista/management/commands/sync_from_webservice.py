@@ -156,6 +156,25 @@ configurations = {
             'salutationLetter': Config(model_column_name='salutation_letter'),
             'salutationTitle': Config(model_column_name='salutation_title'),
         }
+    },
+    'Committee': {
+        'model_class': apps.curia_vista.models.Committee,
+        'resource_path': '/committees',
+        'has_more': True,
+        'mapping': {
+            'id': Config(primary=True),
+            'updated': Config(),
+            'abbreviation': Config(translated=True),
+            'code': Config(),
+            'committeeNumber': Config(model_column_name='number'),
+            'council': Config(fk_type=apps.curia_vista.models.Council, model_column_name='council', sub_keys=['id']),
+            'from': Config(model_column_name='from_date'),
+            'isActive': Config(model_column_name='is_active', default=False, null=True),
+            'name': Config(translated=True),
+            'subcommitteeNumber': Config(model_column_name='sub_number', null=True),
+            'to': Config(model_column_name='to_date', null=True),
+            'typeCode': Config(model_column_name='type_code'),
+        }
     }
 }
 

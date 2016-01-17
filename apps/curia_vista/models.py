@@ -212,12 +212,12 @@ class Committee(models.Model):
     abbreviation = models.CharField(max_length=255)
     code = models.CharField(max_length=255)
     number = models.IntegerField()
-    sub_number = models.IntegerField(null=True)
+    sub_number = models.IntegerField(null=True, blank=True)
     council = models.ForeignKey(to=Council)
     from_date = models.DateTimeField()
     is_active = models.BooleanField()
     name = models.CharField(max_length=255)
-    to_date = models.DateTimeField(null=True)
+    to_date = models.DateTimeField(null=True, blank=True)
     type_code = models.IntegerField()
 
     def __str__(self):
