@@ -74,7 +74,8 @@ configurations = {
             'updated': Config(),
             'code': Config(),
             'sorting': Config(),
-            'parent.id': Config(fk_type=apps.curia_vista.models.AffairState, model_column_name='parent', null=True),
+            'parent': Config(fk_type=apps.curia_vista.models.AffairState, model_column_name='parent', null=True,
+                             sub_keys=['id']),
             'name': Config(translated=True),
         }
     },
