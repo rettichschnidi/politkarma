@@ -112,6 +112,18 @@ configurations = {
             'name': Config(translated=True),
             'to': Config(model_column_name='to_date'),
         }
+    },
+    'Party': {
+        'model_class': apps.curia_vista.models.Party,
+        'resource_path': '/parties/historic',
+        'has_more': True,
+        'mapping': {
+            'id': Config(primary=True),
+            'updated': Config(),
+            'abbreviation': Config(translated=True),
+            'code': Config(),
+            'name': Config(translated=True),
+        }
     }
 }
 
