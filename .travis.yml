@@ -8,3 +8,4 @@ install:
 script:
 - python manage.py test
 - python manage.py sync_from_webservice
+- python manage.py update_affair_details --parallel 8
