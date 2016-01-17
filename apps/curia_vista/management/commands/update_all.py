@@ -8,7 +8,6 @@ from apps.curia_vista.management.commands.update_committee import Command as Imp
 from apps.curia_vista.management.commands.update_councillors import Command as ImportCommandCouncillors
 from apps.curia_vista.management.commands.update_factions import Command as ImportCommandFactions
 from apps.curia_vista.management.commands.update_parties import Command as ImportCommandParties
-from apps.curia_vista.management.commands.update_sessions import Command as ImportCommandSessions
 
 
 class Command(BaseCommand):
@@ -18,8 +17,7 @@ class Command(BaseCommand):
         ImportCommandCommittee,
         ImportCommandCouncillors,
         ImportCommandFactions,
-        ImportCommandParties,
-        ImportCommandSessions
+        ImportCommandParties
     ]
 
     def handle(self, *args, **options):

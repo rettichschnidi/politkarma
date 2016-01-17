@@ -100,6 +100,18 @@ configurations = {
             'updated': Config(),
             'shortId': Config(model_column_name='short_id'),
         }
+    },
+    'Session': {
+        'model_class': apps.curia_vista.models.Session,
+        'resource_path': '/sessions',
+        'has_more': True,
+        'mapping': {
+            'code': Config(primary=True),
+            'updated': Config(),
+            'from': Config(model_column_name='from_date'),
+            'name': Config(translated=True),
+            'to': Config(model_column_name='to_date'),
+        }
     }
 }
 
