@@ -158,6 +158,17 @@ configurations = {
             'salutationTitle': Config(model_column_name='salutation_title'),
         }
     },
+    'CouncillorBasicDetails': {
+        'model_class': apps.curia_vista.models.Councillor,
+        'resource_path': '/councillors/basicdetails',
+        'has_more': True,
+        'is_update': True,
+        'mapping': {
+            'id': Config(primary=True),
+            'biographyUrl': Config(model_column_name='biography_url', translated=True),
+            'pictureUrl': Config(model_column_name='picture_url'),
+        }
+    },
     'Committee': {
         'model_class': apps.curia_vista.models.Committee,
         'resource_path': '/committees',
@@ -218,7 +229,8 @@ class Command(BaseCommand):
         for model_name, config in configurations.items():
             self.stdout.write("Updating data for model '{}'".format(model_name))
             if options['main_only']:
-                update_from_webservice(self, config, Command.languages[0], True)
+                update_from_webservice(self, config, Command.languages[0], False)
             else:
                 for index, language in enumerate(Command.languages):
-                    update_from_webservice(self, config, language, index == 0)
+                    is_update = 'is_update' in config and config['is_update']
+                    update_from_webservice(self, config, language, index != 0 or is_update)

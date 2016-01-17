@@ -8,6 +8,11 @@ class CouncilTranslationOptions(TranslationOptions):
     fields = ('name', 'abbreviation')
 
 
+@register(Councillor)
+class CouncillorTranslationOptions(TranslationOptions):
+    fields = ('biography_url',)
+
+
 @register(AffairSummary)
 class AffairSummaryTranslationOptions(TranslationOptions):
     fields = ('title',)

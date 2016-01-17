@@ -44,7 +44,7 @@ class Config:
 
 
 @transaction.atomic
-def update_from_webservice(command, configuration, language, is_main_language):
+def update_from_webservice(command, configuration, language, is_update):
     from django.utils import translation
     translation.activate(language)
     model_class = configuration['model_class']
@@ -76,7 +76,7 @@ def update_from_webservice(command, configuration, language, is_main_language):
                     value = mapping.fk_type.objects.get(id=value)
 
                 # Decide which dict to put values into
-                if mapping.translated or (is_main_language and not mapping.primary):
+                if not mapping.primary and (mapping.translated or is_update):
                     target = defaults
                 else:
                     target = values
@@ -84,7 +84,7 @@ def update_from_webservice(command, configuration, language, is_main_language):
                 target[mapping.model_column_name or tag] = value
 
             model, created = model_class.objects.update_or_create(defaults=defaults, **values)
-            if not is_main_language and created:
+            if is_update and created:
                 raise CommandError("Accidentally created: {}".format(model))
             model.full_clean()
             model.save()
