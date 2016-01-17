@@ -175,6 +175,17 @@ configurations = {
             'to': Config(model_column_name='to_date', null=True),
             'typeCode': Config(model_column_name='type_code'),
         }
+    },
+    'AffairSummary': {
+        'model_class': apps.curia_vista.models.AffairSummary,
+        'resource_path': '/affairsummaries',
+        'has_more': True,
+        'mapping': {
+            'id': Config(primary=True),
+            'updated': Config(),
+            'formattedId': Config(model_column_name='formatted_id'),
+            'title': Config(translated=True),
+        }
     }
 }
 
