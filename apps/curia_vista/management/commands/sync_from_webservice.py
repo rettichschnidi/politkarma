@@ -124,6 +124,21 @@ configurations = {
             'code': Config(),
             'name': Config(translated=True),
         }
+    },
+    'Faction': {
+        'model_class': apps.curia_vista.models.Faction,
+        'resource_path': '/factions/historic',
+        'has_more': True,
+        'mapping': {
+            'id': Config(primary=True, model_column_name='the_id'),
+            'updated': Config(),
+            'abbreviation': Config(translated=True),
+            'code': Config(),
+            'from': Config(primary=True, model_column_name='from_date'),
+            'name': Config(translated=True),
+            'to': Config(model_column_name='to_date', null=True),
+            'shortName': Config(model_column_name='short_name', translated=True)
+        }
     }
 }
 

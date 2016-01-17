@@ -50,7 +50,7 @@ def update_from_webservice(command, configuration, language, is_main_language):
                 # Allow tags to be missing if explicitly specified
                 try:
                     value = element[tag]
-                except AttributeError as e:
+                except Exception as e:
                     if not mapping.null:
                         raise CommandError(str(e))
                     value = None
@@ -68,7 +68,8 @@ def update_from_webservice(command, configuration, language, is_main_language):
                 target[mapping.model_column_name or tag] = value
 
             model, created = model_class.objects.update_or_create(defaults=defaults, **values)
-            assert True if is_main_language else not created
+            if not is_main_language and created:
+                raise CommandError("Accidentally created: {}".format(model))
             model.full_clean()
             model.save()
 
