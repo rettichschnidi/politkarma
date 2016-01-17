@@ -5,7 +5,6 @@ from django.core.management.base import BaseCommand
 from apps.curia_vista.management.commands.update_affair_summaries import Command as ImportCommandAffairSummaries
 
 from apps.curia_vista.management.commands.update_committee import Command as ImportCommandCommittee
-from apps.curia_vista.management.commands.update_councillors import Command as ImportCommandCouncillors
 
 
 class Command(BaseCommand):
@@ -13,7 +12,6 @@ class Command(BaseCommand):
     commands = [
         ImportCommandAffairSummaries,
         ImportCommandCommittee,
-        ImportCommandCouncillors,
     ]
 
     def handle(self, *args, **options):

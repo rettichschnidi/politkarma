@@ -139,6 +139,23 @@ configurations = {
             'to': Config(model_column_name='to_date', null=True),
             'shortName': Config(model_column_name='short_name', translated=True)
         }
+    },
+    'Councillor': {
+        'model_class': apps.curia_vista.models.Councillor,
+        'resource_path': '/councillors',
+        'has_more': True,
+        'mapping': {
+            'id': Config(primary=True),
+            'updated': Config(),
+            'active': Config(),
+            'code': Config(),
+            'firstName': Config(model_column_name='first_name'),
+            'lastName': Config(model_column_name='last_name'),
+            'number': Config(null=True),
+            'officialDenomination': Config(model_column_name='official_denomination'),
+            'salutationLetter': Config(model_column_name='salutation_letter'),
+            'salutationTitle': Config(model_column_name='salutation_title'),
+        }
     }
 }
 
