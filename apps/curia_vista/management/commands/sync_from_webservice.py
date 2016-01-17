@@ -231,7 +231,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         if options['show_models']:
-            jobs = ", ".join([x['name'] for x in configurations])
             self.stdout.write("Available jobs:")
             for j in configurations:
                 self.stdout.write(" - " + j['name'])
