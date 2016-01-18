@@ -18,7 +18,8 @@ from politkarma import settings
 class Command(BaseCommand):
     help = 'updating vote db using xml files from parlament.ch'
     base_url = 'http://www.parlament.ch/d/wahlen-abstimmungen/abstimmungen-im-parlament/Documents/xml/'
-    default_language_code = 'd'
+    language_codes = [x[0] for x in settings.LANGUAGES]
+    default_language_code = language_codes[0]
     files = ['4801-2007-wintersession-d.zip',
              '4802-2008-fruehjahrssession-d.zip',
              '4804-2008-sommersession-d.zip',
@@ -59,6 +60,14 @@ class Command(BaseCommand):
              '4920-2015-herbstsession-d.zip',
              '5001-2015-wintersession-d.zip']
 
+    def add_arguments(self, parser):
+        parser.add_argument('--show-sessions', action='store_true', help="List all available sessions")
+        parser.add_argument('--main-only', action='store_true',
+                            help="Limit update to the main language ({})".format(Command.default_language_code),
+                            default=False)
+        parser.add_argument('--sessions', nargs='+', help="Limit update to specified sessions", type=str,
+                            choices=Command.files)
+
     @staticmethod
     def build_file_name(language_code, base_file_name):
         """
@@ -67,7 +76,7 @@ class Command(BaseCommand):
         :param base_file_name: base file name using default language code
         :return localized file name
         """
-        expression = '-' + Command.default_language_code + '\.'
+        expression = '-' + Command.default_language_code[0] + '\.'
         replacement = '-' + language_code + '.'
         return re.sub(expression, replacement, base_file_name)
 
@@ -77,7 +86,7 @@ class Command(BaseCommand):
         :param language_code: language code to be used
         :return: base url for the given language
         """
-        expression = '/' + Command.default_language_code + '/'
+        expression = '/' + Command.default_language_code[0] + '/'
         replacement = '/' + language_code + '/'
         return re.sub(expression, replacement, Command.base_url)
 
@@ -277,8 +286,17 @@ class Command(BaseCommand):
                 """
         return records_loaded
 
-    @transaction.atomic
     def handle(self, *args, **options):
+        global work_dir
+        if options['show_sessions']:
+            self.stdout.write("Available sessions:")
+            for filename in Command.files:
+                self.stdout.write(" - " + filename)
+            return
+
+        active_language_codes = [Command.default_language_code] if options['main_only'] else Command.language_codes
+        active_files = options['sessions'] if options['sessions'] else Command.files
+
         try:
             start = timer()
             work_dir = tempfile.TemporaryDirectory(prefix='curia_vista_vote_db_import')
@@ -286,9 +304,9 @@ class Command(BaseCommand):
             affair_index = {x.id: x for x in Affair.objects.all()}
             registered_cv_ids = set({x.id for x in CouncillorVote.objects.all()})
 
-            for language_code in [x[0] for x in settings.LANGUAGES]:
+            for language_code in active_language_codes:
                 self.stdout.write('downloads for language {0}'.format(language_code))
-                for file in Command.files:
+                for file in active_files:
                     # download and extract
                     zip_file_name = self.download_file(work_dir, file, language_code[0])
                     unzipped_xml = self.extract_xml(zip_file_name, work_dir)
@@ -306,6 +324,9 @@ class Command(BaseCommand):
                     os.remove(unzipped_xml)
                 self.stdout.write('data for language {0} loaded'.format(language_code))
             self.stdout.write('data imported, operation took {0}s'.format(timer() - start))
+        except Exception as e:
+            self.stderr.write("Failed: " + str(e))
+            raise
         finally:
             if work_dir is not None:
                 work_dir.cleanup()
