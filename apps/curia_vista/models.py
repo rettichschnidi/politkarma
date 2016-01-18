@@ -92,8 +92,10 @@ class Affair(models.Model):
     affair_type = models.ForeignKey('AffairType', null=True, blank=True)
     author = models.ForeignKey('AffairAuthor', null=True, blank=True)
     deposit = models.ForeignKey('AffairDeposit', null=True, blank=True)
+    # TODO: find an example and implement...
+    descriptors = ""
     handling = models.ForeignKey('AffairHandling', null=True, blank=True)
-    # not sure what this means..
+    # de, fr or it
     language = models.CharField(null=True, blank=True, max_length=255)
     councils_priority = models.ManyToManyField('AffairCouncilPriority')
     related_affairs = models.ManyToManyField('Affair')
@@ -125,8 +127,8 @@ class AffairDeposit(models.Model):
 class AffairHandling(models.Model):
     id = models.AutoField(primary_key=True)
     date = models.DateTimeField()
-    legislative_period = models.IntegerField()
-    session = models.IntegerField()
+    legislative_period = models.ForeignKey('LegislativePeriod', null=True, blank=True)
+    session = models.ForeignKey('Session', null=True, blank=True)
 
 
 class AffairCouncilPriority(models.Model):
@@ -176,7 +178,6 @@ class AffairState(models.Model):
     updated = models.DateTimeField()
     code = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
-    # see http://stackoverflow.com/questions/524714/does-python-have-class-prototypes-or-forward-declarations
     parent = models.ForeignKey('AffairState', null=True, blank=True)
     sorting = models.IntegerField()
 
@@ -300,7 +301,7 @@ class Faction(models.Model):
 # Data: http://ws.parlament.ch/sessions?format=xml
 # XSD: http://ws.parlament.ch/sessions?format=xsd
 class Session(models.Model):
-    code = models.CharField(max_length=255, primary_key=True)
+    code = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
     from_date = models.DateTimeField()
     to_date = models.DateTimeField(null=True, blank=True)
