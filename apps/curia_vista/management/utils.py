@@ -12,7 +12,7 @@ def xml_from_url(command, url):
     try:
         response = requests.get(url, headers={'User-Agent': 'Mozilla'})
     except Exception as e:
-        raise CommandError("Could not fetch data from '{}'".format(url))
+        raise CommandError("Could not fetch data from '{}': {}".format(url, str(e)))
 
     try:
         text_data = response.content.decode('UTF-8')
