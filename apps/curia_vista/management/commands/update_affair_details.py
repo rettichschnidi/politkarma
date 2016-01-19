@@ -126,6 +126,41 @@ class Command(BaseCommand):
             session = session_index[session_id]
         return AffairHandling.objects.create(date=date, legislative_period=legislative_period, session=session)
 
+    def get_roles(self, element, councillor_index, faction_index):
+        """
+
+        :param element:
+        :param councillor_index:
+        :param faction_index:
+        :return:
+        """
+        affair_roles = AffairRole.objects
+        roles = []
+        for role in element:
+            role_type = role.find('type').text
+
+            e_councillor = role.find('councillor')
+            councillor = None
+            if e_councillor is not None:
+                councillor_id = int(e_councillor.find('id').text)
+                councillor = councillor_index[councillor_id]
+
+            e_faction = role.find('faction')
+            faction = None
+            if e_faction is not None:
+                faction_id = int(e_faction.find('id').text)
+                if faction_id in faction_index:
+                    faction = faction_index[faction_id]
+                    # TODO: many factions appear to be missing...
+                    """
+                    else:
+                        self.stdout.write("ignoring unknown faction with id {0}".format(faction_id))
+                    """
+            affair_role = affair_roles.create(role_type=role_type, councillor=councillor, faction=faction)
+            roles.append(affair_role)
+        return roles
+
+
     @transaction.atomic
     def update_db(self, xml_queue, is_first_language):
         """
@@ -176,7 +211,9 @@ class Command(BaseCommand):
             previous_handling = affair.handling
             affair.handling = Command.get_handling(xml.find('handling'), lp_index, session_index)
             # TODO: implement priorityCouncils
-            # TODO: implement roles
+            # TODO: implement relatedAffairs
+            previous_roles = affair.roles
+            affair.roles = self.get_roles(xml.find('roles'), councillor_index, faction_index)
             e_sequential_number = xml.find('sequentialNumber')
             affair.sequential_number = None if e_sequential_number is None else e_sequential_number.text
             e_state = xml.find('state')
@@ -186,8 +223,12 @@ class Command(BaseCommand):
             # TODO: implement texts
 
             affair.save()
+            # delete unreferenced objects
             if previous_handling is not None:
                 previous_handling.delete()
+            if previous_roles is not None:
+                for previous_role in previous_roles.all():
+                    previous_role.delete()
             xml_queue.task_done()
 
     def handle(self, *args, **options):

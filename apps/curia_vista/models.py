@@ -139,9 +139,9 @@ class AffairCouncilPriority(models.Model):
 
 class AffairRole(models.Model):
     id = models.AutoField(primary_key=True)
-    council = models.ForeignKey('Council')
-    faction = models.ForeignKey('Faction')
-    type = models.CharField(max_length=255)
+    councillor = models.ForeignKey('Councillor', null=True, blank=True)
+    faction = models.ForeignKey('Faction', null=True, blank=True)
+    role_type = models.CharField(max_length=255)
 
 
 # HTML: http://ws.parlament.ch/affairs/types
