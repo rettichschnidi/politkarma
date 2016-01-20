@@ -7,7 +7,7 @@ from django.db import transaction
 from politkarma import settings
 
 
-def xml_from_url(command, url):
+def json_from_url(command, url):
     command.stdout.write("Processing: " + url)
     try:
         response = requests.get(url, headers={'User-Agent': 'Mozilla'})
@@ -59,7 +59,7 @@ def update_from_webservice(command, configuration, language, is_update):
     while has_more:
         url = "{}{}?format=json&lang={}&pageNumber={}".format(settings.WEBSERVICE_URL, configuration['resource_path'],
                                                               language, page_number)
-        root = xml_from_url(command, url)
+        root = json_from_url(command, url)
         for element in root:
             defaults = {}
             values = {}
