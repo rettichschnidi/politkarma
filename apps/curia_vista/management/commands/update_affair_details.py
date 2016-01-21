@@ -126,12 +126,13 @@ class Command(BaseCommand):
             session = session_index[session_id]
         return AffairHandling.objects.create(date=date, legislative_period=legislative_period, session=session)
 
-    def get_roles(self, element, councillor_index, faction_index):
+    @staticmethod
+    def get_roles(element, councillor_index, faction_index):
         """
 
-        :param element:
-        :param councillor_index:
-        :param faction_index:
+        :param element: <roles> element
+        :param councillor_index: councillor index (key=id, value=councillor)
+        :param faction_index: faction index (key=id, value=faction)
         :return:
         """
         affair_roles = AffairRole.objects
@@ -152,14 +153,63 @@ class Command(BaseCommand):
                 if faction_id in faction_index:
                     faction = faction_index[faction_id]
                     # TODO: many factions appear to be missing...
-                    """
-                    else:
-                        self.stdout.write("ignoring unknown faction with id {0}".format(faction_id))
-                    """
             affair_role = affair_roles.create(role_type=role_type, councillor=councillor, faction=faction)
             roles.append(affair_role)
         return roles
 
+    @staticmethod
+    def handle_priority_councils(element, council_index):
+        """
+        :param element: <priorityCouncil> element
+        :param council_index: council index (key=id, value=council)
+        :return:
+        """
+        priority_councils = []
+        if element is None:
+            return priority_councils
+        apcs = AffairPriorityCouncil.objects
+        for e_priority_council in element:
+            council_id = int(e_priority_council.find('id').text)
+            council = None
+            if council_id in council_index:
+                council = council_index[council_id]
+            else:
+                # TODO: yes, this really happens. no idea what council with id 4 is...
+                print("Council with id {0} does not exist".format(council_id))
+            priority = e_priority_council.find('priority').text
+            priority_council = apcs.create(council=council, priority=priority)
+            priority_councils.append(priority_council)
+        return priority_councils
+
+    @staticmethod
+    def handle_texts(element):
+        """
+
+        :param element: <texts> element
+        :return:
+        """
+        affair_texts = []
+        if element is None:
+            return affair_texts
+        ats = AffairText.objects
+        for e_text in element:
+            value = e_text.find('value').text
+            affair_text_type = Command.handle_affair_text_type(e_text.find('type'))
+            text = ats.create(value=value, type=affair_text_type)
+            affair_texts.append(text)
+        return affair_texts
+
+    @staticmethod
+    def handle_affair_text_type(element):
+        """
+
+        :param element: <type> element
+        :return:
+        """
+        text_type_id = element.find('id').text
+        name = element.find('name').text
+        text_type, created = AffairTextType.objects.update_or_create(id=text_type_id, defaults={'name': name})
+        return text_type
 
     @transaction.atomic
     def update_db(self, xml_queue, is_first_language):
@@ -210,17 +260,20 @@ class Command(BaseCommand):
             # TODO: implement drafts
             previous_handling = affair.handling
             affair.handling = Command.get_handling(xml.find('handling'), lp_index, session_index)
-            # TODO: implement priorityCouncils
+            previous_priority_councils = affair.priority_councils
+            affair.priority_councils = Command.handle_priority_councils(xml.find('priorityCouncils'), council_index)
             # TODO: implement relatedAffairs
             previous_roles = affair.roles
-            affair.roles = self.get_roles(xml.find('roles'), councillor_index, faction_index)
+            affair.roles = Command.get_roles(xml.find('roles'), councillor_index, faction_index)
             e_sequential_number = xml.find('sequentialNumber')
             affair.sequential_number = None if e_sequential_number is None else e_sequential_number.text
+            affair.title = xml.find('title').text
             e_state = xml.find('state')
             affair.state = state_index[int(e_state.find('id').text)]
             affair.done_key = e_state.find('doneKey').text
             affair.new_key = e_state.find('newKey').text
-            # TODO: implement texts
+            previous_texts = affair.texts
+            affair.texts = Command.handle_texts(xml.find('texts'))
 
             affair.save()
             # delete unreferenced objects
@@ -229,6 +282,12 @@ class Command(BaseCommand):
             if previous_roles is not None:
                 for previous_role in previous_roles.all():
                     previous_role.delete()
+            if previous_priority_councils is not None:
+                for previous_priority_council in previous_priority_councils.all():
+                    previous_priority_council.delete()
+            if previous_texts is not None:
+                for previous_text in previous_texts.all():
+                    previous_text.delete()
             xml_queue.task_done()
 
     def handle(self, *args, **options):
@@ -240,6 +299,8 @@ class Command(BaseCommand):
 
         is_first_language = True
         for lang in [x[0] for x in settings.LANGUAGES]:
+            # if not is_first_language:
+            #    break
             self.stdout.write('language: {0}'.format(lang))
             with concurrent.futures.ThreadPoolExecutor(max_workers=options['parallel']) as executor:
                 task_queue = Queue(Command.task_queue_size)

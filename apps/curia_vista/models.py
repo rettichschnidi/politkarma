@@ -97,7 +97,7 @@ class Affair(models.Model):
     handling = models.ForeignKey('AffairHandling', null=True, blank=True)
     # de, fr or it
     language = models.CharField(null=True, blank=True, max_length=255)
-    councils_priority = models.ManyToManyField('AffairCouncilPriority')
+    priority_councils = models.ManyToManyField('AffairPriorityCouncil')
     related_affairs = models.ManyToManyField('Affair')
     roles = models.ManyToManyField('AffairRole')
     state = models.ForeignKey('AffairState', null=True, blank=True)
@@ -105,6 +105,8 @@ class Affair(models.Model):
     done_key = models.IntegerField(null=True, blank=True)
     # from <state>, not part of AffairState
     new_key = models.IntegerField(null=True, blank=True)
+    title = models.CharField(max_length=1024, null=True, blank=True)
+    texts = models.ManyToManyField('AffairText')
 
     def __str__(self):
         return self.short_id
@@ -131,9 +133,10 @@ class AffairHandling(models.Model):
     session = models.ForeignKey('Session', null=True, blank=True)
 
 
-class AffairCouncilPriority(models.Model):
+class AffairPriorityCouncil(models.Model):
     id = models.AutoField(primary_key=True)
-    council = models.ForeignKey('Council')
+    # TODO: remove support for null values when the issue with council 4 has been resolved
+    council = models.ForeignKey('Council', null=True, blank=True)
     priority = models.IntegerField()
 
 
@@ -142,6 +145,17 @@ class AffairRole(models.Model):
     councillor = models.ForeignKey('Councillor', null=True, blank=True)
     faction = models.ForeignKey('Faction', null=True, blank=True)
     role_type = models.CharField(max_length=255)
+
+
+class AffairText(models.Model):
+    id = models.AutoField(primary_key=True)
+    type = models.ForeignKey('AffairTextType')
+    value = models.CharField(max_length=1024)
+
+
+class AffairTextType(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=255)
 
 
 # HTML: http://ws.parlament.ch/affairs/types

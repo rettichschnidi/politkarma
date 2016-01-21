@@ -71,3 +71,8 @@ class PartyTranslationOptions(TranslationOptions):
 @register(AffairVote)
 class AffairVoteTranslationOptions(TranslationOptions):
     fields = ('division_text', 'meaning_no', 'meaning_yes', 'submission_text')
+
+
+@register(AffairTextType)
+class AffairTextTypeTranslationOptions(TranslationOptions):
+    fields = ('name',)
