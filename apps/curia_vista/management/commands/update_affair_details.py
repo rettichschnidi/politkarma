@@ -256,13 +256,13 @@ class Command(BaseCommand):
             affair.affair_type = affair_type_index[int(affair_type_id)]
             affair.author = Command.get_author(xml.find('author'), councillor_index, faction_index)
             affair.deposit = Command.get_deposit(xml.find('deposit'), council_index)
-            # TODO: implement descriptors
+            # TODO: implement descriptors - find an example
             # TODO: implement drafts
             previous_handling = affair.handling
             affair.handling = Command.get_handling(xml.find('handling'), lp_index, session_index)
             previous_priority_councils = affair.priority_councils
             affair.priority_councils = Command.handle_priority_councils(xml.find('priorityCouncils'), council_index)
-            # TODO: implement relatedAffairs
+            # TODO: implement relatedAffairs - find an example
             previous_roles = affair.roles
             affair.roles = Command.get_roles(xml.find('roles'), councillor_index, faction_index)
             e_sequential_number = xml.find('sequentialNumber')

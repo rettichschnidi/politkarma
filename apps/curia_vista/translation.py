@@ -76,3 +76,8 @@ class AffairVoteTranslationOptions(TranslationOptions):
 @register(AffairTextType)
 class AffairTextTypeTranslationOptions(TranslationOptions):
     fields = ('name',)
+
+
+@register(Schedule)
+class ScheduleTranslationOptions(TranslationOptions):
+    fields = ('date_title', 'title',)

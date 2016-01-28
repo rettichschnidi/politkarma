@@ -1,9 +1,9 @@
+import json
+
 import requests
 from django.core.management import CommandError
 from django.db import transaction
-import json
 
-from apps.curia_vista import models
 from politkarma import settings
 
 
@@ -24,17 +24,19 @@ def xml_from_url(command, url):
 
 class Config:
     def __init__(self, translated=False, model_column_name='', primary=False, fk_type=None, null=False, default=None,
-                 sub_keys=[]):
+                 sub_keys=[], fk_id='id'):
         """
             Configuration object to describe the mapping between JSON and Django model.
             Note to myself: Most likely big-time NIH syndrome here...
         :param translated: Is this field translated using django-modeltranslation?
         :param model_column_name: If the JSON name differs from the django column name, specify this it here
         :param primary: True if this field is part of the table key
-        :param fk_type: If specified, this is the class of the foreign key model. ATM always matched on the id field.
+        :param fk_type: If specified, this is the class of the foreign key model. Default field name in target class is
+               id. Parameter fk_id can be used to set a different field name.
         :param null: True if the JSON attribute may no exist
         :param default: Value to feed Django model with if value not specified in JSON
         :param sub_keys: A list of strings to specify a value nested in the JSON
+        :param fk_id: Field name matched, default is id
         """
         self.translated = translated
         self.model_column_name = model_column_name
@@ -43,6 +45,7 @@ class Config:
         self.null = null
         self.sub_keys = sub_keys
         self.default = default
+        self.fk_id = fk_id
 
 
 @transaction.atomic
@@ -73,12 +76,22 @@ def update_from_webservice(command, configuration, language, is_update):
                         raise CommandError(str(e))
                     value = mapping.default
 
-                    # Allow simple foreign-key-relation
-                if mapping.fk_type and value:
-                    try:
-                        value = mapping.fk_type.objects.get(id=value)
-                    except mapping.fk_type.DoesNotExist as e:
-                        raise CommandError("'{}' is not a valid id for '{}'".format(value, str(mapping.fk_type)))
+                # Allow simple foreign-key-relation
+                if mapping.fk_type:
+                    if value:
+                        try:
+                            value = mapping.fk_type.objects.get(**{mapping.fk_id: value})
+                        except mapping.fk_type.DoesNotExist as e:
+                            raise CommandError(
+                                    "'{}' is not a valid {} for '{}'".format(value, mapping.fk_id,
+                                                                             str(mapping.fk_type)))
+                    else:
+                        if mapping.null:
+                            value = None
+                        else:
+                            raise CommandError(
+                                    "value for {} is not set and the mapping does not allow nulls".format(
+                                        mapping.fk_id))
 
                 # Decide which dict to put values into
                 if not mapping.primary and (mapping.translated or is_update):

@@ -1,9 +1,8 @@
 from django.core.management.base import BaseCommand
 
+import apps.curia_vista.models
 from apps.curia_vista.management.utils import Config, update_from_webservice
 from politkarma import settings
-
-import apps.curia_vista.models
 
 configurations = [
     {
@@ -212,6 +211,25 @@ configurations = [
             'updated': Config(),
             'formattedId': Config(model_column_name='formatted_id'),
             'title': Config(translated=True),
+        }
+    },
+    {
+        'name': 'Schedule',
+        'model_class': apps.curia_vista.models.Schedule,
+        # TODO: import entries for other years
+        'resource_path': '/schedules/2015/ALL',
+        'has_more': True,
+        'mapping': {
+            'id': Config(primary=True),
+            'updated': Config(),
+            'council': Config(fk_type=apps.curia_vista.models.Council, fk_id='type'),
+            'date': Config(),
+            'dateTitle': Config(model_column_name='date_title', translated=True),
+            'department': Config(fk_type=apps.curia_vista.models.Department, fk_id='abbreviation', null=True),
+            'number': Config(),
+            'session': Config(),
+            'title': Config(translated=True),
+            'created': Config(),
         }
     }
 ]
