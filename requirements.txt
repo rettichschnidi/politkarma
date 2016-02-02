@@ -1,4 +1,5 @@
 coverage==4.0.3
 Django==1.9.2
 django-modeltranslation==0.11
+django-bulk-update==1.1.9
 requests==2.9.1

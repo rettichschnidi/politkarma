@@ -6,6 +6,7 @@ from timeit import default_timer as timer
 from xml.etree import ElementTree
 
 import requests
+from bulk_update.helper import bulk_update
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
@@ -232,6 +233,7 @@ class Command(BaseCommand):
         self.stdout.write("indices ready, going to process data from queue")
 
         start = timer()
+        affair_buffer = []
         while True:
             content = xml_queue.get()
             if content is None:
@@ -246,6 +248,8 @@ class Command(BaseCommand):
                 self.stdout.write(
                         "updates: {0} current queue size: {1}, last batch took {2}s".format(counter, xml_queue.qsize(),
                                                                                             timer() - start))
+                bulk_update(affair_buffer)
+                affair_buffer = []
                 start = timer()
 
             affair_id = xml.find('id').text
@@ -275,7 +279,9 @@ class Command(BaseCommand):
             previous_texts = affair.texts
             affair.texts = Command.handle_texts(xml.find('texts'))
 
-            affair.save()
+            # affair.save()
+            affair_buffer.append(affair)
+
             # delete unreferenced objects
             if previous_handling is not None:
                 previous_handling.delete()
@@ -289,6 +295,9 @@ class Command(BaseCommand):
                 for previous_text in previous_texts.all():
                     previous_text.delete()
             xml_queue.task_done()
+
+        if affair_buffer.__len__() > 0:
+            bulk_update(affair_buffer)
 
     def handle(self, *args, **options):
         is_main = True
