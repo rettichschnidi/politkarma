@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'modeltranslation',
     'apps.curia_vista',
+    'apps.brahman',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
