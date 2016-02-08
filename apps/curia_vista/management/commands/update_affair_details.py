@@ -248,7 +248,7 @@ class Command(BaseCommand):
                 self.stdout.write(
                         "updates: {0} current queue size: {1}, last batch took {2}s".format(counter, xml_queue.qsize(),
                                                                                             timer() - start))
-                bulk_update(affair_buffer, batch_size=50)
+                bulk_update(affair_buffer, batch_size=10)
                 affair_buffer.clear()
                 start = timer()
 
