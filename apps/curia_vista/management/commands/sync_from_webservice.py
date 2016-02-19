@@ -236,7 +236,7 @@ configurations = [
 
 
 class Command(BaseCommand):
-    help = 'Update local Curia Vista data using ws.parlament.ch'
+    help = 'Update local Curia Vista data using ws-old.parlament.ch'
     languages = [x[0] for x in settings.LANGUAGES]
 
     def add_arguments(self, parser):

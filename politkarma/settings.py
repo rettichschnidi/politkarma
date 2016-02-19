@@ -120,7 +120,7 @@ LANGUAGES = [
     ('it', _('Italienisch')),
 ]
 
-WEBSERVICE_URL = 'http://ws.parlament.ch'
+WEBSERVICE_URL = 'http://ws-old.parlament.ch'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/

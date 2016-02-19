@@ -4,9 +4,9 @@ from django.utils.translation import ugettext_lazy as _
 
 
 # 4.1 Councils
-# HTML: http://ws.parlament.ch/councils
-# Data: http://ws.parlament.ch/councils?format=xml
-# XSD: http://ws.parlament.ch/councils?format=xsd
+# HTML: http://ws-old.parlament.ch/councils
+# Data: http://ws-old.parlament.ch/councils?format=xml
+# XSD: http://ws-old.parlament.ch/councils?format=xsd
 class Council(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
@@ -21,9 +21,9 @@ class Council(models.Model):
 
 # 4.2 Council members
 # Overview:
-# HTML: http://ws.parlament.ch/councillors
-# Data: http://ws.parlament.ch/councillors?format=xml
-# XSD: http://ws.parlament.ch/councillors?format=xsd
+# HTML: http://ws-old.parlament.ch/councillors
+# Data: http://ws-old.parlament.ch/councillors?format=xml
+# XSD: http://ws-old.parlament.ch/councillors?format=xsd
 class Councillor(models.Model):
     # Overview data
     id = models.IntegerField(primary_key=True)
@@ -38,16 +38,16 @@ class Councillor(models.Model):
     salutation_title = models.CharField(null=True, blank=True, max_length=255)
 
     # Basic details
-    # HTML: http://ws.parlament.ch/councillors/basicdetails
-    # Data: http://ws.parlament.ch/councillors/basicdetails?format=xml
-    # XSD: http://ws.parlament.ch/councillors/basicdetails?format=xsd
+    # HTML: http://ws-old.parlament.ch/councillors/basicdetails
+    # Data: http://ws-old.parlament.ch/councillors/basicdetails?format=xml
+    # XSD: http://ws-old.parlament.ch/councillors/basicdetails?format=xsd
     biography_url = models.URLField(blank=True, null=True)
     picture_url = models.URLField(blank=True, null=True)
 
     # Detailed data (for councillor with id 801):
-    # HTML: http://ws.parlament.ch/councillors/801
-    # Data: http://ws.parlament.ch/councillors/801?format=xml
-    # XSD: http://ws.parlament.ch/councillors/801?format=xsd
+    # HTML: http://ws-old.parlament.ch/councillors/801
+    # Data: http://ws-old.parlament.ch/councillors/801?format=xml
+    # XSD: http://ws-old.parlament.ch/councillors/801?format=xsd
     # TODO: Import all fields including the complex types!
     canton = models.ForeignKey('Canton', blank=True, null=True)
     council = models.ForeignKey('Council', blank=True, null=True)
@@ -69,11 +69,11 @@ class Councillor(models.Model):
 
 
 # 4.3 Schedules
-# HTML: http://ws.parlament.ch/schedules
-# Data: http://ws.parlament.ch/schedules?format=xml
-# XSD: http://ws.parlament.ch/schedules?format=xsd
+# HTML: http://ws-old.parlament.ch/schedules
+# Data: http://ws-old.parlament.ch/schedules?format=xml
+# XSD: http://ws-old.parlament.ch/schedules?format=xsd
 #
-# TODO: Extend model and import: http://ws.parlament.ch/schedules/<Jahr>/ALL
+# TODO: Extend model and import: http://ws-old.parlament.ch/schedules/<Jahr>/ALL
 class Schedule(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
@@ -90,11 +90,11 @@ class Schedule(models.Model):
 
 
 # 4.4 Items of business
-# HTML: http://ws.parlament.ch/affairs
-# Data: http://ws.parlament.ch/affairs?format=xml
-# XSD: http://ws.parlament.ch/affairs?format=xsd
+# HTML: http://ws-old.parlament.ch/affairs
+# Data: http://ws-old.parlament.ch/affairs?format=xml
+# XSD: http://ws-old.parlament.ch/affairs?format=xsd
 #
-# TODO: Extend model and import: http://ws.parlament.ch/affairs/<ID>
+# TODO: Extend model and import: http://ws-old.parlament.ch/affairs/<ID>
 class Affair(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
@@ -190,9 +190,9 @@ class AffairTextType(models.Model):
         return self.id
 
 
-# HTML: http://ws.parlament.ch/affairs/types
-# Data: http://ws.parlament.ch/affairs/types?format=xml
-# XSD: http://ws.parlament.ch/affairs/types?format=xsd
+# HTML: http://ws-old.parlament.ch/affairs/types
+# Data: http://ws-old.parlament.ch/affairs/types?format=xml
+# XSD: http://ws-old.parlament.ch/affairs/types?format=xsd
 class AffairType(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
@@ -203,9 +203,9 @@ class AffairType(models.Model):
         return self.name
 
 
-# HTML: http://ws.parlament.ch/affairs/topics
-# Data: http://ws.parlament.ch/affairs/topics?format=xml
-# XSD: http://ws.parlament.ch/affairs/topics?format=xsd
+# HTML: http://ws-old.parlament.ch/affairs/topics
+# Data: http://ws-old.parlament.ch/affairs/topics?format=xml
+# XSD: http://ws-old.parlament.ch/affairs/topics?format=xsd
 class AffairTopic(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
@@ -216,9 +216,9 @@ class AffairTopic(models.Model):
         return self.name
 
 
-# HTML: http://ws.parlament.ch/affairs/states
-# Data: http://ws.parlament.ch/affairs/states?format=xml
-# XSD: http://ws.parlament.ch/affairs/states?format=xsd
+# HTML: http://ws-old.parlament.ch/affairs/states
+# Data: http://ws-old.parlament.ch/affairs/states?format=xml
+# XSD: http://ws-old.parlament.ch/affairs/states?format=xsd
 class AffairState(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
@@ -232,11 +232,11 @@ class AffairState(models.Model):
 
 
 # 4.5 Summaries
-# HTML: http://ws.parlament.ch/affairsummaries
-# Data: http://ws.parlament.ch/affairsummaries?format=xml
-# XSD: http://ws.parlament.ch/affairsummaries?format=xsd
+# HTML: http://ws-old.parlament.ch/affairsummaries
+# Data: http://ws-old.parlament.ch/affairsummaries?format=xml
+# XSD: http://ws-old.parlament.ch/affairsummaries?format=xsd
 #
-# TODO: Extend model and import: http://ws.parlament.ch/affairsummaries/<ID>
+# TODO: Extend model and import: http://ws-old.parlament.ch/affairsummaries/<ID>
 class AffairSummary(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
@@ -248,11 +248,11 @@ class AffairSummary(models.Model):
 
 
 # 4.6 Committees
-# HTML: http://ws.parlament.ch/committees
-# Data: http://ws.parlament.ch/committees?format=xml
-# XSD: http://ws.parlament.ch/committees?format=xsd
+# HTML: http://ws-old.parlament.ch/committees
+# Data: http://ws-old.parlament.ch/committees?format=xml
+# XSD: http://ws-old.parlament.ch/committees?format=xsd
 #
-# TODO: Extend model and import: http://ws.parlament.ch/committees/<ID>
+# TODO: Extend model and import: http://ws-old.parlament.ch/committees/<ID>
 class Committee(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
@@ -272,9 +272,9 @@ class Committee(models.Model):
 
 
 # 4.7 Legislative periods
-# HTML: http://ws.parlament.ch/legislativeperiods
-# Data: http://ws.parlament.ch/legislativeperiods?format=xml
-# XSD: http://ws.parlament.ch/legislativeperiods?format=xsd
+# HTML: http://ws-old.parlament.ch/legislativeperiods
+# Data: http://ws-old.parlament.ch/legislativeperiods?format=xml
+# XSD: http://ws-old.parlament.ch/legislativeperiods?format=xsd
 class LegislativePeriod(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
@@ -288,11 +288,11 @@ class LegislativePeriod(models.Model):
 
 
 # 4.8 Departments
-# HTML: http://ws.parlament.ch/departments
-# Data: http://ws.parlament.ch/departments?format=xml
-# XSD: http://ws.parlament.ch/departments?format=xsd
+# HTML: http://ws-old.parlament.ch/departments
+# Data: http://ws-old.parlament.ch/departments?format=xml
+# XSD: http://ws-old.parlament.ch/departments?format=xsd
 #
-# TODO: Extend model and import: http://ws.parlament.ch/departments/historic
+# TODO: Extend model and import: http://ws-old.parlament.ch/departments/historic
 class Department(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
@@ -305,9 +305,9 @@ class Department(models.Model):
 
 
 # 4.9 Cantons
-# HTML: http://ws.parlament.ch/cantons
-# Data: http://ws.parlament.ch/cantons?format=xml
-# XSD: http://ws.parlament.ch/cantons?format=xsd
+# HTML: http://ws-old.parlament.ch/cantons
+# Data: http://ws-old.parlament.ch/cantons?format=xml
+# XSD: http://ws-old.parlament.ch/cantons?format=xsd
 class Canton(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
@@ -320,11 +320,11 @@ class Canton(models.Model):
 
 
 # 4.10 Parliamentary groups
-# HTML: http://ws.parlament.ch/factions
-# Data: http://ws.parlament.ch/factions?format=xml
-# XSD: http://ws.parlament.ch/factions?format=xsd
+# HTML: http://ws-old.parlament.ch/factions
+# Data: http://ws-old.parlament.ch/factions?format=xml
+# XSD: http://ws-old.parlament.ch/factions?format=xsd
 #
-# TODO: Can/Should we import http://ws.parlament.ch/factions/historic?
+# TODO: Can/Should we import http://ws-old.parlament.ch/factions/historic?
 class Faction(models.Model):
     the_id = models.IntegerField()
     updated = models.DateTimeField()
@@ -343,9 +343,9 @@ class Faction(models.Model):
 
 
 # 4.11 Sessions
-# HTML: http://ws.parlament.ch/sessions
-# Data: http://ws.parlament.ch/sessions?format=xml
-# XSD: http://ws.parlament.ch/sessions?format=xsd
+# HTML: http://ws-old.parlament.ch/sessions
+# Data: http://ws-old.parlament.ch/sessions?format=xml
+# XSD: http://ws-old.parlament.ch/sessions?format=xsd
 class Session(models.Model):
     code = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
@@ -358,9 +358,9 @@ class Session(models.Model):
 
 
 # 4.12 Parties
-# HTML: http://ws.parlament.ch/parties/historic
-# Data: http://ws.parlament.ch/parties/historic?format=xml
-# XSD: http://ws.parlament.ch/parties/historic?format=xsd
+# HTML: http://ws-old.parlament.ch/parties/historic
+# Data: http://ws-old.parlament.ch/parties/historic?format=xml
+# XSD: http://ws-old.parlament.ch/parties/historic?format=xsd
 class Party(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
@@ -373,9 +373,9 @@ class Party(models.Model):
 
 
 # 4.13 Votes
-# HTML: http://ws.parlament.ch/parties/historic
-# Data: http://ws.parlament.ch/parties/historic?format=xml
-# XSD: http://ws.parlament.ch/parties/historic?format=xsd
+# HTML: http://ws-old.parlament.ch/parties/historic
+# Data: http://ws-old.parlament.ch/parties/historic?format=xml
+# XSD: http://ws-old.parlament.ch/parties/historic?format=xsd
 class Vote(models.Model):
     id = models.IntegerField(primary_key=True)
     updated = models.DateTimeField()
@@ -388,13 +388,13 @@ class Vote(models.Model):
 
 # Affair vote, represents a single vote one on one affair. An affair can have multiple votes
 # List of all affair votes:
-#  HTML: http://ws.parlament.ch/votes/affairs
-#  Data: http://ws.parlament.ch/votes/affairs?format=xml
-#  XSD: http://ws.parlament.ch/votes/affairs?format=xsd
+#  HTML: http://ws-old.parlament.ch/votes/affairs
+#  Data: http://ws-old.parlament.ch/votes/affairs?format=xml
+#  XSD: http://ws-old.parlament.ch/votes/affairs?format=xsd
 # Details (for example "Wirtschaftliche Vorteile dank Schengen-Partnerschaft" with id 20153896):
-#  HTML: http://ws.parlament.ch/votes/affairs/20153896
-#  Data: http://ws.parlament.ch/votes/affairs/20153896?format=xml
-#  XSD: http://ws.parlament.ch/votes/affairs/20153896?format=xsd
+#  HTML: http://ws-old.parlament.ch/votes/affairs/20153896
+#  Data: http://ws-old.parlament.ch/votes/affairs/20153896?format=xml
+#  XSD: http://ws-old.parlament.ch/votes/affairs/20153896?format=xsd
 #
 # TODO: Do we even need this data? How about just calculating it on the fly using CouncillorVote?
 class AffairVote(models.Model):
@@ -413,13 +413,13 @@ class AffairVote(models.Model):
 
 # Councillor vote represents the decision of a single councillor in a AffairVote
 # List of all members:
-#  HTML: http://ws.parlament.ch/votes/councillors/
-#  Data: http://ws.parlament.ch/votes/councillors?format=xml
-#  XSD: http://ws.parlament.ch/votes/councillors?format=xsd
+#  HTML: http://ws-old.parlament.ch/votes/councillors/
+#  Data: http://ws-old.parlament.ch/votes/councillors?format=xml
+#  XSD: http://ws-old.parlament.ch/votes/councillors?format=xsd
 # Details (for example "Abate Fabio" with id 2565):
-#  HTML: http://ws.parlament.ch/votes/councillors/2565
-#  Data: http://ws.parlament.ch/votes/councillors/2565?format=xml
-#  XSD: http://ws.parlament.ch/votes/councillors/2565?format=xsd
+#  HTML: http://ws-old.parlament.ch/votes/councillors/2565
+#  Data: http://ws-old.parlament.ch/votes/councillors/2565?format=xml
+#  XSD: http://ws-old.parlament.ch/votes/councillors/2565?format=xsd
 class CouncillorVote(models.Model):
     id = models.IntegerField(primary_key=True)
     decision = models.CharField(max_length=255)

@@ -301,7 +301,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         is_main = True
-        resource_url = 'http://ws.parlament.ch/affairs'
+        resource_url = settings.WEBSERVICE_URL + '/affairs'
         affair_ids = set({x.id for x in Affair.objects.all()})
 
         self.stdout.write("Starting {} threads".format(options['parallel']))
