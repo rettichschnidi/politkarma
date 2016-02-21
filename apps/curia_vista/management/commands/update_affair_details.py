@@ -158,8 +158,7 @@ class Command(BaseCommand):
             roles.append(affair_role)
         return roles
 
-    @staticmethod
-    def handle_priority_councils(element, council_index):
+    def handle_priority_councils(self, element, council_index):
         """
         :param element: <priorityCouncil> element
         :param council_index: council index (key=id, value=council)
@@ -176,7 +175,7 @@ class Command(BaseCommand):
                 council = council_index[council_id]
             else:
                 # TODO: yes, this really happens. no idea what council with id 4 is...
-                print("Council with id {0} does not exist".format(council_id))
+                self.stderr.write("Council with id {0} does not exist".format(council_id))
             priority = e_priority_council.find('priority').text
             priority_council = apcs.create(council=council, priority=priority)
             priority_councils.append(priority_council)
@@ -265,7 +264,7 @@ class Command(BaseCommand):
             previous_handling = affair.handling
             affair.handling = Command.get_handling(xml.find('handling'), lp_index, session_index)
             previous_priority_councils = affair.priority_councils
-            affair.priority_councils = Command.handle_priority_councils(xml.find('priorityCouncils'), council_index)
+            affair.priority_councils = self.handle_priority_councils(xml.find('priorityCouncils'), council_index)
             # TODO: implement relatedAffairs - find an example
             previous_roles = affair.roles
             affair.roles = Command.get_roles(xml.find('roles'), councillor_index, faction_index)
