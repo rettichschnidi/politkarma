@@ -1,5 +1,3 @@
-import json
-
 import requests
 from django.core.management import CommandError
 from django.db import transaction
@@ -15,11 +13,12 @@ def json_from_url(command, url):
     except Exception as e:
         raise CommandError("Could not fetch data from '{}': {}".format(url, str(e)))
 
+    if response.status_code != 200:
+        raise CommandError("Wrong HTTP status code when requesting '{}': '{}'".format(url, response.status_code))
+
     try:
-        text_data = response.content.decode('UTF-8')
-        data_dict = json.loads(text_data)
-        return data_dict
-    except Exception as e:
+        return response.json()
+    except ValueError as e:
         raise CommandError("Invalid JSON data from '{}': {}".format(url, e))
 
 
