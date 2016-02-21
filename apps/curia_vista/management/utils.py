@@ -10,7 +10,8 @@ from politkarma import settings
 def json_from_url(command, url):
     command.stdout.write("Processing: " + url)
     try:
-        response = requests.get(url, headers={'User-Agent': 'Mozilla'})
+        response = requests.get(url, headers={'User-Agent': 'Mozilla',
+                                              'BIGipServerpool_frontend_ext_prod': "177262858.20480.0000"})
     except Exception as e:
         raise CommandError("Could not fetch data from '{}': {}".format(url, str(e)))
 
