@@ -1,3 +1,4 @@
+import requests
 from django.core.management.base import BaseCommand
 
 import apps.curia_vista.models
@@ -238,6 +239,7 @@ configurations = [
 class Command(BaseCommand):
     help = 'Update local Curia Vista data using ws-old.parlament.ch'
     languages = [x[0] for x in settings.LANGUAGES]
+    http_session = requests.session()
 
     def add_arguments(self, parser):
         parser.add_argument('--models', nargs='+', help="Limit update to specified models", type=str)
@@ -256,6 +258,12 @@ class Command(BaseCommand):
 
         if options['models']:
             configurations[:] = [x for x in configurations if x['name'] in options['models']]
+
+        self.http_session.headers.update({'User-Agent': 'Mozilla'})
+        # This is an ugly hack to make sure we always get the same values server:
+        self.http_session.cookies.update({'BIGipServerpool_frontend_ext_prod': '177262858.20480.0000'})
+        # The following one gets different, incompatible results (different primary keys):
+        # self.http_session.cookies.update({'BIGipServerpool_frontend_ext_prod': '177328394.20480.0000'})
 
         for config in configurations:
             self.stdout.write("Updating data for model '{}'".format(config['name']))
