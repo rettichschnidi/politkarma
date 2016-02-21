@@ -82,15 +82,13 @@ def update_from_webservice(command, configuration, language, is_update):
                             value = mapping.fk_type.objects.get(**{mapping.fk_id: value})
                         except mapping.fk_type.DoesNotExist as e:
                             raise CommandError(
-                                    "'{}' is not a valid {} for '{}'".format(value, mapping.fk_id,
-                                                                             str(mapping.fk_type)))
+                                "'{}' is not a valid {} for '{}'".format(value, mapping.fk_id, str(mapping.fk_type)))
                     else:
                         if mapping.null:
                             value = None
                         else:
                             raise CommandError(
-                                    "value for {} is not set and the mapping does not allow nulls".format(
-                                        mapping.fk_id))
+                                "value for {} is not set and the mapping does not allow nulls".format(mapping.fk_id))
 
                 # Decide which dict to put values into
                 if not mapping.primary and (mapping.translated or is_update):
