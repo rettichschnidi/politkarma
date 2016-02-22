@@ -8,5 +8,5 @@ sqlite3 -version
 
 #Import all data
 python manage.py test
-python manage.py sync_from_webservice
-python manage.py update_affair_details --parallel 12
+time python manage.py sync_from_webservice
+time python manage.py update_affair_details --parallel 12
