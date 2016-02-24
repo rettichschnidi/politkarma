@@ -6,10 +6,11 @@ from timeit import default_timer as timer
 from xml.etree import ElementTree
 
 import requests
-from bulk_update.helper import bulk_update
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
+from django.utils import translation
 
+from apps.curia_vista.management.batch_updater import SimpleBatchUpdater
 from apps.curia_vista.models import *
 from politkarma import settings
 
@@ -36,8 +37,6 @@ class Command(BaseCommand):
         :param task_queue: queue
         :return: nothing
         """
-        from django.utils import translation
-        translation.activate(lang)
         url = resource_url + '/' + str(affair_id) + '?format=xml&lang=' + lang
 
         try:
@@ -212,11 +211,11 @@ class Command(BaseCommand):
         return text_type
 
     @transaction.atomic
-    def update_db(self, xml_queue, is_first_language):
+    def update_db(self, xml_queue, lang):
         """
         parses XML objects using data from a queue and updates the db
         :param xml_queue: queue
-        :param is_first_language true, if the first language is being processed
+        :param lang: language
         :return: nothing
         """
         counter = 0
@@ -230,9 +229,11 @@ class Command(BaseCommand):
         session_index = {x.code: x for x in Session.objects.all()}
         lp_index = {x.id: x for x in LegislativePeriod.objects.all()}
         self.stdout.write("indices ready, going to process data from queue")
+        translation.activate(lang)
+
+        updater = SimpleBatchUpdater(Affair, ['id'])
 
         start = timer()
-        affair_buffer = []
         while True:
             content = xml_queue.get()
             if content is None:
@@ -247,8 +248,6 @@ class Command(BaseCommand):
                 self.stdout.write(
                         "updates: {0} current queue size: {1}, last batch took {2}s".format(counter, xml_queue.qsize(),
                                                                                             timer() - start))
-                bulk_update(affair_buffer, batch_size=10)
-                affair_buffer.clear()
                 start = timer()
 
             affair_id = xml.find('id').text
@@ -279,7 +278,7 @@ class Command(BaseCommand):
             affair.texts = Command.handle_texts(xml.find('texts'))
 
             # affair.save()
-            affair_buffer.append(affair)
+            updater.add(affair)
 
             # delete unreferenced objects
             if previous_handling is not None:
@@ -295,8 +294,7 @@ class Command(BaseCommand):
                     previous_text.delete()
             xml_queue.task_done()
 
-        if affair_buffer.__len__() > 0:
-            bulk_update(affair_buffer)
+        updater.write_to_db()
 
     def handle(self, *args, **options):
         is_main = True
@@ -305,14 +303,13 @@ class Command(BaseCommand):
 
         self.stdout.write("Starting {} threads".format(options['parallel']))
 
-        is_first_language = True
         for lang in [x[0] for x in settings.LANGUAGES]:
             # if not is_first_language:
             #    break
             self.stdout.write('language: {0}'.format(lang))
             with concurrent.futures.ThreadPoolExecutor(max_workers=options['parallel']) as executor:
                 task_queue = Queue(Command.task_queue_size)
-                db_thread = Thread(target=Command.update_db, args=(self, task_queue, is_first_language))
+                db_thread = Thread(target=Command.update_db, args=(self, task_queue, lang))
                 db_thread.start()
                 future_to_xml = {
                     executor.submit(Command.download, resource_url, lang, affair_id, is_main, task_queue): affair_id for
@@ -328,5 +325,4 @@ class Command(BaseCommand):
                 task_queue.join()
                 task_queue.put(None)
                 db_thread.join()
-            is_first_language = False
             is_main = False

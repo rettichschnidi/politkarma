@@ -1,4 +1,3 @@
-import requests
 from django.core.management import CommandError
 from django.db import transaction
 
@@ -82,7 +81,8 @@ def update_from_webservice(command, configuration, language, is_update):
                             value = mapping.fk_type.objects.get(**{mapping.fk_id: value})
                         except mapping.fk_type.DoesNotExist as e:
                             raise CommandError(
-                                "'{}' is not a valid {} for '{}'".format(value, mapping.fk_id, str(mapping.fk_type)))
+                                "'{}' is not a valid {} for '{}': {}".format(value, mapping.fk_id, str(mapping.fk_type),
+                                                                             str(e)))
                     else:
                         if mapping.null:
                             value = None
@@ -91,14 +91,15 @@ def update_from_webservice(command, configuration, language, is_update):
                                 "value for {} is not set and the mapping does not allow nulls".format(mapping.fk_id))
 
                 # Decide which dict to put values into
-                if not mapping.primary and (mapping.translated or is_update):
-                    target = defaults
-                else:
-                    target = values
+                target = values if mapping.primary else defaults
 
                 target[mapping.model_column_name or tag] = value
 
-            model, created = model_class.objects.update_or_create(defaults=defaults, **values)
+            try:
+                model, created = model_class.objects.update_or_create(defaults=defaults, **values)
+            except Exception as e:
+                raise Exception("Error during update_or_create for {} using defaults {} and values {}"
+                                .format(str(model_class), str(defaults), str(values))) from e
             if is_update and created:
                 raise CommandError("Accidentally created: {}".format(model))
             model.full_clean()
