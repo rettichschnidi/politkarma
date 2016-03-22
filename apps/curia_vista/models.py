@@ -454,3 +454,14 @@ class FilteredAffairVoteTotal(models.Model):
 
     def __str__(self):
         return "{} {}".format(self.type, self.count)
+
+
+#
+class Organization(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=1024, blank=True, null=True)
+    description = models.CharField(max_length=1024)
+    logo_location = models.CharField(max_length=1024)
+
+    def __str__(self):
+        return self.name

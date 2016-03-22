@@ -10,58 +10,41 @@
     <script type="text/javascript" src="/static/jquery-multiselect/jquery.multiselect.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/image-picker/image-picker.css">
     <link rel="stylesheet" type="text/css" href="/static/jquery-multiselect/jquery.multiselect.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/politkarma.css">
     <link rel="stylesheet" type="text/css"
           href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-    <style>
-        body {
-            background-color: lightgrey;
-        }
-
-        .filter-box {
-            border: 1px solid gray;
-            margin: 10px 0px;
-        }
-
-        .analyze-button {
-            width: 100%;
-        }
-
-        table, th, td {
-            border: 1px solid gray;
-            border-collapse: collapse;
-        }
-    </style>
-
     <title>Politkarma Vote Helper 3000</title>
 </head>
 <body>
 
 <h1>Politkarma</h1>
-<div class="filter-box">
-    <h3>Datum</h3>
-    von
-    <input type="date" name="startdate" id="startdate"/>
-    bis
-    <input type="date" name="enddate" id="enddate"/>
-</div>
-<div class="filter-box">
-    <h3>Kanton</h3>
-    <select multiple="multiple" name="canton" id="canton">
-        {% for canton in cantons %}
-            <option value="{{ canton.id }}">{{ canton.name }}</option>
-        {% endfor %}
-    </select>
-</div>
-<div class="filter-box">
-    <h3>Organisationen</h3>
-    <select multiple="multiple" id="organization" name="organization" class="image-picker show-html">
-        <option data-img-src="http://placekitten.com/280/170" value="1">Cute Kitten 1</option>
-        <option data-img-src="http://placekitten.com/180/200" value="2">Cute Kitten 2</option>
-        <option data-img-src="http://placekitten.com/130/200" value="3">Cute Kitten 3</option>
-        <option data-img-src="http://placekitten.com/270/200" value="4">Cute Kitten 4</option>
-    </select>
-</div>
-<button class="analyze-button" type="button">Analyze Karma!</button>
+<form method="get">
+    <div class="filter-box">
+        <h3>Datum</h3>
+        von
+        <input type="date" name="startdate" id="startdate" value="{{ startdate }}"/>
+        bis
+        <input type="date" name="enddate" id="enddate" value="{{ enddate }}"/>
+    </div>
+    <div class="filter-box">
+        <h3>Kanton</h3>
+        <select multiple="multiple" name="cantons" id="canton">
+            {% for canton in cantons %}
+                <option value="{{ canton.id }}">{{ canton.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="filter-box">
+        <h3>Organisationen</h3>
+        <select multiple="multiple" id="organization" name="organizations" class="image-picker show-html">
+            {% for organization in organizations %}
+                <option data-img-src="{{ organization.logo_location }}"
+                        value="{{ organization.id }}">{{ organization.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button class="analyze-button" type="submit">Analyze Karma!</button>
+</form>
 
 <h3>Resultate</h3>
 <table style="width:100%;">
@@ -69,32 +52,29 @@
         <th>Rang</th>
         <th>Name</th>
         <th>Partei</th>
-        <th>Score</th>
+        <th>Karma Score</th>
         <th>History</th>
     </tr>
-    <tr>
-        <td>1</td>
-        <td>Hans Müller</td>
-        <td>ABC</td>
-        <td>12345</td>
-        <td>
-            <div id="chart1"/>
-        </td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Peter Meier</td>
-        <td>DEF</td>
-        <td>1000</td>
-        <td>
-            <div id="chart2"/>
-        </td>
-    </tr>
+    {% for result in ranking %}
+        <tr>
+            <td>{{ result.rank }}</td>
+            <td>{{ result.name }}</td>
+            <td>{{ result.party }}</td>
+            <td>{{ result.score }}</td>
+            <td>
+                <div id="chart1"/>
+            </td>
+        </tr>
+    {% endfor %}
 </table>
 
 <script type="text/javascript">
-    $("#startdate").datepicker();
-    $("#enddate").datepicker();
+    $("#startdate").datepicker({
+        dateFormat: $.datepicker.ISO_8601
+    });
+    $("#enddate").datepicker({
+        dateFormat: $.datepicker.ISO_8601
+    });
     $("#canton").multiselect({
         header: "Kanton(e) auswählen"
     });
@@ -129,8 +109,6 @@
         };
         var chart1 = new google.visualization.LineChart(document.getElementById('chart1'));
         chart1.draw(data, options);
-        var chart2 = new google.visualization.LineChart(document.getElementById('chart2'));
-        chart2.draw(data, options);
     }
 </script>
 
