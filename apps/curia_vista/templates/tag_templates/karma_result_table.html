@@ -1,0 +1,29 @@
+<table class="result-table">
+    <tr>
+        <th>Rang</th>
+        <th>Name</th>
+        <th>Partei</th>
+        <th>Karma Score</th>
+        <th>History</th>
+    </tr>
+    {% for result in results %}
+        <tr>
+            <td>{{ result.rank }}</td>
+            <td>{{ result.name }}</td>
+            <td>{{ result.party }}</td>
+            <td>{{ result.score }}</td>
+            <td>
+                <div id="chart1"/>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+<div class="filter-box">
+    <h4>Info</h4>
+    <ul>
+        <li>Data is based on parlament.ch, last update: {{ import_date }}</li>
+        <li>Karma score is based on votes between {{ start_date }} and {{ end_date }}</li>
+        <li>Selected cantons: {{ cantons }}</li>
+        <li>Selected organizations: {{ organizations }}</li>
+    </ul>
+</div>
