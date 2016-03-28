@@ -41,6 +41,7 @@ class KarmaCalculator:
         organization_variables = ",".join(map(lambda x: '%s', organizations))
         organization_ids = list(map(lambda x: x.id, organizations))
         canton_variables = ",".join(map(lambda x: '%s', cantons))
+        # TODO: canton field for councillors is not populated, using canton as a filter would lead to empty results
         canton_ids = list(map(lambda x: x.id, cantons))
 
         query = KarmaCalculator.karma_query.replace(KarmaCalculator.canton_placeholder, canton_variables)
@@ -50,18 +51,19 @@ class KarmaCalculator:
         cursor.execute(query, parameters)
 
         result = []
-        rank = 0
+        rank = 1
+        position = 0
+        previous_score = None
         for row in cursor.fetchall():
-            rank += 1
+            position += 1
+            previous_score = row[1] if previous_score is None else previous_score
+            if previous_score != row[1]:
+                previous_score = row[1]
+                rank = position
             councillor = councillor_index[row[0]]
             party = councillor.party
             party_name = None if party is None else party.name
             result.append(KarmaResultRow(rank, councillor.full_name, party_name, row[1]))
-
-        # rank_iterator = iter(range(1, top_n + 1))
-        # karma_ranking = [KarmaCalculator.councillor_to_result(c, rank_iterator) for c in
-        #                 Councillor.objects.all()[0:top_n]]
-        # karma_ranking.sort(key=lambda a: a.rank)
         return result
 
 

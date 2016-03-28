@@ -11,6 +11,10 @@ body {
     width: 100%;
 }
 
+.numeric-table-cell {
+    text-align: right
+}
+
 table, th, td {
     border: 1px solid gray;
     border-collapse: collapse;

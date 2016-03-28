@@ -51,6 +51,7 @@ class VoteView(TemplateView):
         karma_result = None
         if form.is_valid():
             karma_result = KarmaResult()
+            karma_result.import_date = AffairVote.objects.aggregate(Max('date'))['date__max']
             karma_result.start_date = form.cleaned_data['start_date']
             karma_result.end_date = form.cleaned_data['end_date']
             karma_result.cantons = list(map(lambda c: c.name, form.cleaned_data['cantons']))
