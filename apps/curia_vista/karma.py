@@ -1,5 +1,7 @@
 import random
 
+from django.db.models import Q
+
 from apps.curia_vista.models import *
 
 
@@ -13,6 +15,9 @@ class KarmaCalculator:
     @staticmethod
     def get_top_karma_scores(start_date, end_date, cantons, organizations, top_n):
         # TODO: implement...
+        # reduce(operator.and_, (Q(organization=organization) for organization in organizations))
+        filter_args = (Q(organization__in=organizations) & Q(affair_vote__date__range=[start_date, end_date]))
+        rules = KarmaRule.objects.filter(filter_args)
         rank_iterator = iter(range(1, top_n + 1))
         karma_ranking = [KarmaCalculator.councillor_to_result(c, rank_iterator) for c in
                          Councillor.objects.all()[0:top_n]]

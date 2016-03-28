@@ -465,3 +465,16 @@ class Organization(models.Model):
 
     def __str__(self):
         return self.name
+
+
+#
+class KarmaRule(models.Model):
+    id = models.IntegerField(primary_key=True)
+    description = models.CharField(max_length=1024, blank=True, null=True)
+    organization = models.ForeignKey(Organization)
+    affair_vote = models.ForeignKey(AffairVote)
+    expected_decision = models.CharField(max_length=255)
+    karma_multiplier = models.IntegerField()
+
+    def __str__(self):
+        return "{} {}".format(self.id, self.description)

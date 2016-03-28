@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 
 from apps.curia_vista.karma import *
 
+
 # Create your views here.
 class PartyView(TemplateView):
     template_name = 'curia_vista/party_list.html'
@@ -57,7 +58,6 @@ class VoteView(TemplateView):
                                                                         form.cleaned_data['cantons'],
                                                                         form.cleaned_data['organizations'],
                                                                         10)
-
 
         else:
             print("don't like form: {}".format(form.errors))

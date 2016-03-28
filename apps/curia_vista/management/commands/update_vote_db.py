@@ -2,6 +2,8 @@ import os.path
 import re
 import tempfile
 import urllib.request
+from os import listdir
+from os.path import isfile, join
 from timeit import default_timer as timer
 from urllib.error import HTTPError
 from xml.etree import ElementTree
@@ -67,6 +69,7 @@ class Command(BaseCommand):
                             default=False)
         parser.add_argument('--sessions', nargs='+', help="Limit update to specified sessions", type=str,
                             choices=Command.files)
+        parser.add_argument('--import-from-dir', type=str, default=None, help="Imports xml file from a local directory")
 
     @staticmethod
     def build_file_name(language_code, base_file_name):
@@ -147,7 +150,7 @@ class Command(BaseCommand):
         name_list = list(filter(lambda name: name.endswith('xml'), zip_file.namelist()))
         if name_list.__len__() != 1:
             raise ValueError(
-                    'zip file must contain a single file. file {0} contains {1}'.format(file, name_list.__len__()))
+                'zip file must contain a single file. file {0} contains {1}'.format(file, name_list.__len__()))
         zip_file_name = name_list[0]
         self.stdout.write('extracting file {0} form zip file {1}...'.format(zip_file_name, file))
         zip_file.extract(zip_file_name, work_dir.name)
@@ -287,7 +290,7 @@ class Command(BaseCommand):
         return records_loaded
 
     def handle(self, *args, **options):
-        global work_dir
+        # global work_dir
         if options['show_sessions']:
             self.stdout.write("Available sessions:")
             for filename in Command.files:
@@ -296,6 +299,7 @@ class Command(BaseCommand):
 
         active_language_codes = [Command.default_language_code] if options['main_only'] else Command.language_codes
         active_files = options['sessions'] if options['sessions'] else Command.files
+        import_dir = options['import_from_dir'] if 'import_from_dir' in options else None
 
         try:
             start = timer()
@@ -304,25 +308,11 @@ class Command(BaseCommand):
             affair_index = {x.id: x for x in Affair.objects.all()}
             registered_cv_ids = set({x.id for x in CouncillorVote.objects.all()})
 
-            for language_code in active_language_codes:
-                self.stdout.write('downloads for language {0}'.format(language_code))
-                for file in active_files:
-                    # download and extract
-                    zip_file_name = self.download_file(work_dir, file, language_code[0])
-                    unzipped_xml = self.extract_xml(zip_file_name, work_dir)
-                    os.remove(zip_file_name)
-
-                    # import data
-                    num_records = self.import_xml(unzipped_xml, councillor_index, affair_index, registered_cv_ids,
-                                                  language_code)
-                    self.stdout.write('xml file {0} imported, {1} records generated'.format(unzipped_xml, num_records))
-                    """"
-                    with open("/tmp/foo.json", "w") as text_file:
-                        text_file.write(str(connection.queries))
-                    break
-                    """""
-                    os.remove(unzipped_xml)
-                self.stdout.write('data for language {0} loaded'.format(language_code))
+            if import_dir is None:
+                self.import_from_web(active_files, active_language_codes, affair_index, councillor_index,
+                                     registered_cv_ids, work_dir)
+            else:
+                self.import_from_dir(affair_index, councillor_index, registered_cv_ids, import_dir)
             self.stdout.write('data imported, operation took {0}s'.format(timer() - start))
         except Exception as e:
             self.stderr.write("Failed: " + str(e))
@@ -330,3 +320,37 @@ class Command(BaseCommand):
         finally:
             if work_dir is not None:
                 work_dir.cleanup()
+
+    def import_from_web(self, active_files, active_language_codes, affair_index, councillor_index, registered_cv_ids,
+                        work_dir):
+        """
+        """
+        for language_code in active_language_codes:
+            self.stdout.write('downloads for language {0}'.format(language_code))
+            for file in active_files:
+                # download and extract
+                zip_file_name = self.download_file(work_dir, file, language_code[0])
+                unzipped_xml = self.extract_xml(zip_file_name, work_dir)
+                os.remove(zip_file_name)
+
+                # import data
+                num_records = self.import_xml(unzipped_xml, councillor_index, affair_index, registered_cv_ids,
+                                              language_code)
+                self.stdout.write('xml file {0} imported, {1} records generated'.format(unzipped_xml, num_records))
+                """"
+                with open("/tmp/foo.json", "w") as text_file:
+                    text_file.write(str(connection.queries))
+                break
+                """""
+                os.remove(unzipped_xml)
+            self.stdout.write('data for language {0} loaded'.format(language_code))
+
+    def import_from_dir(self, affair_index, councillor_index, registered_cv_ids, import_dir):
+        language_code = "de"
+        self.stdout.write('downloads for language {0}'.format(language_code))
+        for file in [f for f in listdir(import_dir) if isfile(join(import_dir, f))]:
+            # import data
+            num_records = self.import_xml(join(import_dir, file), councillor_index, affair_index, registered_cv_ids,
+                                          language_code)
+            self.stdout.write('xml file {0} imported, {1} records generated'.format(file, num_records))
+        self.stdout.write('data for language {0} loaded'.format(language_code))
