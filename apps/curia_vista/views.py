@@ -1,6 +1,7 @@
 import datetime
 
 from django import forms
+from django.db.models import Min, Max
 from django.views.generic import TemplateView
 
 from apps.curia_vista.karma import *
@@ -16,14 +17,15 @@ class PartyView(TemplateView):
 
 
 class VoteForm(forms.Form):
-    first_av = next(iter(AffairVote.objects.order_by('-date')), None)
-    # html_date_format = "%Y-%m-%d"
+    date_span = AffairVote.objects.aggregate(Min('date'), Max('date'))
+    years_to_display = range(
+        (datetime.date(1970, 1, 1) if date_span['date__min'] is None else date_span['date__min']).year,
+        (datetime.datetime.now() if date_span['date__max'] is None else date_span['date__max']).year)
 
-    start_date = forms.DateField(initial=datetime.date(1970, 1, 1) if first_av is None else first_av.date,
-                                 label="Start date",
-                                 widget=forms.SelectDateWidget(attrs={'id': 'start_date'}))
-    end_date = forms.DateField(initial=datetime.date.today, label="End date",
-                               widget=forms.SelectDateWidget(attrs={'id': 'end_date'}))
+    start_date = forms.DateField(label="Start date",
+                                 widget=forms.SelectDateWidget(attrs={'id': 'start_date'}, years=years_to_display))
+    end_date = forms.DateField(label="End date",
+                               widget=forms.SelectDateWidget(attrs={'id': 'end_date'}, years=years_to_display))
     cantons = forms.ModelMultipleChoiceField(queryset=Canton.objects.order_by('name'), to_field_name="name",
                                              label="Cantons",
                                              widget=forms.SelectMultiple(attrs={'id': 'cantons'}))
